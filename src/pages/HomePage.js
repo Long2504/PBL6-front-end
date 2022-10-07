@@ -1,7 +1,9 @@
+import Home from "../containers/Home";
+
 const HomePage = ()=>{
     return(
         <h1>
-            this is home page
+           <Home/>
         </h1>
     )
 }

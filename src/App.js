@@ -1,19 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import MenuBar from './menu/MainMenu';
 import routers from './routers/Router';
+import MyFooter from './footer/footer';
 import { Routes,Route, BrowserRouter as Router } from 'react-router-dom';
 function App() {
   return(
     <Router>
       <div>
-        <MenuBar/>
-          <div className='container'>
+          <div>
+          <MenuBar/>
               <Routes>
                   {showMenuContents(routers)}
               </Routes>
+              
           </div>
       </div>
+      <footer id='footer'>
+        <MyFooter/>
+      </footer>
     </Router>
     )
 }

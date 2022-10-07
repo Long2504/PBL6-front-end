@@ -1,7 +1,9 @@
+import Register from "../containers/Register";
+
 const RegisterPage = ()=>{
     return(
         <h1>
-            this is register page
+            <Register/>
         </h1>
     )
 }
