@@ -1,5 +1,7 @@
 import { Component } from "react";
 import '../../assets/appstyle/login.css'
+import { Link } from "react-router-dom";
+
 class LoginForm extends Component{
     render(){
         return(
@@ -9,18 +11,18 @@ class LoginForm extends Component{
             </div>
             <div className="right">
               <div className="form">
-                <form action method="POST" className="form" id="form-1">
+                <div className="form" id="form-1">
                   <div className="desc">
                     <h2 className="heading">Sign in</h2>
                     <p>If you don't have an account register</p>
                     <em>You can</em>
-                    <a href>Register here !</a>
+                    <Link >Register here !</Link>
                   </div>
                   <div className="form-group">
                     <label className="form-label">Email</label>
                     <div className="input">
                       <i className="fa fa-envelope" aria-hidden="true" />
-                      <input id="email" name="email" type="text" placeholder="Enter your email addresss" className="form-control" 
+                      <input id="email" name="username" type="text" placeholder="Enter your email addresss" className="form-control" 
                       value={this.props.username} onChange={(e)=>{this.props.onChange(e)}}
                       />
                     </div>
@@ -38,11 +40,11 @@ class LoginForm extends Component{
                   </div>
                   <div className="remember">
                     <input type="checkbox" />
-                    <label htmlFor>Remember</label>
-                    <a href>Quên mật khẩu</a>
+                    <label htmlFor="false">Remember</label>
+                    <Link >Quên mật khẩu</Link>
                   </div>
                   <div className="buttons-login">
-                    <button className="form-submit">Login</button>
+                    <button className="form-submit" onClick={()=>this.props.onLogin()}>Login</button>
                     <label className="form-label connect">or connect with</label>
                     <div className="items">
                       <button type="button" className="item fb">
@@ -53,7 +55,7 @@ class LoginForm extends Component{
                       </button>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>

@@ -17,6 +17,10 @@ const mainMenu = [
         name: "Hỗ trợ",
         to: "/"
     },
+    {
+        name: "Đăng nhập",
+        to: "/login"
+    },
 ]
 
 

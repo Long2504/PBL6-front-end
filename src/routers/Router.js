@@ -2,7 +2,7 @@ import authRoutes from "./AuthRouter";
 import homeRoutes from "./HomeRouter";
 
 const routers=[
-    // authRoutes,
+    authRoutes,
     homeRoutes
 ]
 export default routers;
