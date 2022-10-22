@@ -1,5 +1,6 @@
 {
   "name": "project",
+  "homepage": "https://pbl6.000webhostapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

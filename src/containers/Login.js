@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { actLoginRequest } from "../actions/AuthAction";
 import LoginForm from "../components/Login/LoginForm";
 
 const Login = ()=>{
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     
     var[user,setUser] = useState({
         username:"",
@@ -20,6 +22,7 @@ const Login = ()=>{
 
     const onLogin =async ()=>{
         await dispatch(actLoginRequest(user))
+        navigate("/")
     }
 
 

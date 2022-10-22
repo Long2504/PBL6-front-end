@@ -2,9 +2,9 @@ import Register from "../containers/Register";
 
 const RegisterPage = ()=>{
     return(
-        <h1>
+        <div>
             <Register/>
-        </h1>
+        </div>
     )
 }
 

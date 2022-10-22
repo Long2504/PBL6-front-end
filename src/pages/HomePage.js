@@ -2,9 +2,9 @@ import Home from "../containers/Home";
 
 const HomePage = ()=>{
     return(
-        <h1>
+        <div>
            <Home/>
-        </h1>
+        </div>
     )
 }
 

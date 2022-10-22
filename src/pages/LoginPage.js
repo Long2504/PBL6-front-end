@@ -2,9 +2,9 @@ import Login from "../containers/Login";
 
 const LoginPage = ()=>{
     return(
-        <h1>
+        <div>
             <Login/>
-        </h1>
+        </div>
     )
 }
 

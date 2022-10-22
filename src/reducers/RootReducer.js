@@ -1,8 +1,9 @@
+import adminProductReducer from "./AdminProductReducer";
 import authReducer from "./AuthReducer"
 
-
 const rootReducer = {
-    authReducer 
+    adminProductReducer ,   
+    authReducer
 }
 
 export default rootReducer;
