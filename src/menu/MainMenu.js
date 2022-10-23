@@ -52,23 +52,23 @@ const MenuBar = () => {
                 </ul>
                 <div className="iconBlock">
                     <div className="distribution" />
-                    <button className="btn btn-search">
+                    <div className='icon'>
                         <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" color='silver'/>
-                    </button>
-                    <div className="personal">
-                        <button className="btn btn-personal">
-                            <FontAwesomeIcon icon="fa-solid fa-user"  color='silver'/>
-                        </button>
+                    </div>
+                    <div className='icon'>
+                        <div className='personal'>
+                        <FontAwesomeIcon icon="fa-solid fa-user"  color='silver'/>
                         <ul className="detailPersonal">
                             {loadMenu(menberMenu)}
                         </ul>
+                        </div>
                     </div>
-                    <button className="btn btn-nofitication" color='silver'>
-                        <FontAwesomeIcon icon="fa-solid fa-bell" color='silver'/>
-                    </button>
-                    <button className="btn btn-cart">
+                    <div className='icon'>
+                    <FontAwesomeIcon icon="fa-solid fa-bell" color='silver'/>
+                    </div>
+                    <div className='icon' >
                         <FontAwesomeIcon icon="fa-solid fa-cart-shopping" color='silver'/>
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -57,7 +57,7 @@
     border-left: 1px solid white;
     margin-top: 12px;
 }
-.btn{
+/* .btn{
     line-height: 100px;
     background: black;
     border: none;
@@ -65,7 +65,7 @@
 
 .btn:hover i{
     color: slateblue;
-}
+} */
 
 .fa{
     color: aliceblue;
@@ -104,7 +104,7 @@
 }
 
 
-.personal button:hover .detailPersonal{
+.personal:hover .detailPersonal{
     display: block;
 }
 
@@ -206,4 +206,15 @@
 .community .listCommunity .item{
     width: 30%;
     margin: auto 0;
+}
+
+.icon {
+    display  : flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.icon:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }

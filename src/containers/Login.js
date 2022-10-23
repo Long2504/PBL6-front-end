@@ -22,7 +22,7 @@ const Login = ()=>{
 
     const onLogin =async ()=>{
         await dispatch(actLoginRequest(user))
-        navigate("/")
+        if(localStorage.getItem("user")!==null) navigate("/")
     }
 
 

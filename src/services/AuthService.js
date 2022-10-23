@@ -4,4 +4,8 @@ import { ApiCaller } from "./ApiCaller"
 export const loginApi=(dispatch,user)=>{
     return ApiCaller("POST",JSON.stringify(user),"login")
     .then(res=>dispatch(actLogin(res.data)))
+    .catch(error=>{
+        alert("ĐĂNG NHẬP THẤT BẠI")
+        console.log(error)
+    })
 }

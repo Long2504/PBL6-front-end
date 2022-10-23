@@ -1,7 +1,9 @@
+import AdminBill from "../containers/AdminBill";
+
 const AdminBillPage = ()=>{
     return(
         <div>
-           bill
+           <AdminBill/>
         </div>
     )
 }
