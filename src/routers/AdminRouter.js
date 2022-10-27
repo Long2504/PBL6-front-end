@@ -17,7 +17,7 @@ const adminRoutes=[
         role:[],
     },
     {
-        path : "/admin/detail",
+        path : "/admin/:id",
         exact : false,
         page : AdminProductDetailPage,
         role:[],

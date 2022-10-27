@@ -1,12 +1,14 @@
 import * as Type from "../contants/ActionType"
 
-const adminBillReducer = (state={},action)=>{
+const adminBillReducer = (state=[],action)=>{
+    var {bills} = action
     switch(action.type){
         case Type.FETCH_BILLS:
-            return action.bills
+            state=bills
+            return state
         default:
+            return state
     }
-    return []
 }
 
 export default adminBillReducer;
