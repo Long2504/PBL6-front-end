@@ -30,10 +30,7 @@ function AdminProductDetail(props){
     },[product])
     console.log(product)
 
-    const onEditClick = (e)=>{
-        var target = e.target;
-        var name = target.name;
-        // console.log(target)
+    const onEditClick = (e,name)=>{
         var value = !editState[name]
         setEditState({...editState,[name]:value})
     }
