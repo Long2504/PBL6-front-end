@@ -2,6 +2,7 @@ import {  useEffect, useState } from "react";
 import {  useDispatch, useSelector } from 'react-redux';
 import { actEditProductRequest, actGetProductByIdRequest } from "../actions/AdminProductAction";
 import ProductForm from "../components/admin_product/ProductForm";
+import AdminTemplate from "../components/admin_template/AdminTemplate";
 
 function AdminProductDetail(props){
     const product = useSelector(state=>state.adminProductDetailReducer);
@@ -72,12 +73,12 @@ function AdminProductDetail(props){
     }    
 
     return(
-        <div>
+        <AdminTemplate>
             <ProductForm 
             product={state} editState={editState}
              onChange={onChange}  onSave={onSave} onBack={onBack} onEditClick={onEditClick}
              />
-        </div>
+        </AdminTemplate>
     )
 }
 

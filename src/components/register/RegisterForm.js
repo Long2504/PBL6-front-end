@@ -1,47 +1,51 @@
 import { Component } from "react";
-import '../../assets/appstyle/register.css'
+import styles from '../../assets/appstyle/register.module.css'
+
+console.log(styles)
+
+
 
 class RegisterForm extends Component {
     render() {
         return (
-            <div className="main">
-                <div className="left">
-                    <img src="/assets/image/img-left-login.jpg" alt="" className="img-left" />
+            <div className={styles.main}>
+                <div className={styles.left}>
+                    <img src="/assets/image/img-left-login.jpg" alt="" className={styles["img-left"]} />
                 </div>
-                <div className="right">
-                    <div className="form">
-                        <form action method="POST" className="form" id="form-1">
-                            <div className="desc">
-                                <h2 className="heading">Sign up</h2>
+                <div className={styles["right"]}>
+                    <div className={styles.form}>
+                        <form action method="POST" className={styles["form"]} id="form-1">
+                            <div className={styles["desc"]} style={{fontSize:"100%"}}>
+                                <h2 className={styles["heading"]}>Sign up</h2>
                                 <p>If you already have an account register</p>
                                 <em>You can</em>
                                 <a href>Login here !</a>
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Email</label>
-                                <div className="input">
-                                    <i className="fa fa-envelope" aria-hidden="true" />
-                                    <input id="email" name="email" type="text" placeholder="Enter your email addresss" className="form-control" />
+                            <div className={styles["form-group"]}>
+                                <label className={styles["form-label"]}>Email</label>
+                                <div className={styles['input']}>
+                                    <i className={styles['fa'] + " " + styles["fa-envelope"]} aria-hidden="true" />
+                                    <input id="email" name="email" type="text" placeholder="Enter your email addresss" className={styles['form-control']} />
                                 </div>
-                                <span className="form-message" />
+                                <span className={styles['form-message']} />
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Mật khẩu</label>
-                                <div className="input">
-                                    <i className="fa fa-lock" aria-hidden="true" />
-                                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" className="form-control" />
+                            <div className={styles['form-group']}>
+                                <label className={styles['form-label']}>Mật khẩu</label>
+                                <div className={styles['input']}>
+                                    <i className={styles['fa'] + " " + styles['fa-lock']} aria-hidden="true" />
+                                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" className={styles['form-control']} />
                                 </div>
-                                <span className="form-message" />
+                                <span className={styles['form-message']} />
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Mật khẩu</label>
-                                <div className="input">
-                                    <i className="fa fa-lock" aria-hidden="true" />
-                                    <input type="password" placeholder="Nhập lại mật khẩu" className="form-control" />
+                            <div className={styles['form-group']}>
+                                <label className={styles['form-label']}>Mật khẩu</label>
+                                <div className={styles['input']}>
+                                    <i className={styles['fa'] + " " + styles['fa-lock']} aria-hidden="true" />
+                                    <input type="password" placeholder="Nhập lại mật khẩu" className={styles['form-control']} />
                                 </div>
-                                <span className="form-message" />
+                                <span className={styles['form-message']} />
                             </div>
-                            <button className="btn-submit">Register</button>
+                            <button className={styles['btn-submit']}>Register</button>
                         </form>
                     </div>
                 </div>

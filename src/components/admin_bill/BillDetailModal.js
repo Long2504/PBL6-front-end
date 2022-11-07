@@ -1,7 +1,8 @@
 import { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import '../../assets/appstyle/bill.css'
+import styles from '../../assets/appstyle/adminbill.module.css'
+// import '../../assets/appstyle/adminbill.css'
 class BillDetailModal extends Component {
     render() {
         var total = 0;
@@ -13,31 +14,31 @@ class BillDetailModal extends Component {
                 <Modal.Header>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <table cellPadding={0} cellSpacing={0}>
+                <Modal.Body style={{fontSize : "19px"}}>
+                    <table cellPadding={0} cellSpacing={0} className={styles["aligncenter"]}>
                         <tbody><tr>
-                            <td className="content-wrap aligncenter">
+                            <td className={styles["content-wrap"]+" " +styles["aligncenter"]}>
                                 <table width="100%" cellPadding={0} cellSpacing={0}>
                                     <tbody><tr>
-                                        <td className="content-block">
+                                        <td className={styles["content-block"]}>
                                             <h2>Thanks for using our app</h2>
                                         </td>
                                     </tr>
                                         <tr>
-                                            <td className="content-block">
-                                                <table className="invoice">
+                                            <td className={styles["content-block"]}>
+                                                <table className={styles["invoice"]}>
                                                     <tbody><tr>
                                                         <td>Anna Smith<br />Invoice #12345<br />June 01 2015</td>
                                                     </tr>
                                                         <tr>
                                                             <td>
-                                                                <table className="invoice-items">
+                                                                <table className={styles["invoice-items"]}>
                                                                     <tbody>
                                                                         {this.props.children}
-                                                                        <tr className="total">
+                                                                        <tr className={styles["total"]}>
                                                                             <td width="50%">Total :</td>
                                                                             <td></td>
-                                                                            <td className="alignright" width="100%">{total} VND</td>
+                                                                            <td className={styles["alignright"]} width="100%">{total} VND</td>
                                                                         </tr>
                                                                     </tbody></table>
                                                             </td>
@@ -46,12 +47,12 @@ class BillDetailModal extends Component {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="content-block">
+                                            <td className={styles["content-block"]}>
                                                 {/* <a href="#">View in browser</a> */}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="content-block">
+                                            <td className={styles["content-block"]}>
                                                 Company Inc. 123 Van Ness, San Francisco 94102
                                             </td>
                                         </tr>

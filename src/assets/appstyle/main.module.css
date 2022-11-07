@@ -11,6 +11,12 @@
     position: relative;
 }
 
+#footer{
+    height: 100px;
+    background-color: black;
+    position: relative;
+}
+
 .container{
     width: 75%;
     height: 100%;

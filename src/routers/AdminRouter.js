@@ -1,13 +1,13 @@
 import AdminBillPage from "../pages/AdminBillPage";
+import AdminDashboardPage from "../pages/AdminDashboardPage";
 import AdminProductDetailPage from "../pages/AdminProductDetailPage";
 import AdminProductPage from "../pages/AdminProductPage";
-import AdminReportPage from "../pages/AdminReportPage";
 
 const adminRoutes=[
     {
         path : "/admin",
-        exact : false,
-        page : AdminProductPage,
+        exact : true,
+        page : AdminDashboardPage,
         role:[],
     },
     {
@@ -17,21 +17,15 @@ const adminRoutes=[
         role:[],
     },
     {
-        path : "/admin/:id",
+        path : "/admin/product/:id",
         exact : false,
         page : AdminProductDetailPage,
         role:[],
     },
     {
-        path : "/admin/bill/detail",
+        path : "/admin/product",
         exact : false,
-        page : AdminProductDetailPage,
-        role:[],
-    },
-    {
-        path : "/admin/report",
-        exact : false,
-        page : AdminReportPage,
+        page : AdminProductPage,
         role:[],
     }
 ]

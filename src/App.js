@@ -3,7 +3,14 @@ import MenuBar from './menu/MainMenu';
 import routers from './routers/Router';
 import MyFooter from './footer/footer';
 import { Routes,Route, BrowserRouter as Router } from 'react-router-dom';
+import { useEffect } from 'react';
+import { visitorCounting } from './services/AdminReportService';
 function App() {
+
+  useEffect(()=>{
+    visitorCounting();
+  },[])
+
   return(
     <Router>
       <div>
@@ -15,9 +22,7 @@ function App() {
               
           </div>
       </div>
-      <footer id='footer'>
         <MyFooter/>
-      </footer>
     </Router>
     )
 }

@@ -4,6 +4,8 @@ import { actFetchBillsRequest } from "../actions/AdminBillAction";
 import BillDetailItems from "../components/admin_bill/BillDetailItems";
 import BillItem from "../components/admin_bill/BillItems";
 import BillList from "../components/admin_bill/BillList";
+import AdminTemplate from "../components/admin_template/AdminTemplate";
+import { getBills } from "../services/AdminBillService";
 const AdminBill = ()=>{
 
     const dispatch = useDispatch();
@@ -11,7 +13,8 @@ const AdminBill = ()=>{
     const [show, setShow] = useState(false);
     const [bill,setBill] = useState();
     useEffect(()=>{
-        dispatch(actFetchBillsRequest())
+        // dispatch(actFetchBillsRequest())
+        getBills(dispatch)
     },[dispatch])
 
 
@@ -53,11 +56,11 @@ const AdminBill = ()=>{
 
 
     return(
-        <div>
+        <AdminTemplate>
             <BillList loadBillDetail={loadBillDetailItems} bill={bill} getBill={getBill} show={show} handleClose={handleClose} handleShow={handleShow}>
                 {loadBillItems(bills)}
             </BillList>
-        </div>
+        </AdminTemplate>
     )
 }
 

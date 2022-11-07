@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { actFetchProductsRequest } from "../actions/AdminProductAction";
 import ProductItem from "../components/admin_product/ProductItems";
 import ProductList from "../components/admin_product/ProductList";
+import AdminTemplate from "../components/admin_template/AdminTemplate";
 const AdminProduct = ()=>{
 
     const dispatch = useDispatch();
@@ -21,12 +22,12 @@ const AdminProduct = ()=>{
     }
 
     return(
-        <div>
+        <AdminTemplate>
         <Link to={`./add`} className="btn btn-success col-2" style={{marginBottom:"10px"}}>Add</Link>
             <ProductList>
                 {loadProductItems(products)}
             </ProductList>
-        </div>
+        </AdminTemplate>
     )
 }
 

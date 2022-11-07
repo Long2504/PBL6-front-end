@@ -1,7 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {faBell, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import '../assets/appstyle/main.css'
+import styles from '../assets/appstyle/main.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const mainMenu = [
@@ -44,29 +44,29 @@ library.add(faMagnifyingGlass,faUser,faBell,faCartShopping)
 
 const MenuBar = () => {
     return (
-        <div id="header">
-            <div className="container">
-                <img src="/assets/image/Low Resolution Logo.png" alt="" className="logo" />
-                <ul className="nav">
+        <div id={styles.header}>
+            <div className={styles.container}>
+                <img src="/assets/image/Low Resolution Logo.png" alt="" className={styles.logo} />
+                <ul className={styles.nav}>
                     {loadMenu(mainMenu)}
                 </ul>
-                <div className="iconBlock">
-                    <div className="distribution" />
-                    <div className='icon'>
+                <div className={styles.iconBlock}>
+                    <div className={styles.distribution} />
+                    <div className={styles.icon}>
                         <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" color='silver'/>
                     </div>
-                    <div className='icon'>
-                        <div className='personal'>
+                    <div className={styles.icon}>
+                        <div className={styles.personal}>
                         <FontAwesomeIcon icon="fa-solid fa-user"  color='silver'/>
-                        <ul className="detailPersonal">
+                        <ul className={styles.detailPersonal}>
                             {loadMenu(menberMenu)}
                         </ul>
                         </div>
                     </div>
-                    <div className='icon'>
+                    <div className={styles.icon}>
                     <FontAwesomeIcon icon="fa-solid fa-bell" color='silver'/>
                     </div>
-                    <div className='icon' >
+                    <div className={styles.icon} >
                         <FontAwesomeIcon icon="fa-solid fa-cart-shopping" color='silver'/>
                     </div>
                 </div>
