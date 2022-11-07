@@ -6,20 +6,14 @@ import { Routes,Route, BrowserRouter as Router } from 'react-router-dom';
 function App() {
   return(
     <Router>
-      <div>
-          <div>
-          <MenuBar/>
-              <Routes>
-                  {showMenuContents(routers)}
-              </Routes>
-              
-          </div>
+      <div className="main">
+        <MenuBar />
+        <Routes>{showMenuContents(routers)}</Routes>
+
+        <MyFooter />
       </div>
-      <footer id='footer'>
-        <MyFooter/>
-      </footer>
     </Router>
-    )
+  );
 }
 
 const showMenuContents=(routers)=>{
@@ -35,7 +29,7 @@ const showMenuContents=(routers)=>{
       routerList.push(...rout);
   }
   );
-  console.log(routerList)
+  console.log(routerList,"routerlist")
   return routerList;
 }
 

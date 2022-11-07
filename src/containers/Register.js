@@ -3,11 +3,7 @@ import RegisterForm from "../components/register/RegisterForm"
 
 
 const Register = ()=>{
-    return (
-        <div>
-        <RegisterForm/>
-        </div>
-    )
+    return <RegisterForm/>
 }
 
 export default Register;

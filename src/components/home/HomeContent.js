@@ -1,16 +1,16 @@
 import { Component } from "react";
+import styles from '../../assets/appstyle/main.module.css'
 
 class HomeContent extends Component {
     render() {
         return (
-            <div>
-                <div id="slider">
-                    <div className="slider-sub">
-                        <img src="https://dlcdnwebimgs.asus.com/gain/AA39F748-8AA2-4B41-AE10-0FA4B590583A" alt="" />
-                    </div>
+            <div className={styles["container"]}>
+                <div id={styles["slider"]}>
+                    <img className={styles["img-content"]} src="https://dlcdnwebimgs.asus.com/gain/AA39F748-8AA2-4B41-AE10-0FA4B590583A"></img>
                 </div>
-                <div id="content">
-                </div></div>
+                <div className={styles["content"]}></div>
+            </div>
+
         )
     }
 }

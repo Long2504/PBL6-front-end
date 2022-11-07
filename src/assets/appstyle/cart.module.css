@@ -1,0 +1,25 @@
+
+.cart-content{
+    width: 80%;
+    padding-top: 100px;
+
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.container-cart{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.items{
+    width: 65%;
+}
+.items .row{
+    border-bottom: 1px solid white;
+}
+
+.total{
+    width: 35%;
+}

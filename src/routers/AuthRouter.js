@@ -1,6 +1,8 @@
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-
+import ProductPage from "../pages/ProductPage";
+import ProductDetailPage from "../pages/ProductDetailPage";
+import Cart from "../pages/CartPage";
 const authRoutes=[
     {
         path : "/login",
@@ -12,6 +14,25 @@ const authRoutes=[
         path : "/register",
         exact : true,
         page : RegisterPage,
+        role:[],
+    },
+    {
+        path : "/product/:catelogy",
+        exact : true,
+        page : ProductPage,
+        role:[],
+    },
+    {
+        // path : "/product/:catelogy/:name/:id",
+        path : "/product/:catelogy/:id",
+        exact : true,
+        page : ProductDetailPage,
+        role:[],
+    },
+    {
+        path: "/Cart",
+        exact : true,
+        page : Cart,
         role:[],
     }
 ]
