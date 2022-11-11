@@ -7,19 +7,140 @@
     margin-right: 10%;
 }
 .container-cart{
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px;
 }
 
 
 .items{
     width: 65%;
+
+}
+.items table{
+    border-collapse:collapse
 }
 .items .row{
+    padding-bottom: 15px;
     border-bottom: 1px solid white;
+    
+}
+.items .row td {
+    max-width: 200px;
+    font-size: 20px;
+}
+.items .row th{
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+.items .row td,th{
+    max-width: 200px;
+    padding-right: 60px;
 }
 
+
 .total{
-    width: 35%;
+    width: 400px ;
+    margin-left: 30px;
+    
+}
+.total .coupon{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+
+.total .coupon{
+    background-color: #222;
+}
+
+
+.total .coupon p{
+    padding: 15px 0 10px 120px;
+}
+
+.coupon .coupon-container{
+    font-size: 25px;
+    font-weight: 300;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 15px;
+
+}
+
+.coupon .coupon-container input{
+    width: 80%;
+    height: 35px;
+    font-weight: 800;
+    font-size: 20px;
+
+}
+
+.coupon .coupon-container .btn-discount{
+    width: 17%;
+    height: 35px;
+    margin-left: 3%;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.total .sum{
+    background-color: #222;
+}
+
+.total .sum p{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0 10px 100px;
+
+}
+
+.total .sum .sum-container{
+    margin-bottom: 10px;
+}
+
+
+.total .sum span{
+    font-size: 20px;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+
+.quantity .btn {
+   display: flex;
+   justify-content: center;
+}
+
+
+.quantity span{
+    font-size: 20px;
+}
+
+.total .sum{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.total .sum .checkout{
+
+    height: 50px;
+    border-radius: 10px;
+    background-color:#44d62c;
+    font-size: 25px;
+    font-weight: 25px;
+    margin: 10px 20px;
+ 
 }

@@ -5,6 +5,7 @@ import { FaSearch,FaUser,FaBell,FaCartPlus } from 'react-icons/fa'
 import { useContext } from 'react';
 import { Store } from '../reducers/RootReducer';
 
+
 const mainMenu = [
     {
         name: "Sản Phẩm",
@@ -42,8 +43,8 @@ const menberMenu = [
 
 
 const MenuBar = () => {
-    const { state } = useContext(Store);
-    const { cart } = state;
+    // const { state } = useContext(Store);
+    // const { cart } = state;
 
     return (
         <header>
@@ -71,8 +72,8 @@ const MenuBar = () => {
                 <button class={styles["btn"] + " " + styles["btn-cart"]}>
                     <Link to={"/cart"}>
                         <FaCartPlus size="30px" color="white"/>
-                        <span className={styles["cart-item-qty"]}>{/*cart.cartItems.reduce((a,c) => a + c.quantity,0)*/
-                        cart.cartItems.length}</span>
+                        {/* <span className={styles["cart-item-qty"]}>{cart.cartItems.reduce((a,c) => a + c.quantity,0)
+                        cart.cartItems.length}</span> */}
                     </Link>
 
                 </button>

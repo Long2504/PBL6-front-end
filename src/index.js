@@ -15,12 +15,12 @@ const store = configureStore(
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <StoreProvider>
-    <App />
-  </StoreProvider>
-  // <Provider store={store}>
+  // <StoreProvider>
   //   <App />
-  // </Provider >
+  // </StoreProvider>
+  <Provider store={store}>
+    <App />
+  </Provider >
 );
 
 reportWebVitals();

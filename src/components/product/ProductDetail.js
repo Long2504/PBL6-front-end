@@ -5,65 +5,20 @@ import axios from "axios";
 import { Store } from '../../reducers/RootReducer'
 
 
-const reducer = (state,action) => {
-    switch(action.type){
-        case 'FETCH_REQUEST':
-            return {...state, loading: true};
-        case 'FETCH_SUCCESS':
-            return {...state, product: action.payload, loading: false};
-        case 'FETCH_FAIL':
-            return {...state, loading: false, error: action.payload};
-        default:
-            return state;
-    }
-}
-
 
 
 const ProductDetail =(props) =>{
-    
-    const parama = useParams();
-    // console.log(parama.id,"parama");
-    const [{loading, error, product}, dispatch] = useReducer(reducer,{
-        products: [],
-        loading: true, 
-        error: '',
-    })
-    const api = "api/product/" + parama.catelogy + "/" +parama.name + "/" + parama.id
-    console.log(api)
-    //products = ProductsAPI
-    //const [products, setProducts] = useState([]);
-    useEffect(()=>{
-        const fetchData = async () => {
-            dispatch({type: 'FETCH_REQUEST'})
-            try {
-                // const result = await axios.get(api)
-                // dispatch({type: 'FETCH_SUCCESS', payload: result.data});
-                const result = parama
-                dispatch({type: 'FETCH_SUCCESS', payload: result});
-                
-            } catch (err) {
-                dispatch({type: 'FETCH_FAIL', payload: err.message});
-            }
-            
-            // setProducts(result.data);
-        };
-        fetchData();
-    }, []);
-
     const {state, dispatch: cxtDispatch} = useContext(Store);
     const { cart } = state;
     console.log(state,"state")
     const addToCartHandler = async() =>{
-        // const existItem = cart.cartItems.find((x) => x.id === product.id);
         const existItem = cart.cartItems.find((x) => x.id == product.id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        // const { data } = await axios.get('/api/products/{product.id}')
-        // const {data} =  parama.id;
-        // if (data.countInStock < quantity){
-        //     window.alert('Sorry. Product is out of stock')
-        //     return;
-        // }
+        const {data} =  parama.id;
+        if (data.countInStock < quantity){
+            window.alert('Sorry. Product is out of stock')
+            return;
+        }
 
         cxtDispatch({
             type: 'CART_ADD_ITEM',payload: {...product,quantity}
@@ -127,7 +82,8 @@ const ProductDetail =(props) =>{
                 <h3 className={styles["price"]} >
                     40.190.000 ₫
                 </h3>
-                <button onClick={addToCartHandler} className={styles["add-to-cart"]}>
+                {/* <button onClick={addToCartHandler} className={styles["add-to-cart"]}> */}
+                <button  className={styles["add-to-cart"]}>
                     <p>Thêm vào giỏ hàng</p>
                 </button>
             </div>
