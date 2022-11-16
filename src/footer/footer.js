@@ -3,7 +3,14 @@ import styles from '../assets/appstyle/footer.module.css'
 const MyFooter = () => {
     return (
         <footer>
-            <div className={styles["footer__top"]} />
+            <div className={styles["footer__top"]}>
+                <div className={styles['div-img']}>
+                    <img src='/assets/image/logo.jpg' alt="" className={styles['logo']}/>
+                </div>
+                <div className={styles['info-company']}></div>
+                
+                
+            </div> 
             <div className={styles["footer__bottom"]}>
                 <div className={styles["pay"]}>
                     <h4>Phương thức thanh toán</h4>

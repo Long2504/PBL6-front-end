@@ -6,7 +6,6 @@ export const listCatalogs =() => async (dispatch) => {
   });
   try {
     const { data } = await Axios.get('https://backendpbl6.herokuapp.com/');
-    //console.log(data)
     dispatch({ type: 'CATALOG_LIST_SUCCESS', payload: data });
   } catch (error) {
     dispatch({ type: 'CATALOG_LIST_FAIL', payload: error.message });

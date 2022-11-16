@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styles from '../../src/assets/appstyle/header.module.css'
 import { FaSearch,FaUser,FaBell,FaCartPlus } from 'react-icons/fa'
-import { useContext } from 'react';
-import { Store } from '../reducers/RootReducer';
+import { useSelector } from 'react-redux';
 
 
 const mainMenu = [
@@ -41,14 +40,17 @@ const menberMenu = [
 ]
 
 
-
 const MenuBar = () => {
-    // const { state } = useContext(Store);
-    // const { cart } = state;
+    const cart = useSelector(state=>state.cartReducer.cartItems);
+    console.log({cart})
 
     return (
         <header>
-            <img src="/assets/image/Low Resolution Logo.png" alt="" className={styles["logo"]} />
+            <div className={styles['div-img']}>
+                <Link to={""}>
+                    <img src="/assets/image/logo.jpg" alt="" className={styles["logo"]} />
+                </Link>
+            </div>
 
             <ul className={styles["nav"]}>
                 {loadMenu(mainMenu)}
@@ -72,8 +74,7 @@ const MenuBar = () => {
                 <button class={styles["btn"] + " " + styles["btn-cart"]}>
                     <Link to={"/cart"}>
                         <FaCartPlus size="30px" color="white"/>
-                        {/* <span className={styles["cart-item-qty"]}>{cart.cartItems.reduce((a,c) => a + c.quantity,0)
-                        cart.cartItems.length}</span> */}
+                        <span className={styles["cart-item-qty"]}>{cart.length}</span>
                     </Link>
 
                 </button>
@@ -86,7 +87,7 @@ const loadMenu = (menu) => {
     return (
         menu.map((menu, index) => (
             <li key={index} className={styles["nav-item"]}>
-                <Link to={menu.to} className={styles["nav-link"]} >
+                <Link to={menu.to.toString()} className={styles["nav-link"]} >
                     {menu.name}
                 </Link>
             </li>

@@ -1,7 +1,7 @@
 import adminBillReducer from "./AdminBillReducer";
 import adminProductReducer from "./AdminProductReducer";
 import authReducer from "./AuthReducer"
-import cartReducer from "./CartReducer";
+import { cartReducer } from "./CartReducer";
 import { catalogReducer, productReducer} from "./ProductReducer"
 import { createContext, useReducer } from "react";
 

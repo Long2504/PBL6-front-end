@@ -10,11 +10,10 @@ const ProductCatalog = (props) => {
         if(onCatalogClick){
             onCatalogClick(item);
         }
-        
     }
     const items = catalogData.map((item) => {
         return(
-            <Link to={`/product/${item.name.toLowerCase()}`} className={styles["item"]}>
+            <Link to={`/product/${item.name.toLowerCase().toString()}`} className={styles["item"]}>
                 <li 
                     key={item.id} 
                     className={styles["container-item"]} 
@@ -23,14 +22,11 @@ const ProductCatalog = (props) => {
                     <img src={item.src}></img>
                     <span>{item.name}</span>
                 </li>
-
             </Link>
-
         );
     }); 
     return <div className={styles["catalog"]}>
         {items}</div>
-
 }
 
 

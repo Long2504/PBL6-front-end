@@ -2,7 +2,7 @@ import ProductsAPI from "../components/product/ProductsAPI";
 import ProductCatalog from "../components/product/ProductCatalog";
 import styles from '../assets/appstyle/product.module.css'
 
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listCatalogs,listProducts } from "../actions/ProductAction";
 
@@ -87,9 +87,9 @@ const ProductsPublic = ()=>{
         dispatch(listProducts());
     }, [dispatch]);
 
-
     useEffect(()=>{
         if(catelogy[0]){
+            
             setOption(catelogy[0].optionGroup)
             if(products !== undefined && products.length !== 0){
                 console.log(products)
@@ -100,14 +100,12 @@ const ProductsPublic = ()=>{
                         newProduct.push(element)
                     }
                 });
-                console.log(newProduct,"newProduct")
+                //console.log(newProduct,"newProduct")
                 setSimilarProducts(newProduct)
             }
         }
 
     },[catelogy])
-
-
 
     const [options,setOption] = useState({});
     const [similarProducts,setSimilarProducts] = useState({});
@@ -122,7 +120,7 @@ const ProductsPublic = ()=>{
                         newProduct.push(element)
                     }
                 });
-                console.log(newProduct,"newProduct")
+                console.log({newProduct})
                 setSimilarProducts(newProduct)
             }
         }
@@ -136,7 +134,7 @@ const ProductsPublic = ()=>{
             </div>
             <div className={styles["main-menu"]}>
                 <ProductCatalog catalogData={catelogy} onCatalogClick={handleCatalogClick}/>
-                <ProductsAPI classifyData={options} productData={productData} />
+                <ProductsAPI classifyData={options} productData={products} />
                 <div className={styles["more"]}></div>
             </div>
         </div>

@@ -10,7 +10,7 @@ export const ApiCaller = (method,body,endpoint)=>{
         headers: getHeader(), 
         data: body
       })
- }
+}
 
 const getHeader = ()=>{
     if(localStorage.getItem("user")!==null){
