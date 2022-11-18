@@ -37,7 +37,7 @@ const MyFooter = () => {
                     <h4>Cộng đồng tech</h4>
                     <div className={styles["listCommunity"]}>
                         <div className={styles["item"]}>
-                            <a href><img src="https://shopfront-cdn.tekoapis.com/static/4a245cee42ae6bbb.svg" alt="" className={styles["footer_img"]} /></a>
+                            <a href="#"><img src="https://shopfront-cdn.tekoapis.com/static/4a245cee42ae6bbb.svg" alt="" className={styles["footer_img"]} /></a>
                         </div>
                         <div className={styles["item"]}>
                             <a href="#"><img src="https://shopfront-cdn.tekoapis.com/static/2d3d889a92325278.svg" alt="" className={styles["footer_img"]} /></a>

@@ -23,7 +23,6 @@ const authRoutes=[
         role:[],
     },
     {
-        // path : "/product/:catelogy/:name/:id",
         path : "/product/:catelogy/:id",
         exact : true,
         page : ProductDetailPage,

@@ -1,7 +1,7 @@
 
 
 export const catalogReducer = (
-    state = {loading: true, catalogs: []}, 
+    state = {loading: true, categories: []}, 
     action
 ) =>{
     switch(action.type){
@@ -11,7 +11,7 @@ export const catalogReducer = (
         case 'CATALOG_LIST_SUCCESS':
             return{
                 loading: false,
-                catalogs: action.payload,
+                categories: action.payload,
         }
         case 'CATALOG_LIST_FAIL':
             return {loading: false}
@@ -21,9 +21,7 @@ export const catalogReducer = (
 };
 
 
-
-
-export const productReducer = (
+export const productsReducer = (
     state = {loading: true, products:[]},
     action
 )=>{
@@ -42,6 +40,34 @@ export const productReducer = (
             return state;
     }
 };
+
+
+export const productReducer = (
+    state = {
+        loading: true,
+        product: {
+            productImgs: [],
+            attributes: []
+        }
+    },
+    action
+)=>{
+    switch(action.type){
+        case 'PRODUCT_REQUEST':{
+            return {loading: true}
+        }
+        case 'PRODUCT_SUCCESS':
+            return{
+                loading: false,
+                product: action.payload,
+            }
+        case 'PRODUCT_FAIL':
+            return { loading: false}
+        default:
+            return state;
+    }
+};
+ 
  
 
 

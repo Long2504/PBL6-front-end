@@ -57,21 +57,21 @@ const MenuBar = () => {
             </ul>
             <div className={styles["iconBlock"]}>
                 <div className={styles["distribution"]} />
-                <button class={styles["btn"] + " " + styles["btn-search"]}>
+                <button className={styles["btn"] + " " + styles["btn-search"]}>
                     <FaSearch size="30px" color="white"/>
                 </button>
                 <div className={styles['personal']}>    
-                    <button class={styles["btn"] + " " + styles["btn-personal"]}>
+                    <button className={styles["btn"] + " " + styles["btn-personal"]}>
                         <FaUser size="30px" color="white"/>
                     </button>
                     <ul className={styles["detailPersonal"]}>
                         {loadMenu(menberMenu)}
                     </ul>
                 </div>
-                <button class={styles["btn"] + " " + styles["btn-nofitication"]}>
+                <button className={styles["btn"] + " " + styles["btn-nofitication"]}>
                     <FaBell size="30px" color="white"/>
                 </button>
-                <button class={styles["btn"] + " " + styles["btn-cart"]}>
+                <button className={styles["btn"] + " " + styles["btn-cart"]}>
                     <Link to={"/cart"}>
                         <FaCartPlus size="30px" color="white"/>
                         <span className={styles["cart-item-qty"]}>{cart.length}</span>

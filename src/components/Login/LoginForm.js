@@ -21,7 +21,7 @@ class LoginForm extends Component{
                   <label className={styles["form-label"]}>Email</label>
                   <div className={styles["input"]}>
                     {/* <FaEnvelope size="20px" color="white" aria-hidden="true"/> */}
-                    <input id={styles["email"]} name="email" type="text" placeholder="Enter your email addresss" className={styles["form-control"]} 
+                    <input id={styles["email"]} name="username" type="text" placeholder="Enter your email addresss" className={styles["form-control"]} 
                     value={this.props.username} onChange={(e)=>{this.props.onChange(e)}}
                     />
                   </div>

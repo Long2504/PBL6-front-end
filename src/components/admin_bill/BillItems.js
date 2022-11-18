@@ -16,7 +16,7 @@ class BillItem extends Component{
               <td>
                 <div>
                 {/* <button className="btn btn-info" onClick={()=>this.props.onDelete(Bill.id)}>Delete</button> */}
-                <Link to={`./edit/${Bill.id}`} className="btn btn-primary" style={{marginRight:"15px"}}>Edit</Link>
+                <Link to={`./edit/${Bill.id.toString()}`} className="btn btn-primary" style={{marginRight:"15px"}}>Edit</Link>
                 </div>
               </td>
             </tr>

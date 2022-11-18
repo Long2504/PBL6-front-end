@@ -16,13 +16,13 @@ const ClassifyProduct = (props) => {
     const detail =(data)=>{
         return data.map((item) => {
             // return  <li className={styles['name-classify']}>{item.name}</li>
-            return  <span role={"checkbox"} aira-checked="false" className={styles['name-classify']}>{item.name}</span>
+            return  <span key={item.name} role={"checkbox"} aira-checked="false" className={styles['name-classify']}>{item.name}</span>
         })
     }
     if(Array.isArray(classifyData)){
         listData = classifyData.map((data) => {
             return(
-                <div className={styles['detail-item']}>
+                <div key={data.id} className={styles['detail-item']}>
                     <div className={styles['title']}>{data.name}</div>
                     <div className={styles['list-atribute']}>
                         {detail(data.attributes)}
@@ -41,13 +41,14 @@ const ListProduct = (props) =>{
     const addToCartHandler = (productId) =>{
         dispatch(addToCart(productId))
     }
+    console.log(props.productData.length,"product Data API")
     let listData = []
-    if(props.productData !== undefined){
+    if(props.productData.length !== undefined ){
         listData = props.productData.map((data) =>{ 
             return(
-                <div className={styles['product']}>
+                <div key={data.id} className={styles['product']}>
                     <div className={styles['product-container']}>
-                        <Link to={`/product/${data.category.toString()}/${data.id.toString()}`}  className={styles['product-link-detail']}>
+                        <Link to={`/product/${data.category.name.toString()}/${data.id.toString()}`}  className={styles['product-link-detail']}>
                             <img src={data.productImgs[0]} className={styles['product-image']}  alt=""/>
                         </Link>
                         {/* <div className={styles['btn-compare']}>
@@ -56,7 +57,7 @@ const ListProduct = (props) =>{
                         </div> */}
                     </div>
                     <div className={styles['infor-product']}>
-                        <Link to={`/product/${data.category.toString()}/${data.id.toString()}`}  className={styles['product-link-detail']}>
+                        <Link to={`/product/${data.category.name.toString()}/${data.id.toString()}`}  className={styles['product-link-detail']}>
                             <h2 className={styles['name-product']}>{data.name}</h2>
                             <p className={styles['price-product']}>{data.price}</p>
                         </Link>
@@ -70,10 +71,6 @@ const ListProduct = (props) =>{
             )
         })
     }
-    else{
-        listData = ""
-    }
-
     return <div className={styles['list-product']}>{listData}</div>
 }
 
