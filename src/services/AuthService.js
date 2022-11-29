@@ -9,3 +9,11 @@ export const loginApi=(dispatch,user)=>{
         console.log(error)
     })
 }
+
+export const loginWithGoogle=(email)=>{
+    return ApiCaller("POST",JSON.stringify(email),"provider")
+    .catch(error=>{
+        alert("ĐĂNG NHẬP THẤT BẠI")
+        console.log(error)
+    })
+}
