@@ -3,7 +3,7 @@ import adminProductReducer from "./AdminProductReducer";
 import authReducer from "./AuthReducer"
 import { cartReducer } from "./CartReducer";
 import { catalogReducer, productsReducer, productReducer } from "./ProductReducer"
-import { createContext, useReducer } from "react";
+import { createContext } from "react";
 
 
 const rootReducer = {

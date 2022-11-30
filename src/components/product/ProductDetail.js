@@ -1,15 +1,20 @@
 import { useParams } from "react-router-dom";
 import styles from '../../assets/appstyle/productdetail.module.css'
 import { useDispatch,useSelector  } from "react-redux";
-import { addToCart } from "../../actions/CartAction";
+import { pushCartAction } from "../../actions/CartAction";
 import { useState, useEffect } from "react";
 import { fetchProduct } from "../../services/ProductService";
+import { FaAngleRight } from 'react-icons/fa'
 
-
+let vietnamdognVN = Intl.NumberFormat("vi",{
+    style: "currency",
+    currency : 'VND'
+});
 
 const ProductDetail =() =>{
     const params = useParams();
     const { id: productId } = params;  
+    console.log(productId,"productId")
     const dispatch = useDispatch();
     
     const product = useSelector(state=>state.productReducer.product);
@@ -24,7 +29,8 @@ const ProductDetail =() =>{
     },[product.productImgs])
 
     const addToCartHandler = (productId) =>{
-        dispatch(addToCart(productId))
+        
+        dispatch(pushCartAction({id:productId}))
     }
     const handleClick= (index)=>{
         const img = product.productImgs[index];
@@ -35,15 +41,27 @@ const ProductDetail =() =>{
        const arr = product.description.substr(1)
        arrDeciption = arr.split('n-')
     }
-    return(
-        
+    return(        
         <div id={styles["content-detail"]}>
             <div className={styles["clearfix"]}>
-                <p>Trang chủ</p>
+
+                <div className={styles["div-link"]}>
+                <span>Trang chủ</span>
+                <FaAngleRight
+                    style={
+                        {
+                            margin:"auto",
+                            width: "20px",
+                            fontWeight:"10",
+                        }
+                    } 
+                >
+                </FaAngleRight>
+                
+                <span>Laptop ACER Aspire 3 A315-58-54M5 NX.ADDSV.00M</span>
+            </div>
             </div>
             <div className={styles["main-detail"]}>
-                <div className={styles["space"]}>
-                </div>
                 <div className={styles["show-image"]}>
                     <div className={styles["product-image"]}>
                         <img src={image}></img>
@@ -62,6 +80,7 @@ const ProductDetail =() =>{
                 <div className={styles["info-product"]}>
                     <h2 className={styles["product-name"]}>{product.name}
                     </h2>
+                    <h3 className={styles["price"]} >{'Giá bán:'+ vietnamdognVN.format(product.price) }</h3>
                     <div className={styles["desc"]}>
                         <p>Giới thiệu</p>
                         <ul className={styles["list-desc"]}>
@@ -72,7 +91,6 @@ const ProductDetail =() =>{
                             })}
                         </ul>
                     </div>
-                    <h3 className={styles["price"]} >{product.price +' ₫'}</h3>
                     <button onClick={() =>addToCartHandler(product.id)} className={styles["add-to-cart"]}>
                         <p>Thêm vào giỏ hàng</p>
                     </button>

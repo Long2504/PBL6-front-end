@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { fetchCategory,fetchProductList } from "../services/ProductService";
 
-
+import {FaAngleRight } from 'react-icons/fa'
 
 const ProductsPublic = ()=>{
 
@@ -18,14 +18,10 @@ const ProductsPublic = ()=>{
     useEffect(()=> {
         fetchCategory(dispatch)
         fetchProductList(dispatch)
-        
     }, [dispatch]);
-
-
     
     useEffect(()=>{
-        if(catelogy[0]){
-            
+        if(catelogy[0]){         
             setOption(catelogy[0].optionGroup)
             if(products !== undefined || products.length !== 0){
                 //console.log(products)
@@ -40,8 +36,8 @@ const ProductsPublic = ()=>{
                 setSimilarProducts(newProduct)
             }
         }
-
     },[catelogy,products])
+
     console.log(catelogy,"catelogy")
     console.log(products,"product")
     const [options,setOption] = useState({});
@@ -65,14 +61,56 @@ const ProductsPublic = ()=>{
     //console.log(similarProducts,"simlilarProduct")
         
     return(
-        <div id={styles["content"]}>
-            <div className={styles["clearfix"]}>
-                <p>Trang chủ</p>
+        <div 
+            id={styles["content"]}
+        >
+            <div 
+                className={styles["clearfix"]}
+            >
+                <div 
+                    className={styles["div-link"]}
+                >
+                    <span>Trang chủ</span>
+                    <FaAngleRight
+                        style={
+                            {
+                                margin:"auto",
+                                width: "20px",
+                                fontWeight:"10",
+                            }
+                        } 
+                    >
+                    </FaAngleRight>
+                
+                    <span>Sản phẩm</span>
+                    <FaAngleRight
+                            style={
+                                {
+                                    margin:"auto",
+                                    width: "20px",
+                                    fontWeight:"10",
+                                }
+                            } 
+                        >
+                    </FaAngleRight>
+                    <span>latop</span>
+                </div>
             </div>
-            <div className={styles["main-menu"]}>
-                <ProductCatalog catalogData={catelogy} onCatalogClick={handleCatalogClick}/>
-                <ProductsAPI classifyData={options} productData={similarProducts} />
-                <div className={styles["more"]}></div>
+            <div 
+                className={styles["main-menu"]}
+            >
+                <ProductCatalog 
+                    catalogData={catelogy} 
+                    onCatalogClick={handleCatalogClick}
+                />
+                <ProductsAPI
+                    classifyData={options} 
+                    productData={similarProducts} 
+                />
+                <div 
+                    className={styles["more"]}
+                >
+                </div>
             </div>
         </div>
     )

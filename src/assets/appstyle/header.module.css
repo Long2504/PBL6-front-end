@@ -1,75 +1,86 @@
 
 header{
     width: 100%;
-    height: 100px;
-    background-color: black;
+    height: 7vh;
+    background-color: white;
+    /* background-color: rgba(255, 255, 0, 0.664); */
     position: fixed;
     display: flex;
     justify-content: space-between;
     z-index: 1;
+    border: 1px solid whitesmoke;
 }
 
 .div-img{
-    width: 6%;
+    width: 15%;
     height: 100%;
 }
 
-.logo{
-    width: 100%;
+.div-img .logo{
+    width: 40%;
+    margin: 0 24%;
     height: 100%;
-    margin-left: 100px;
 }
-
 
 .nav{
-    margin-left: 270px;
-    width: 50%;
+    width: 60%;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.nav li{
+.nav > ul > li{
     display: inline-block;
-    line-height: 100px;
+    line-height: 7vh;
     margin: 0 15px;
+    
 }
-.nav > li > a{
-    color: aliceblue;
+
+.nav > ul > li > a{
     text-decoration: none;
     font-size: 1.5rem;
     display: inline-block;
+    color: black;
+    font-weight: 900;
 }
 
 .nav li:hover a{
-    color: slateblue;
+    color: blue;
 }
 
 .iconBlock{
-    width: 15%;
+    width: 20%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-right: 150px;
-}
+    flex-direction: row;
 
+}
 
 .distribution{
     height: 60%;
-    border-left: 1px solid white;
+    border-left: 1px solid black;
     margin-top: 12px;
 }
 .btn{
-    background: black;
-    border: none;
+    line-height: 9vh;
+    margin-left: 1.3vw;
+}
+
+.btn button{
+    background-color: white;
+    /* background-color: yellow; */
+    margin: 2.2vh auto;
 }
 
 .btn:hover {
     color: slateblue;
 }
 
-
 .personal .btn-personal{
-    position: relative; 
-    height: 100px;
+    margin-left: 1.3vw;
+    /* background-color: yellow; */
+    background-color: white;
+    margin: 2.2vh 0 2.2vh 1.3vw;
 }
 
 .personal .detailPersonal{
@@ -96,21 +107,32 @@ header{
     color: black;
 }
 
-
 .personal:hover .detailPersonal{
     display: block;
 }
-
+.btn-cart{
+    position: relative;
+    /* background-color: yellow; */
+    background-color: white;
+}
 .cart-item-qty{
     position: absolute;
-    margin-top: -10px;
-    font-size: 12px;
+    font-size: 15px;
+    top: 18px;
+    left: 20px;
     color: #eee;
-    background-color: #d92df0;
-    width: 18px;
-    height: 18px;
+    background-color: #eb1313;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    /* font-weight: 600; */
+}
+.cart-item-qty{
+    line-height: 15px;
 }
 
 

@@ -1,22 +1,59 @@
 import styles from "../assets/appstyle/cart.module.css"
-import { FaMinus,FaPlus,FaTrashAlt } from 'react-icons/fa'
+import { FaMinus,FaPlus,FaTrashAlt,FaAngleRight } from 'react-icons/fa'
 import { Store } from '../reducers/RootReducer'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from '../services/CartService'
 
 
 const CartContent =() =>{
-    // const { state , dispatch: ctxDispath } = useContext(Store);
-    // const {
-    //     cart: { cartItems },
-    // } = state;
+    const dispatch = useDispatch();
+    const cartItems = useSelector(state=>state.cartReducer.cartItems)
+    // const [total,setTotal] = useState(0)
+    useEffect(()=>{
+        fetchCart(dispatch)
+        
+    },[dispatch]);
+    console.log(cartItems,"cartItems")
+    
+    let vietnamdognVN = Intl.NumberFormat("vi",{
+        style: "currency",
+        currency : 'VND'
+    });
+
+
     return(
         <div className={styles["cart-content"]}>
+            <div className={styles["div-link"]}>
+                <span>Trang chủ</span>
+                <FaAngleRight
+                    style={
+                        {
+                            margin:"auto",
+                            width: "20px",
+                            fontWeight:"10",
+                        }
+                    } 
+                >
+                </FaAngleRight>
+                
+                <span>Giỏ hàng</span>
+            </div>
+            <h1
+                style={
+                    {
+                        marginLeft:"240px",
+                        marginTop:"20px"
+
+                    }
+                }
+            >Giỏ hàng</h1>
             <div className={styles["container-cart"]}>
+
                 <div className={styles["items"]} >
                     <table>
                         <tbody>
-
                             <tr className={styles["row"]}>
                                 <th>Sản Phẩm</th>
                                 <th>Tên Sản Phẩm</th>
@@ -26,48 +63,87 @@ const CartContent =() =>{
                                 <th>Xóa</th>
                             </tr>
                             {
-                                // cartItems.map((item) => (
-                                //     <tr className={styles["row"]}>
-                                //         <Link to={'/product/' + item.id.toString()  }>
-                                //             <td>
-                                //                 <img src="https://assets3.razerzone.com/G64tp4ah7joZr6mdqWk6hjDqNRc=/78x78/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh1e%2Fhd4%2F9286405029918%2F210104-blade-15-ch8-fhd-1500x1000-4.jpg"></img>
-                                //             </td>
-                                //             <td>{item.name}</td>
-                                        
-                                //         </Link>
-                                //         <td>{item.price}</td>
-                                //         <td>
-                                //             <div className={styles["quantity"]}>
-                                //                 <button className={styles["btn"] + styles["sub"]}>
-                                //                     <FaMinus style={
-                                //                             {
-                                //                                 margin:"auto",
-                                //                                 width: "30px"
-                                //                             }
-                                //                         } 
-                                //                     />
-                                //                 </button>
-                                //                 <span>{item.quantity}</span>
-                                //                 <button className={styles["btn"] +  styles["add"]}>
-                                //                     <FaPlus style={
-                                //                             {
-                                //                                 margin:"auto",
-                                //                                 width: "30px"
-                                //                             }
-                                //                         } />
-                                //                 </button>
-                                //             </div>
-                                //         </td>
-                                //         <td>
-                                //             {item.price}
-                                //         </td>
-                                //         <td>
-                                //             <button className={styles["delete"]}>
-                                //                 <FaTrashAlt size={"25px"}  />
-                                //             </button>
-                                //         </td>
-                                //     </tr>
-                                // ))
+                                cartItems.map((item) => (
+                                    <tr 
+                                        className={styles["row"]}
+                                    >
+                                        <td>
+                                            <Link 
+                                                to={'/product/' + item.product.category.name.toString() }
+                                            >
+                                                <img 
+                                                    src={item.product.productImgs[0]}
+                                                > 
+                                                </img>
+                                            </Link>
+                                        </td>
+                                        <td>
+                                            {item.product.name.split(`(`)[0]}
+                                        </td>
+                                        <td 
+                                            style={
+                                                {
+                                                    color:"black",
+                                                    fontSize:"25px",
+                                                    fontWeight: "700",
+                                                }
+                                            }
+                                            >
+                                            {vietnamdognVN.format(item.product.price)}
+                                        </td>
+                                        <td>
+                                            <div 
+                                                className={styles["quantity"]}
+                                            >
+                                                <button 
+                                                    className={styles["btn"] + styles["sub"]}
+                                                >
+                                                    <FaMinus 
+                                                        style={
+                                                            {
+                                                                margin:"auto",
+                                                                width: "30px"
+                                                            }
+                                                        } 
+                                                    />
+                                                </button>
+                                                <span>
+                                                    {item.amount}
+                                                </span>
+                                                <button 
+                                                    className={styles["btn"] +  styles["add"]}
+                                                >
+                                                    <FaPlus 
+                                                        style={
+                                                            {
+                                                                margin:"auto",
+                                                                width: "30px"
+                                                            }
+                                                        } />
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td
+                                            style={
+                                                {
+                                                    color:"black",
+                                                    fontSize:"25px",
+                                                    fontWeight: "700",
+                                                }
+                                            }
+                                        >
+                                            {vietnamdognVN.format(item.product.price*item.amount)}
+                                        </td>
+                                    
+                                        <td>
+                                            <button 
+                                                className={styles["delete"]}
+                                            >
+                                                <FaTrashAlt size={"25px"}  />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))
                             }
                         </tbody>
                     </table>
@@ -84,7 +160,17 @@ const CartContent =() =>{
                         <p>Thanh Toán</p>
                         <div className={styles["sum-container"]}>
                             <span>Thành Tiền :</span>
-                            <span></span>
+                            <span
+                                style={
+                                    {
+                                        fontSize:"30px",
+                                        fontWeight: "700",
+                                        color:"red"
+                                    }
+                                }
+                            >
+                                {vietnamdognVN.format(1055520000)}
+                            </span>
                             
                         </div>
                         <button className={styles["checkout"]}>Thanh Toán</button>

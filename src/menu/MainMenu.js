@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import styles from '../../src/assets/appstyle/header.module.css'
-import { FaSearch,FaUser,FaBell,FaCartPlus } from 'react-icons/fa'
-import { useSelector } from 'react-redux';
+import { FaSistrix,FaUser,FaBell,FaCartPlus } from 'react-icons/fa'
+import { useSelector } from "react-redux";
 
 
 const mainMenu = [
@@ -41,8 +41,7 @@ const menberMenu = [
 
 
 const MenuBar = () => {
-    const cart = useSelector(state=>state.cartReducer.cartItems);
-    console.log({cart})
+    const cartItems = useSelector(state=>state.cartReducer.cartItems)
 
     return (
         <header>
@@ -51,33 +50,41 @@ const MenuBar = () => {
                     <img src="/assets/image/logo.jpg" alt="" className={styles["logo"]} />
                 </Link>
             </div>
-
-            <ul className={styles["nav"]}>
-                {loadMenu(mainMenu)}
-            </ul>
+            <div className={styles["nav"]}>
+                <ul>
+                    {loadMenu(mainMenu)}
+                </ul>
+            </div>
             <div className={styles["iconBlock"]}>
                 <div className={styles["distribution"]} />
-                <button className={styles["btn"] + " " + styles["btn-search"]}>
-                    <FaSearch size="30px" color="white"/>
-                </button>
+                <div className={styles["btn"] + " " + styles["btn-search"]}>
+                    <button >
+                        <FaSistrix size="2.6vh"/>
+                    </button>
+                </div>
                 <div className={styles['personal']}>    
-                    <button className={styles["btn"] + " " + styles["btn-personal"]}>
-                        <FaUser size="30px" color="white"/>
+                    <button className={styles["btn-personal"]}>
+                        <FaUser size="2.6vh" />
                     </button>
                     <ul className={styles["detailPersonal"]}>
                         {loadMenu(menberMenu)}
                     </ul>
                 </div>
-                <button className={styles["btn"] + " " + styles["btn-nofitication"]}>
-                    <FaBell size="30px" color="white"/>
-                </button>
-                <button className={styles["btn"] + " " + styles["btn-cart"]}>
-                    <Link to={"/cart"}>
-                        <FaCartPlus size="30px" color="white"/>
-                        <span className={styles["cart-item-qty"]}>{cart.length}</span>
-                    </Link>
-
-                </button>
+                <div className={styles["btn"] + " " + styles["btn-nofitication"]}>
+                    <button >
+                        <FaBell size="2.6vh"/>
+                    </button>
+                </div>
+                <div className={styles["btn"] + " " + styles["btn-cart"]}>
+                    <button >
+                        <Link to={"/cart"}>
+                            <FaCartPlus size="2.6vh" color='black' />
+                            <div className={styles["cart-item-qty"]}>
+                                <span >{cartItems.length}</span>
+                            </div>
+                        </Link>
+                    </button>
+                </div>
             </div>
         </header>
     )

@@ -1,4 +1,4 @@
-
+import { pushCart } from '../services/CartService'
 
 export const addToCart = (productId) => async (dispatch) => {
   dispatch({
@@ -12,22 +12,26 @@ export const addToCart = (productId) => async (dispatch) => {
   
 };
 
-
-
 export const removeFromCart = (productId) => (dispatch, getState) => {
   dispatch({ type: 'CART_REMOVE_ITEM', payload: productId });
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
 
-export const fetchCartAction = (product)=>{
-  //console.log(product,"product Action")
-  return{
-    type: 'PRODUCT_SUCCESS',
-    payload : product
-  }
-}
-export const pushCartAction = (cartItem)=> async() =>{
+
+
+export const fetchCartAction = (cartItems)=> async(dispatch) =>{
   dispatch({
-    type: 'CART_PUT_ITEM',cartItem
-  });
+    type: 'CART_LIST_ITEM',
+    payload : cartItems
+  })
+  //console.log(product,"product Action")
+}
+
+
+
+export const pushCartAction =  (productId)=>{  
+  return dispatch => {
+    return pushCart(dispatch,productId)
+  }
+  
 }
