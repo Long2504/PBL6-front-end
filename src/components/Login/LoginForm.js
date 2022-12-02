@@ -5,25 +5,18 @@ import { Link } from "react-router-dom";
 class LoginForm extends Component{
     render(){
         return(
-          <div 
-            className={styles["main"]}
-          >
-            <div 
-              className={styles["left"]}
-            >
+          <div className={styles["main"]}>
+            <div className={styles["left"]}>
               <img 
                 src="/assets/image/home.jpg" 
                 alt="" 
                 className={styles["img-left"]} 
               />
             </div>
-            <div 
-              className={styles["right"]}
-            >
-              <div 
-                className={styles["form"]} 
-              >
+            <div className={styles["right"]}>
+              <div className={styles["form"]} >
                 <Link 
+                  to={"/register"}
                   style={
                     {
                       marginLeft:"450px",
@@ -34,20 +27,12 @@ class LoginForm extends Component{
                 >
                   Register here !
                 </Link>
-                <div 
-                  className={styles["desc"]}
-                >
+                <div className={styles["desc"]} >
                   <p>Chào mừng bạn đến với Computer Store LVKN </p>
                 </div>
-                <div 
-                  className={styles["form-group"]}
-                >
-                  <label >
-                    Email
-                  </label>
-                  <div 
-                    className={styles["input"]}
-                  >
+                <div className={styles["form-group"]}>
+                  <label >Email</label>
+                  <div className={styles["input"]}>
                     <input 
                       id={styles["email"]} 
                       name="username" 
@@ -68,11 +53,7 @@ class LoginForm extends Component{
                 <div 
                   className={styles["form-group"]}
                 >
-                  <label 
-                    className={styles["form-label"]}
-                  >
-                    Mật khẩu
-                  </label>
+                  <label >Mật khẩu</label>
                   <div 
                     className={styles["input"]}
                   >
@@ -94,48 +75,40 @@ class LoginForm extends Component{
                   </div>
                 </div>
                 <div 
-                  className={styles["remember"]}
+                  className={styles["form-submit"]}
                 >
-                  <input type="checkbox" />
-                  <label>Remember</label>
-                  <Link >Quên mật khẩu</Link>
-                </div>
-                <div 
-                  className={styles["buttons-login"]}
-                >
-                  <button 
-                    className={styles["form-submit"]} 
-                    onClick={
-                      ()=>this.props.onLogin()
-                    }
-                  >
+                  <div className={styles["btn-login"]}>
+                    <button 
+                      onClick={
+                        ()=>this.props.onLogin()
+                      }
+                    >
                     Login
-                  </button>
-                  <label>or connect with</label>
-                  <div 
-                    className={styles["items"]}
-                  >
-                    <button 
-                      type="button" 
-                      className={styles["item"] + " " + styles["fb"]}
-                    >
-                      <img 
-                        src="/assets/image/icons/facebook.png" 
-                        alt="Avatar" 
-                        className={styles["img-item"]} 
-                      />
-                    </button>
-                    <button 
-                      type="button" 
-                      className={styles["item"] + " " + styles["gg"]}
-                    >
-                      <img 
-                        src="/assets/image/icons/google.png" 
-                        alt="" 
-                        className={styles["img-item"]} 
-                      />
                     </button>
                   </div>
+                  <p>or connect with</p>
+                  <div className={styles["btn-social"]}>
+                    <button 
+                        className={styles["item"] + " " + styles["fb"]}
+                      > 
+                        <img 
+                          src="/assets/image/icons/facebook.png" 
+                          alt="Avatar" 
+                          className={styles["img-item"]} 
+                        />
+                    </button>
+                    <button 
+                        className={styles["item"] + " " + styles["gg"]}
+                      >
+                        <img 
+                          src="/assets/image/icons/google.png" 
+                          alt="" 
+                          className={styles["img-item"]} 
+                        />
+                    </button>
+                  </div>
+
+                  
                 </div>
               </div>
             </div>

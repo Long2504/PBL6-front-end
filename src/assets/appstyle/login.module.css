@@ -35,88 +35,77 @@
   margin: 0 24px;
   display: flex;
   flex-direction: column;
+
 }
 .desc{
   color:black;
+  margin-top: 30px;
 }
 .desc p{
   font-size: 26px;
   font-weight: 700;
 }
   
-.form-group {
+.form .form-group {
   margin-top: 40px;
   display: flex;
   margin-bottom: 16px;
   flex-direction: column;
 }
-.input{
+
+.form-group .input{
   border-bottom: 2px solid #D1D1D4;
-}
-.fa{
-  color: aliceblue;
+  height: 30px;
 }
 
-.form-control {
-  border: none;
-  background: none;
-  color: #D1D1D4;
-  width: 90%;
-  
+.form-group .input input{
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  color: black;
 }
+
+
 .form-control:active,
 .form-control:focus,
 .form-control:hover {
-    outline: none;
-    border-bottom-color: #6A679E;
-}
-.form-label{
-  color: #D1D1D4;
-  font-size: 1.5rem;
-  margin-bottom: 13px ;
-}
-  
-.remember{
-  margin-top: 10px;
-  color: #D1D1D4;
-  font-size: 1.6rem;
-}
-.remember a{
-  padding-left: 260px;
+  outline: none;
+  border-bottom-color: #6A679E;
 }
 
-.buttons-login{
-  margin-top: 100px;
+.form .form-submit{
   display: flex;
   flex-direction: column;
+  text-align: center;
+  margin-top: 100px;
+}
 
+.form-submit .btn-login{
+  height: 60px;
+  padding: 10px 100px ;
+  margin-bottom: 20px;
+}
+.form-submit .btn-login button{
+  height: 100%;
+  width: 100%;
+  background-color: #6A679E;
+  border-radius: 10px;
   
 }
-.form-submit{
-  margin-left: 50px;
-  margin-right: 50px;
-  height: 40px;
-  border-radius: 15px;
-  background-color: purple;
-}
-.connect{
-  margin-top: 30px;
-  margin-left: 40%;
 
-}
-.items{
-  width: 120px;
-  height: 40px;
-  margin: auto;
+
+
+.form-submit .btn-social{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-top: 30px;
-  
-  
+  padding: 30px 240px;
+
 }
-.items > .item{
-  background-color: #050214;
+
+
+
+.item{
+  background-color: white;
   border: none;
 }
   

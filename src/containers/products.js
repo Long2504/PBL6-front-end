@@ -40,14 +40,14 @@ const ProductsPublic = ()=>{
 
     console.log(catelogy,"catelogy")
     console.log(products,"product")
-    const [options,setOption] = useState({});
+    const [options,setOption] = useState([]);
     const [similarProducts,setSimilarProducts] = useState({});
 
     const handleCatalogClick = (item) =>{
         if(item){
             setOption(item.optionGroup)
             const newProduct = []
-            if(products != undefined && products.length != 0){
+            if(products !== undefined && products.length !== 0){
                 products.forEach(element => {
                     if(element.category.id === item.id){
                         newProduct.push(element)

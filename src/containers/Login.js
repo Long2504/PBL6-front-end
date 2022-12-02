@@ -25,7 +25,6 @@ const Login = ()=>{
         if(localStorage.getItem("user")!==null) navigate("/")
     }
 
-
     return(
         <div>
             <LoginForm onChange={onChange} onLogin={onLogin}/>

@@ -1,11 +1,9 @@
 
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from '../../assets/appstyle/product.module.css'
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../actions/CartAction";
 import { useEffect, useState } from 'react';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import ToggleButton from './ToggleButon'
 // function removeVietnameseTones(str) {
 //     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
 //     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
@@ -43,45 +41,60 @@ const ClassifyProduct = ({
     classifyData,
     selectWeight
 }) => {
-    console.log(classifyData,"classifyData")
-    const [active,setActive] = useState([[]]);
-    let arrActive = []
+    const [active,setActive] = useState([]);
+    const arrActive = []
     var listData = []
     useEffect(()=> {
-        if(Array.isArray(classifyData)){
+        if(classifyData.length !== 0){
             classifyData.forEach((element) =>{
                 let temp = new Array(element.attributes.length).fill(false)
                 arrActive.push(temp)
             })
             setActive(arrActive)
-            console.log("useEffect")
         }
-    },[])
-    if(Array.isArray(classifyData)){
+
+    },[classifyData])
+    
+    useEffect(()=>{
+    },[arrActive])
+
+    if(classifyData.length !== 0){
         console.log(classifyData,"classifyData")
-
-        //console.log(active,"active")
-        const handleSelectWeightClick = (id,index,indexItem,e)=>{
-            // arrActive[index][indexItem] = !arrActive[index][indexItem]
-            // setActive(arrActive)
-            // selectWeight({
-            //     "index":index,
-            //     "id":id
-            // })
-            // console.log(selectWeight)
-            console.log(e.target.value,"e.value")
+        const handleSelectWeightClick = (id,index,indexItem)=>{
+            if(active.length !== 0){
+                active[index][indexItem] = !active[index][indexItem]
+                setActive(active)
+            }
+            selectWeight({
+                "index":index,
+                "id":id
+            })
+            //console.log(selectWeight,"selectWeight")
         }
 
-        
+        const click = (index,indexItem)=>{
+            if(active.length !== 0){
+                if(active[index][indexItem])
+                    return true
+            }
+            return false
+        }
         
         const detail =(data,index)=>{
             return data.map((item,indexItem) => {
                 return(
-                   <ToggleButton 
-                    // <ToggleButton
-                        
-                                            
-                    />
+                    <button
+                        key={item.name}
+                        className={styles['name-classify']} 
+                        onClick={()=>handleSelectWeightClick(item.id,index,indexItem)}
+                        style={
+                            {
+                                backgroundColor:click(index,indexItem) ? 'rgba(134, 7, 7, 0.411)':'',
+                            }
+                        }
+                    >
+                        {item.name}
+                    </button>
                 )
             })
         }
@@ -99,10 +112,7 @@ const ClassifyProduct = ({
                     <div 
                         className={styles['list-atribute']}
                     >
-                        {/* <ToggleButtonGroup onChange={()=> index}> */}
-
-                            {detail(data.attributes,index)}
-                        {/* </ToggleButtonGroup> */}
+                        {detail(data.attributes,index)}
                     </div>
 
                 </div>
@@ -134,7 +144,6 @@ const ListProduct = (props) =>{
         dispatch(addToCart(productId))
     }
 
-    console.log(props.productData.length,"product Data API")
     let listData = []
     if(props.productData.length !== undefined ){
         listData = props.productData.map((data) =>{ 
@@ -226,7 +235,7 @@ const ProductsAPI = (props) => {
                     if(element.index === value.index){
                         check = false
                         if(element.id.some((id) => id === value.id)){
-                            element.id = element.id.filter((id) => id != value.id)
+                            element.id = element.id.filter((id) => id !== value.id)
                         }
                         else element.id.push(value.id)
                     }
@@ -245,7 +254,6 @@ const ProductsAPI = (props) => {
                     "index":value.index,
                     "id":[value.id]
                 })
-                console.log("else")
             }
             setSelectedWeight(arr);
             console.log(selectedWeight,"selectedWeight")
@@ -288,15 +296,17 @@ const ProductsAPI = (props) => {
             <ListProduct 
                 productData={list} 
             />
-            {/* <div className={styles['padination']}>
+            <div 
+                className={styles['padination']}
+            >
                 <a href="#">Previous</a>
                 <a href="#" title="Algorithm">1</a>
                 <a href="#" title="DataStructure">2</a>
                 <a href="#" title="Languages">3</a>
-                <a href="#" title="Interview" class="active">4</a>
+                <a href="#" title="Interview">4</a>
                 <a href="#" title="practice">5</a>
                 <a href="#">Next</a>
-            </div> */}
+            </div>
         </div>
     )
 }
