@@ -29,9 +29,14 @@ export const fetchCartAction = (cartItems)=> async(dispatch) =>{
 
 
 
-export const pushCartAction =  (productId)=>{  
+export const pushCartAction = (productId,methodQuantity)=>{  
   return dispatch => {
-    return pushCart(dispatch,productId)
+    return pushCart(dispatch,productId,methodQuantity)
   }
-  
+}
+
+export const subQuantityCartAction = (productId)=>{
+  return dispatch => {
+    // return subQuantityProduct(dispatch,productId)
+  }
 }

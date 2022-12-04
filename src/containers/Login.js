@@ -33,3 +33,25 @@ const Login = ()=>{
 }
 
 export default Login;
+
+
+
+
+
+
+
+
+// {
+//     "token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2Njk4ODg0ODYsImV4cCI6ODgwNjk4ODg0ODZ9.GEttJidedvWOjFeFvTg9HvQBiB7cXJvwdn_HbTUs5JwTqOJsGGdCnk8Af0xxgj-Gqd_dRq7_X_VADm-WjA3yxA",
+//     "type":"Bearer",
+//     "userModel":{
+//         "id":4,
+//         "name":"PVK",
+//         "dateOfBirth":null,
+//         "address":"DN",
+//         "phoneNumber":"123456789",
+//         "gender":true,
+//         "userAccount":null
+//     },
+//     "roles":[{"authority":"ROLE_MEMBER"},{"authority":"ROLE_ADMIN"}]
+// } user

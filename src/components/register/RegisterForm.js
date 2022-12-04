@@ -68,18 +68,15 @@ class RegisterForm extends Component {
                
                 <div className={styles["birthday"]} >
                   <label >Date Birth</label>
-                  <div className={styles["date"]}>
-                    <select name="day">
-                      {this.props.day}
-                    </select>
-                    <select name="month">
-                      {this.props.month}
-                    </select>
-                    <select name="year">
-                      {this.props.year}
-                    </select>
-                  </div>
-
+                  <input 
+                    className={styles["date"]} 
+                    name="dateOfBirth" 
+                    type="date"
+                    value={this.props.dateOfBirth}
+                    min="1940-01-01"
+                    max="2005-01-01"
+                    onChange={(e)=>{ this.props.onChange(e) }}
+                  />
                 </div>
 
                 <div className={styles["gender"]}>
@@ -88,25 +85,28 @@ class RegisterForm extends Component {
                     <label>Nam</label>
                     <input 
                       type="radio"
-                      name="sex"
+                      name="gender"
                       value={1} 
-                    ></input>
+                      onChange={(e)=>{ this.props.onChange(e) }}
+                    />
                   </div>
                   <div className={styles["sex"]}>
                     <label>Nữ</label>
                     <input 
                       type="radio"
-                      name="sex"
+                      name="gender"
                       value={2} 
-                    ></input>
+                      onChange={(e)=>{ this.props.onChange(e) }}
+                    />
                   </div>
                   <div className={styles["sex"]}>
                     <label>Khác</label>
                     <input 
                       type="radio"
-                      name="sex"
+                      name="gender"
                       value={3} 
-                    ></input>
+                      onChange={(e)=>{ this.props.onChange(e) }}
+                    />
                   </div>
                 </div>
              
@@ -147,7 +147,6 @@ class RegisterForm extends Component {
                     type="password" 
                     placeholder="Xác nhận lại mật khẩu" 
                     value={this.props.confirmpassword}
-                    onChange={(e)=>{ this.props.onChange(e)}}
                     onBlur={(e)=> {this.props.onBlur(e)}}
                   />
                   <p >{this.props.error.confirmpassword}</p>

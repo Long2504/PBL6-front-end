@@ -47,9 +47,6 @@
   font-weight: 700;
 }
 
-  
-
-
 .form .input{
   margin-bottom: 15px;
 }
@@ -79,6 +76,7 @@
   
 }
 
+
 .form .birthday{
   height: 40px;
   display: flex;
@@ -91,22 +89,14 @@
 }
 
 .birthday .date{
-  display: flex;
   width: 60%;
-  justify-content: space-around;
-  
-
-}
-
-.birthday .date > select{
+  margin-left: 20px;
   border: 2px solid #ccd0d5;
   border-radius: 5px;
+  font-size: 25px;
   padding: 0 20px;
-  font-size: 20px;
-  line-height: 20px;
-  font-weight: 500;
-  
 }
+
 
 .form .gender{
   height: 40px;

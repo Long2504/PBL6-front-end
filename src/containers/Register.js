@@ -26,20 +26,40 @@ const Register = ()=>{
     for(let i = 1 ; i < 120 ; i++){
         
         if( i < 32){
-            day.push(<option key={i} value={i} selected={i}>{i}</option>)
+            day.push(
+                <option 
+                    key={i} 
+                    name={'optionDay'} 
+                    value={i} 
+                >
+                    {i}
+                </option>)
         }
         if(i < 13){
-            month.push(<option key={i} value={i} selected={i}>{i}</option>)
+            month.push(
+                <option 
+                    key={i} 
+                    name={'optionMonth'} 
+                    value={i} 
+                >
+                    {i}
+                </option>)
         }
-        year.push(<option key={i} value={i+ 1903} selected={i+ 1903}>{i+ 1903}</option>)
+        year.push(
+            <option 
+                key={i} 
+                name={'optionYear'} 
+                value={i+ 1903} 
+            >
+                {i+ 1903}
+            </option>)
     }
 
     const onChange=(e)=>{
         var name = e.target.name;
         var value = e.target.value;
-        if(name !== 'confirmpassword'){
-            setUser({...user,[name]:value});
-        }
+        setUser({...user,[name]:value});
+        
         setError({...error,[name]:""})
     }
     const onBlur = (e)=>{

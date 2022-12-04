@@ -1,7 +1,7 @@
-import ProductsPublic from "../containers/products";
+import ProductsPublic from "../containers/product/products";
 
-const ProductPage = ()=>{
+const ProductPage = () =>{
     return <ProductsPublic />
 }
 
-export default ProductsPublic;
+export default ProductPage;

@@ -3,6 +3,7 @@ import adminProductReducer from "./AdminProductReducer";
 import authReducer from "./AuthReducer"
 import { cartReducer } from "./CartReducer";
 import { catalogReducer, productsReducer, productReducer } from "./ProductReducer"
+import { paymentReducer } from "./OrderReducer"
 import { createContext } from "react";
 
 
@@ -14,6 +15,7 @@ const rootReducer = {
     catalogReducer,
     productsReducer,
     productReducer,
+    paymentReducer,
 }
 
 export default rootReducer;

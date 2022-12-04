@@ -1,20 +1,22 @@
-import ProductsAPI from "../components/product/ProductsAPI";
-import ProductCatalog from "../components/product/ProductCatalog";
-import styles from '../assets/appstyle/product.module.css'
+import ProductsAPI from "../../components/product/ProductsAPI";
+import ProductCatalog from "../../components/product/ProductCatalog";
+import styles from  '../../assets/appstyle/product.module.css'
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchCategory,fetchProductList } from "../services/ProductService";
+import { fetchCategory,fetchProductList } from "../../services/ProductService";
 
 import {FaAngleRight } from 'react-icons/fa'
 
 const ProductsPublic = ()=>{
-
+    const user = JSON.parse(localStorage.getItem("user")).userModel
+    console.log(user.id,"user")
     const dispatch = useDispatch();
     const catelogy = useSelector(state=>state.catalogReducer.categories);
     const products = useSelector(state=>state.productsReducer.products);
-
+    const [options,setOption] = useState([]);
+    const [similarProducts,setSimilarProducts] = useState({});
     useEffect(()=> {
         fetchCategory(dispatch)
         fetchProductList(dispatch)
@@ -38,10 +40,8 @@ const ProductsPublic = ()=>{
         }
     },[catelogy,products])
 
-    console.log(catelogy,"catelogy")
-    console.log(products,"product")
-    const [options,setOption] = useState([]);
-    const [similarProducts,setSimilarProducts] = useState({});
+    // console.log(catelogy,"catelogy")
+    // console.log(products,"product")
 
     const handleCatalogClick = (item) =>{
         if(item){
@@ -53,7 +53,6 @@ const ProductsPublic = ()=>{
                         newProduct.push(element)
                     }
                 });
-                //console.log({newProduct})
                 setSimilarProducts(newProduct)
             }
         }
@@ -61,15 +60,9 @@ const ProductsPublic = ()=>{
     //console.log(similarProducts,"simlilarProduct")
         
     return(
-        <div 
-            id={styles["content"]}
-        >
-            <div 
-                className={styles["clearfix"]}
-            >
-                <div 
-                    className={styles["div-link"]}
-                >
+        <div id={styles["content"]}>
+            <div className={styles["clearfix"]}>
+                <div className={styles["div-link"]}>
                     <span>Trang chủ</span>
                     <FaAngleRight
                         style={
@@ -96,9 +89,7 @@ const ProductsPublic = ()=>{
                     <span>latop</span>
                 </div>
             </div>
-            <div 
-                className={styles["main-menu"]}
-            >
+            <div className={styles["main-menu"]}>
                 <ProductCatalog 
                     catalogData={catelogy} 
                     onCatalogClick={handleCatalogClick}
@@ -107,9 +98,7 @@ const ProductsPublic = ()=>{
                     classifyData={options} 
                     productData={similarProducts} 
                 />
-                <div 
-                    className={styles["more"]}
-                >
+                <div className={styles["more"]}>
                 </div>
             </div>
         </div>
@@ -118,7 +107,6 @@ const ProductsPublic = ()=>{
 }
 
 export default ProductsPublic;
-
 
 
 

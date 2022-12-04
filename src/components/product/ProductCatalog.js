@@ -1,5 +1,5 @@
 
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from '../../assets/appstyle/product.module.css'
 
 
@@ -20,11 +20,10 @@ const ProductCatalog = (props) => {
         return(
             <Link key={item.id} to={`/product/${item.name.toLowerCase().toString()}`} className={styles["item"]}>
                 <div 
-                     
                     className={styles["container-item"]} 
                     onClick={() => handleClick(item)}
                 >
-                    <img src={item.src}></img>
+                    <img alt='' src={item.src}></img>
                     <span>{item.name}</span>
                 </div>
             </Link>
