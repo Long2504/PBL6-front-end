@@ -1,9 +1,10 @@
 import AdminBill from "../containers/AdminBill";
-
-const AdminBillPage = ()=>{
-    return(
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+const AdminBillPage = () => {
+    return (
         <div>
-           <AdminBill/>
+                    <AdminBill />
         </div>
     )
 }

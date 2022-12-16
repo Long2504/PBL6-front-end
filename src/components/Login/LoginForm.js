@@ -1,6 +1,9 @@
 import { Component } from "react";
 import styles from '../../assets/appstyle/login.module.css'
 import { Link } from "react-router-dom";
+// import '../../assets/appstyle/login.css'
+
+
 
 class LoginForm extends Component{
     render(){

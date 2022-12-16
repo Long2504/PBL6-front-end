@@ -1,5 +1,7 @@
 import adminBillReducer from "./AdminBillReducer";
+import adminProductDetailReducer from "./AdminProductDetailReducer";
 import adminProductReducer from "./AdminProductReducer";
+import adminReportReducer from "./AdminReportReducer";
 import authReducer from "./AuthReducer"
 import { cartReducer } from "./CartReducer";
 import { catalogReducer, productsReducer, productReducer } from "./ProductReducer"
@@ -10,13 +12,7 @@ import { createContext } from "react";
 const rootReducer = {
     adminProductReducer ,   
     authReducer,
-    adminBillReducer,
-    cartReducer,
-    catalogReducer,
-    productsReducer,
-    productReducer,
-    paymentReducer,
-    orderReducer
+    adminBillReducer
 }
 
 export default rootReducer;

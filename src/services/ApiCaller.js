@@ -3,10 +3,10 @@ import axios from 'axios';
 //http://localhost:5000
 //https://backendpbl6.herokuapp.com
 export const ApiCaller = (method,body,endpoint)=>{
-    console.log(getHeader(),"getHeader")
+   //  console.log(getHeader())
     return axios({
         method: method,
-        url: `https://backendpbl6.herokuapp.com/${endpoint}`,
+        url: `http://localhost:5000/${endpoint}`,
         headers: getHeader(), 
         data: body
       })

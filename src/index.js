@@ -9,6 +9,7 @@ import rootReducer from './reducers/RootReducer';
 import {StoreProvider} from './reducers/RootReducer';
 const store = configureStore(
   {
+
     reducer:rootReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       immutableCheck:false,
@@ -20,7 +21,7 @@ const store = configureStore(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
+    <App/>
   </Provider >
 );
 

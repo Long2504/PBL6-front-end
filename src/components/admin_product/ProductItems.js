@@ -18,7 +18,7 @@ class ProductItem extends Component{
               <td>
                 <div>
                 {/* <button className="btn btn-info" onClick={()=>this.props.onDelete(Product.id)}>Delete</button> */}
-                <Link to={`./edit/${Product.id}`} className="btn btn-primary" style={{marginRight:"15px"}}>Edit</Link>
+                <Link to={`./${Product.id}`} className="btn btn-primary" style={{marginRight:"15px"}}>Chi tiết</Link>
                 </div>
               </td>
             </tr>

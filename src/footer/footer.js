@@ -1,3 +1,4 @@
+
 import styles from '../assets/appstyle/footer.module.css'
 import { FaMapMarkerAlt,FaPhoneAlt,FaEnvelope,FaFacebookSquare,FaYoutube,FaQrcode,FaRegMoneyBillAlt,FaRegClock,FaRegCreditCard } from 'react-icons/fa'
 
@@ -56,13 +57,13 @@ const MyFooter = () => {
                         </div>
                         <div className={styles["item"]}>
                             <FaYoutube color='red' size={'3em'}></FaYoutube>
-
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+
     )
 }
 
-export default  MyFooter
+export default MyFooter
