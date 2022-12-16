@@ -1,125 +1,115 @@
 
-/* html {
-    color: #333;
-    font-size: 62.5%;
-    font-family: "Open Sans", sans-serif; 
-    background-color: #020914; 
-  } */
   
-  .main{
-    width: 90%;
-    height: 850px;
-    margin: 50px auto;
-    display: flex;
-    justify-content: space-around;
+.main {
+  width: 100%;
+  height: 850px;
+  display: flex;
+  justify-content:space-between;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: whitesmoke;
   
-  }
-  .left{
-    background-color: #020914;
-    width: 60%;
-    height: 100%;
-  }
-  .img-left{
-    width: 100%;
-    height: 100%;
-  }
+
+}
+
+.left{
+  width: 60%;
+  height: 100%;
+}
+.img-left{
+  width: 100%;
+  height: 100%;
+}
+
+.right{
+  background-color: white;
+  width: 40%;
+  height: 100%;
+}
+
+.form {
+  font-size: 20px;
+  padding: 30px 20px;
+  margin: 0 24px;
+  display: flex;
+  flex-direction: column;
+
+}
+.desc{
+  color:black;
+  margin-top: 30px;
+}
+.desc p{
+  font-size: 26px;
+  font-weight: 700;
+}
   
-  .right{
-    background-color: #050214;
-    width: 40%;
-    height: 100%;
-  }
-  .form {
-    font-size: 20px;
-    padding: 32px 24px;
-    border-radius: 2px;
-    margin: 24px;
-    align-self: center;
+.form .form-group {
+  margin-top: 40px;
+  display: flex;
+  margin-bottom: 16px;
+  flex-direction: column;
+}
+
+.form-group .input{
+  border-bottom: 2px solid #D1D1D4;
+  height: 30px;
+}
+
+.form-group .input input{
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  color: black;
+}
+
+
+.form-control:active,
+.form-control:focus,
+.form-control:hover {
+  outline: none;
+  border-bottom-color: #6A679E;
+}
+
+.form .form-submit{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.form-submit .btn-login{
+  height: 60px;
+  padding: 10px 100px ;
+  margin-bottom: 20px;
+}
+.form-submit .btn-login button{
+  height: 100%;
+  width: 100%;
+  background-color: #6A679E;
+  border-radius: 10px;
   
-  }
-  .desc{
-    color: #D1D1D4;
-    font-size: 2rem;
-    line-height: 0.5;
-  }
+}
+
+
+
+.form-submit .btn-social{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 240px;
+
+}
+
+
+
+.item{
+  background-color: white;
+  border: none;
+}
   
-  .form-group {
-    margin-top: 40px;
-    display: flex;
-    margin-bottom: 16px;
-    flex-direction: column;
-  }
-  .input{
-    border-bottom: 2px solid #D1D1D4;
-  }
-  .fa{
-    color: aliceblue;
-  }
-  
-  .form-control {
-    border: none;
-    background: none;
-    color: #D1D1D4;
-    width: 90%;
-    
-  }
-  .form-control:active,
-  .form-control:focus,
-  .form-control:hover {
-      outline: none;
-      border-bottom-color: #6A679E;
-  }
-  .form-label{
-    color: #D1D1D4;
-    font-size: 1.5rem;
-    margin-bottom: 13px ;
-  }
-  
-  .remember{
-    margin-top: 10px;
-    color: #D1D1D4;
-    font-size: 1.6rem;
-  }
-  .remember a{
-    padding-left: 260px;
-  }
-  
-  .buttons-login{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-  
-    
-  }
-  .form-submit{
-    margin-left: 50px;
-    margin-right: 50px;
-    height: 40px;
-    border-radius: 15px;
-    background-color: purple;
-  }
-  .connect{
-    margin-top: 30px;
-    margin-left: 40%;
-  
-  }
-  .items{
-    width: 120px;
-    height: 40px;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 30px;
-    
-    
-  }
-  .item{
-    background-color: #050214;
-    border: none;
-  }
-  
-  .img-item{
-    width: 40px;
-    height: 40px;
-  }
+.img-item{
+  width: 40px;
+  height: 40px;
+}

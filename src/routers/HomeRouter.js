@@ -5,8 +5,9 @@ const homeRoutes = [
         path : "/",
         exact : true,
         page : HomePage,
-        role:[],
-    }
+        role:[],        
+    },
+
 ]
 
 export default homeRoutes;

@@ -14,6 +14,11 @@ function App() {
 
   return(
     <Router>
+      <div className="main">
+        <MenuBar />
+        <Routes>{showMenuContents(routers)}</Routes>
+
+        <MyFooter />
       <div>
           <div>
           <MenuBar/>
@@ -22,8 +27,9 @@ function App() {
           </div>
       </div>
         <MyFooter/>
+        </div>
     </Router>
-    )
+  );
 }
 
 export const locationContext = createContext();
@@ -59,7 +65,7 @@ const showMenuContents=(routers,locationContext)=>{
       routerList.push(...rout);
   }
   );
-  console.log(routerList)
+  console.log(routerList,"routerlist")
   return routerList;
 }
 

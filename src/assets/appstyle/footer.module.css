@@ -1,0 +1,119 @@
+
+footer{
+    width: 100%;
+    height: 500px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.footer_top{
+    width: 100%;
+    height: 330px;
+    border-bottom:1px solid #333;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer_top .info-company{
+    width: 30%;
+    height: 40%;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.info-company .logo{
+    width: 20%;
+    height: 50%;
+}
+.info-company >h2 {
+    margin: 30px 0;
+}
+
+
+.info-company .item-infor{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.info-company .item-infor > p{
+    margin-left: 10px;
+}
+
+
+
+.footer__bottom{
+    width: 100%;
+    height: 170px;
+    color:  black;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.footer__bottom .pay{
+    width: 40%;
+    height: 170px;
+}
+.footer__bottom .footer_img{
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+}
+
+.pay h4{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.pay .listMethodPay{
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    text-align: center;
+    color:black;
+}
+
+.pay .listMethodPay .item{
+    width: 25%;
+    margin: auto 0;
+    
+}
+
+.footer__bottom .community{
+    width: 60%;
+    height: 170px;
+}
+
+
+.community h4{
+    margin-top: 20px;
+    margin-left: 750px;
+
+}
+
+.community .listCommunity{
+    width: 18%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 750px;
+}
+
+.community .listCommunity .item{
+    width: 30%;
+    margin: auto 0;
+}
+
+.icon {
+    display  : flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.icon:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}

@@ -10,9 +10,9 @@ export const ApiCaller = (method,body,endpoint)=>{
         headers: getHeader(), 
         data: body
       })
- }
+}
 
- const getHeader = ()=>{
+const getHeader = ()=>{
     if(localStorage.getItem("user")!==null){
        const token = JSON.parse(localStorage.getItem("user")).token;
        return {
@@ -21,4 +21,6 @@ export const ApiCaller = (method,body,endpoint)=>{
        }
     }
     return {'Content-Type': 'application/json'}
- }
+}
+
+

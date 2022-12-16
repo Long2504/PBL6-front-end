@@ -1,226 +1,86 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-
-#header{
-    height: 100px;
-    background-color: black;
-    position: relative;
-}
-
-#footer{
-    height: 100px;
-    background-color: black;
-    position: relative;
-}
 
 .container{
-    width: 75%;
-    height: 100%;
-    margin-left: 8%;
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(248, 248, 252);
+    padding-top: 100px;
     
 }
-
-.logo{
-    width: 15%;
-    height: 100%;
-}
-
-
-.nav li{
-
-    display: inline-block;
-    line-height: 100px;
-    margin: 0 15px;
-}
-.nav li a{
-    color: aliceblue;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: inline-block;
-}
-
-.nav li:hover a{
-    color: slateblue;
-}
-
-.iconBlock{
-    width: 15%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-
-.distribution{
-    height: 60%;
-    border-left: 1px solid white;
-    margin-top: 12px;
-}
-/* .btn{
-    line-height: 100px;
-    background: black;
-    border: none;
-}
-
-.btn:hover i{
-    color: slateblue;
-} */
-
-.fa{
-    color: aliceblue;
-    background-color: black;
-
-}
-
-
-
-.personal .btn-personal{
-    position: relative; 
-}
-
-.personal .detailPersonal{
-    display: none;
-    width: 250px;
-    height: 220px;
-    background-color: rgb(207, 207, 200);
-    position: absolute;
-    list-style-type: none;
-
-}
-
-.personal .detailPersonal li{
-    margin-left: 25px;
-    width: 100%;
-    height: 22%;
-    padding-top: 20px;
-}
-
-.personal .detailPersonal li a{ 
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: black;
-}
-
-
-.personal:hover .detailPersonal{
-    display: block;
-}
-
 
 #slider{
     width: 100%;
-    height: 100%;
-    /* position: relative;
-    overflow: hidden; */
-}
-
-/* #slider .slider-sub img{
-    display: block;
-    transition: 1s;
-} */
-
-
-#content{
-    width: 100%;
-    height: 400px;
-    background-color: #333;
-    
-}
-
-
-#footer{
-    width: 100%;
-    height: 350px;
-    background-color: black
-}
-
-#footer .footer__top{
-    width: 100%;
-    height: 180px;
-    border-bottom:1px solid #333;
-}
-
-#footer .footer__bottom{
-    width: 100%;
-    height: 170px;
-    color: #fff;
+    height: 800px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+}
+.img-slider{
+    width: 1500px;;
+    max-height: 100%;
 
 }
 
-#footer .footer__bottom .pay{
-    width: 40%;
-    height: 170px;
-}
-#footer .footer__bottom .footer_img{
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
+.content{
+    width: 100%;
+    background-color: rgb(248, 248, 252);
+    margin-top: 50px;
+
 }
 
-
-.pay h4{
-    margin-top: 20px;
-    margin-left: 20px;
-}
-.pay .listMethodPay{
-    width: 65%;
+.slowFade {
     display: flex;
-    flex-direction: row;
-    margin-top: 25px;
-    text-align: center;
-    color: #fff;
+    align-items: flex-start;
+    /* background: #fff; */
+    /* height: 100vh; */
+    overflow: hidden;
+    position: relative;
+}
+
+.slowFade .slide img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    background: #000;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    opacity: 0;
+    transform: scale(1.5) rotate(15deg);
+    -webkit-animation: slowFade 32s infinite;
+            animation: slowFade 32s infinite;
+}
+.slowFade .slide:nth-child(3) img {
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+}
+.slowFade .slide:nth-child(2) img {
+    -webkit-animation-delay: 16s;
+            animation-delay: 16s;
+}
+.slowFade .slide:nth-child(1) img {
+    -webkit-animation-delay: 24s;
+            animation-delay: 24s;
+}
+@keyframes slowFade {
+    25% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    40% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes slowFade {
+    25% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    40% {
+        opacity: 0;
+    }
 }
 
 
-.pay .listMethodPay .item{
-    width: 25%;
-    margin: auto 0;
-    
-}
 
-
-#footer .footer__bottom .community{
-    width: 60%;
-    height: 170px;
-}
-
-
-.community h4{
-    margin-top: 20px;
-    margin-left: 750px;
-
-}
-
-.community .listCommunity{
-    width: 18%;
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-    margin-left: 750px;
-}
-
-.community .listCommunity .item{
-    width: 30%;
-    margin: auto 0;
-}
-
-.icon {
-    display  : flex;
-    justify-items: center;
-    align-items: center;
-}
-
-.icon:hover{
-    cursor: pointer;
-    opacity: 0.8;
+.img-content{
+    width: 100%;
+    height: auto;
 }

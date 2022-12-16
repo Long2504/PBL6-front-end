@@ -1,0 +1,118 @@
+
+header{
+    width: 100%;
+    height: 3.5vw;
+    background-color: white;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    border: 1px solid whitesmoke;
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.div-img{
+    width: 15%;
+    height: 100%;
+}
+
+.div-img .logo{
+    width: 40%;
+    margin: 0 24%;
+    height: 100%;
+}
+
+.nav{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav > ul > li{
+    display: inline-block;
+    margin: 0 15px;
+    
+}
+
+.nav > ul > li > a{
+    font-size: 1.5rem;
+    display: inline-block;
+    color: black;
+    font-weight: 900;
+}
+
+.nav li:hover a{
+    color: blue;
+}
+
+.iconBlock{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.2vw;
+    align-items: center;
+
+}
+
+.distribution{
+    height: 60%;
+    border-left: 1.5px solid black;
+}
+
+.btn{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.btn:hover {
+    color: slateblue;
+}
+
+
+
+.btn .detailPersonal{
+    background-color: rgb(207, 207, 200);
+    position: absolute;
+    top: 3.5vw;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    white-space: nowrap;
+}
+
+
+.detailPersonal li a{ 
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+}
+.detailPersonal a:hover{
+    color: #eb1313;
+}
+
+
+.cart-item-qty{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    font-size: 15px;
+    color: #eee;
+    background-color: #eb1313;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0.5vw;
+    right: -0.5vw;
+}
+
+
+
+
+

@@ -1,13 +1,15 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {faBell, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import styles from '../assets/appstyle/main.module.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import styles from '../../src/assets/appstyle/header.module.css'
+import { FaSistrix,FaUser,FaBell,FaCartPlus } from 'react-icons/fa'
+import { useSelector } from "react-redux";
+import { useState } from 'react';
+
 
 const mainMenu = [
     {
         name: "Sản Phẩm",
-        to: "/"
+        to: "/product/latop"
     },
     {
         name: "Cửa hàng",
@@ -23,11 +25,10 @@ const mainMenu = [
     },
 ]
 
-
 const menberMenu = [
     {
         name: "Thông tin tài khoản",
-        to: "/"
+        to: "/User"
     },
     {
         name: "Quản lý đơn hàng",
@@ -39,47 +40,60 @@ const menberMenu = [
     }
 ]
 
-library.add(faMagnifyingGlass,faUser,faBell,faCartShopping)
-
 
 const MenuBar = () => {
+    const cartItems = useSelector(state=>state.cartReducer.cartItems);
+    const [clickPersonal,setClickPersonal] = useState(false);
+    const onClickPersonal = ()=>{
+        setClickPersonal(!clickPersonal)
+    }
     return (
-        <div id={styles.header}>
-            <div className={styles.container}>
-                <img src="/assets/image/Low Resolution Logo.png" alt="" className={styles.logo} />
-                <ul className={styles.nav}>
+        <header>
+            <div className={styles['div-img']}>
+                <Link to={""}>
+                    <img src="/assets/image/logo.jpg" alt="" className={styles["logo"]} />
+                </Link>
+            </div>
+            <div className={styles["nav"]}>
+                <ul>
                     {loadMenu(mainMenu)}
                 </ul>
-                <div className={styles.iconBlock}>
-                    <div className={styles.distribution} />
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" color='silver'/>
-                    </div>
-                    <div className={styles.icon}>
-                        <div className={styles.personal}>
-                        <FontAwesomeIcon icon="fa-solid fa-user"  color='silver'/>
-                        <ul className={styles.detailPersonal}>
-                            {loadMenu(menberMenu)}
-                        </ul>
+            </div>
+            <div className={styles["iconBlock"]}>
+                <div className={styles["distribution"]} />
+                <div className={styles["btn"]}>
+                    <FaSistrix size="1.2vw"/>
+                </div>
+                <div className={styles['btn']} onClick={onClickPersonal} >    
+                    <FaUser size="1.2vw" />
+                    {
+                        clickPersonal ? <ul className={styles["detailPersonal"]}>
+                        {loadMenu(menberMenu)}</ul> : null
+                    }
+                </div>
+
+                <div className={styles["btn"]}>
+                    <FaBell size="1.2vw"/>
+                </div>
+                <div className={styles["btn"]}>
+                    <Link to={"/cart"}>
+                        <FaCartPlus size="1.2vw" color='black' />
+                        <div className={styles["cart-item-qty"]}>
+                            <span >{cartItems.length}</span>
                         </div>
-                    </div>
-                    <div className={styles.icon}>
-                    <FontAwesomeIcon icon="fa-solid fa-bell" color='silver'/>
-                    </div>
-                    <div className={styles.icon} >
-                        <FontAwesomeIcon icon="fa-solid fa-cart-shopping" color='silver'/>
-                    </div>
+                    </Link>
+
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 
 const loadMenu = (menu) => {
     return (
         menu.map((menu, index) => (
-            <li key={index} className="nav-item">
-                <Link to={menu.to} className="nav-link" >
+            <li key={index} className={styles["nav-item"]}>
+                <Link to={menu.to.toString()} className={styles["nav-link"]} >
                     {menu.name}
                 </Link>
             </li>

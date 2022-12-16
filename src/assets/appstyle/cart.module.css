@@ -1,0 +1,147 @@
+
+.cart-content{
+    padding-top: 100px;
+    background-color:rgb(248, 248, 252);
+}
+.div-link{
+    display: flex;
+    flex-direction: row;
+    width: 8%;
+    margin-left: 50px;
+}
+.container-cart{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 13% 30px 13%;
+}
+
+.items{
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+.items table{
+    width: 100%;
+    border-collapse:collapse;
+    
+}
+.items .row{
+    padding-top: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid wheat;
+    color: black;
+}
+.items .row > th{
+    font-size: 20px;
+    padding-bottom: 15px;
+    padding-top: 25px;
+}
+
+.row td > a > img {
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.row td,th{
+    max-width: 200px;
+    padding-right: 60px;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+.quantity .btn {
+   display: flex;
+   justify-content: center;
+}
+
+.quantity span{
+    font-size: 20px;
+}
+
+.total{
+    width: 400px ;
+    margin-left: 30px;
+    color: black;
+    
+}
+.total .coupon{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.total .coupon p{
+    padding: 15px 0 10px 120px;
+}
+
+.coupon .coupon-container{
+    font-size: 25px;
+    font-weight: 300;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 15px;
+
+}
+
+.coupon .coupon-container input{
+    width: 80%;
+    height: 35px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.coupon .coupon-container .btn-discount{
+    width: 17%;
+    height: 35px;
+    margin-left: 3%;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.total .sum{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.total .sum p{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0 10px 100px;
+    margin-bottom: 30px;
+}
+
+.total .sum .sum-container{
+    margin-bottom: 10px;
+}
+
+.total .sum span{
+    font-size: 20px;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+
+.total .sum .checkout{
+
+    height: 50px;
+    border-radius: 10px;
+    /* background-color:#44d62c; */
+    background-color: yellow;
+    font-size: 25px;
+    font-weight: 25px;
+    margin: 10px 20px;
+ 
+}
