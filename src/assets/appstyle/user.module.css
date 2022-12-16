@@ -1,0 +1,130 @@
+.user{
+    padding-top: 3.5vw;
+    width: 60%;
+    margin: auto;
+    display: flex;
+}
+
+.nav-user{
+    width: 20%;
+    padding: 0 20px;
+}
+
+.nav-user .profile{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.nav-user .profile > img {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-user .profile > span{
+    margin-left: 1vw;
+    font-weight: bold;
+}
+.item-nav{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vw;
+    gap: 0.5vw;
+    
+}
+.nav-a{
+    color: blue;
+}
+
+hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 1px;
+    background-color: black;
+
+}
+
+.container-user{
+    width: 80%;
+    padding: 0 10px;
+    
+}
+/*------------account------------------*/
+.container-user .account{
+    padding-top: 20px;
+    margin-left: 2vw;
+    background-color: white;
+}
+
+.account-info .info{
+    display: flex;
+    margin-bottom: 30px;
+}
+.account-info .info .label{
+    width: 15%;
+    text-align: right;
+}
+
+.account-info .info .info-main{
+    margin-left: 20px;
+}
+
+/*======================================*/
+
+
+/*-----------------order-----------------*/
+
+.list-order{
+    margin-top: 20px;
+    position: relative;
+}
+
+.order{
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+
+.info-order {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px grey solid;
+}
+
+.info-order > img{
+    width: 5vw;
+    height: 5vw;
+}
+
+
+.order-bottom{
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total{
+    display: flex;
+
+}
+
+.bill{
+    display: flex;
+    border: 1px solid blanchedalmond;
+    background-color: lightseagreen;
+    padding: 5px;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+.bill > span{
+    margin-left: 10px;
+}
+
+
+/*-------------------bill----------------------*/

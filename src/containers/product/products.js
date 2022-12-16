@@ -8,15 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategory,fetchProductList } from "../../services/ProductService";
 
 import {FaAngleRight } from 'react-icons/fa'
+import { Link } from "react-router-dom";
 
 const ProductsPublic = ()=>{
-    const user = JSON.parse(localStorage.getItem("user")).userModel
-    console.log(user.id,"user")
     const dispatch = useDispatch();
     const catelogy = useSelector(state=>state.catalogReducer.categories);
     const products = useSelector(state=>state.productsReducer.products);
     const [options,setOption] = useState([]);
     const [similarProducts,setSimilarProducts] = useState({});
+    const [catelogyName,setCatelogyName] =  useState("latop")
     useEffect(()=> {
         fetchCategory(dispatch)
         fetchProductList(dispatch)
@@ -40,12 +40,14 @@ const ProductsPublic = ()=>{
         }
     },[catelogy,products])
 
-    // console.log(catelogy,"catelogy")
+    console.log(catelogy,"catelogy")
     // console.log(products,"product")
 
     const handleCatalogClick = (item) =>{
         if(item){
+            
             setOption(item.optionGroup)
+            setCatelogyName(item.name)
             const newProduct = []
             if(products !== undefined && products.length !== 0){
                 products.forEach(element => {
@@ -63,7 +65,7 @@ const ProductsPublic = ()=>{
         <div id={styles["content"]}>
             <div className={styles["clearfix"]}>
                 <div className={styles["div-link"]}>
-                    <span>Trang chủ</span>
+                    <Link to={"/"}>Trang chủ</Link>
                     <FaAngleRight
                         style={
                             {
@@ -73,8 +75,7 @@ const ProductsPublic = ()=>{
                             }
                         } 
                     >
-                    </FaAngleRight>
-                
+                    </FaAngleRight>   
                     <span>Sản phẩm</span>
                     <FaAngleRight
                             style={
@@ -86,7 +87,7 @@ const ProductsPublic = ()=>{
                             } 
                         >
                     </FaAngleRight>
-                    <span>latop</span>
+                    <span>{catelogyName}</span>
                 </div>
             </div>
             <div className={styles["main-menu"]}>
@@ -110,70 +111,3 @@ export default ProductsPublic;
 
 
 
-// const productData = [
-//     {
-//         id: "1",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop",
-//         test: "3"
-//     },
-//     {
-//         id: "2",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "3",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "4",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "5",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "6",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "7",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "8",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-//     {
-//         id: "9",
-//         src: "https://assets3.razerzone.com/VHAUmbe4ZRyIwRn6tvmuMwc41v8=/300x300/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh2d%2Fhe5%2F9392073998366%2Fblade15-ch8-fhd-2-500x500.png",
-//         name: "Razer Blade 15 - QHD OLED 240Hz - GeForce RTX 3070 Ti - Black",
-//         price: "40.190.000 ₫",
-//         category: "latop"
-//     },
-
-// ]

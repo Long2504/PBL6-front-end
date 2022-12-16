@@ -4,6 +4,7 @@ import ProductPage from "../pages/ProductPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import TEST from "../pages/test";
 import Cart from "../pages/CartPage";
+import UserPage from "../pages/UserPage";
 const authRoutes=[
     {
         path : "/login",
@@ -39,6 +40,12 @@ const authRoutes=[
         path: "/Cart",
         exact : true,
         page : Cart,
+        role:[],
+    },
+    {
+        path: "/User",
+        exact: true,
+        page:UserPage,
         role:[],
     }
 ]

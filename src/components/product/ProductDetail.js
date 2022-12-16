@@ -2,7 +2,7 @@ import styles from '../../assets/appstyle/productdetail.module.css'
 import { FaAngleRight } from 'react-icons/fa'
 import { Component } from "react";
 
-
+import { Link } from "react-router-dom";
 let vietnamdognVN = Intl.NumberFormat("vi",{
     style: "currency",
     currency : 'VND'
@@ -11,16 +11,18 @@ let vietnamdognVN = Intl.NumberFormat("vi",{
 class ProductDetail extends Component{
     render(){
         let arrDeciption = []
+        let arrName = []
         if(this.props.product.description){
            const arr = this.props.product.description.substr(1)
            arrDeciption = arr.split('n-')
+           arrName = this.props.product.name.split(`(`)[0]
+           console.log(arrName)
         }
         return(        
             <div id={styles["content-detail"]}>
                 <div className={styles["clearfix"]}>
-
                     <div className={styles["div-link"]}>
-                        <span>Trang chủ</span>
+                        <Link to={"/"}>Trang chủ</Link>
                         <FaAngleRight
                             style={
                                 {
@@ -30,9 +32,19 @@ class ProductDetail extends Component{
                                 }
                             } 
                         >
+                        </FaAngleRight>   
+                        <span>Sản phẩm</span>
+                        <FaAngleRight
+                                style={
+                                    {
+                                        margin:"auto",
+                                        width: "20px",
+                                        fontWeight:"10",
+                                    }
+                                } 
+                            >
                         </FaAngleRight>
-                        
-                        <span>Laptop ACER Aspire 3 A315-58-54M5 NX.ADDSV.00M</span>
+                        <span>{arrName}</span>
                     </div>
                 </div>
                 <div className={styles["main-detail"]}>

@@ -1,7 +1,10 @@
 import { ApiCaller } from "./ApiCaller"
-import { fetchCartAction } from '../actions/CartAction'
+import { fetchCartAction, fetchOrderAction } from '../actions/CartAction'
 
-const user = JSON.parse(localStorage.getItem("user")).userModel
+var user ;
+if(localStorage.getItem("user")){
+    user = JSON.parse(localStorage.getItem("user")).userModel
+}
 
 export const pushCart = async (dispatch,id,methodQuantity)=>{
     // console.log("pushCartService")
@@ -18,6 +21,14 @@ export const pushCart = async (dispatch,id,methodQuantity)=>{
 export const fetchCart= async (dispatch)=>{
     return ApiCaller("GET",null,"cart/" + user.id)
     .then(res=>dispatch(fetchCartAction(res.data)))
+    .catch(error=>{
+        console.log(error,"error")
+    })
+}
+
+export const fetchOrder = async (dispatch) =>{
+    return ApiCaller("GET",null,"order/" + user.id)
+    .then(res => dispatch(fetchOrderAction(res.data)))
     .catch(error=>{
         console.log(error,"error")
     })
