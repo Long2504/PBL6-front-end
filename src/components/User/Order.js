@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { Component } from "react";
 import styles from '../../assets/appstyle/user.module.css'
 import { FaMoneyBillAlt } from 'react-icons/fa'
 import { FaRegMoneyBillAlt } from 'react-icons/fa'
@@ -7,7 +7,6 @@ import Bill from "./Bill";
 class Order extends Component{
     render(){
         
-       
         const orderDetailSet = (list)=>{
             const orders = list.map((item,index)=>{
                 return(
@@ -54,5 +53,6 @@ class Order extends Component{
         )
     }
 }
+
 
 export default Order

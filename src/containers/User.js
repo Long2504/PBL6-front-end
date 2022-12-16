@@ -12,11 +12,10 @@ const User = ()=>{
 
     var trackClick = [false,false,false,false]
     const [clickBill,setClickBill] = useState(false)
+    var trackClickBill = []
     
     const onClickBill = ()=>{
-        setClickBill(!clickBill)
-        console.log("click Bill")
-        console.log(clickBill)
+        
     }
 
     const [clickItemUser,setClickItemUser] = useState(trackClick)
@@ -27,7 +26,6 @@ const User = ()=>{
                 console.log('i',i)
             }
             else{
-
                 trackClick[i] = false
             }
         }
@@ -37,10 +35,16 @@ const User = ()=>{
     const dispatch = useDispatch()
     const listOrder = useSelector(state => state.orderReducer.orders);
 
-    
+    useEffect(()=>{
+        if(listOrder.length !== 0){
+            trackClickBill = new Array(listOrder.length).fill(false)
+            setClickBill(trackClickBill)
+        }
+    })
 
     useEffect(()=>{
         fetchOrder(dispatch)
+
     },[dispatch]);
 
     console.log(listOrder,"listOrder")
