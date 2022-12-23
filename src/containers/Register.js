@@ -16,6 +16,7 @@ const Register = ()=>{
     const [error,setError] = useState(
         {
             "username":'',
+            "email":'',
             "name":'',
             "phoneNumber":'',
             "address":'',
@@ -68,7 +69,7 @@ const Register = ()=>{
             setError({...error,[atribute]:errorTrim})
         }
         else {
-            if(atribute === 'username'){
+            if(atribute === 'email'){
                 if(!regularExpression.test(user[atribute])){
                     setError({...error,[atribute]:"trường này là Email"})
                 }
@@ -95,7 +96,7 @@ const Register = ()=>{
 
     const handleSubmit = (event)=>{
         event.preventDefault()
-        if(error.username.length + error.name.length + error.phoneNumber.length + error.password.length + error.confirmpassword.length === 0){
+        if(error.username.length + error.email.length + error.name.length + error.phoneNumber.length + error.password.length + error.confirmpassword.length === 0){
             console.log("OK")
         }
     }

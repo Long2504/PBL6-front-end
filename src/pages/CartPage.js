@@ -1,5 +1,5 @@
 
-import CartContent from '../containers/cart'
+import CartContent from '../containers/Cart'
 
 const Cart = () =>{
     return <CartContent />

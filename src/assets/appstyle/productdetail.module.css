@@ -1,12 +1,11 @@
-
-#content-detail{
+#content-detail {
     width: 100%;
     padding-top: 70px;
     background-color: rgb(248, 248, 252);
     margin-bottom: 30px;
 }
 
-.clearfix{
+.clearfix {
     width: 100%;
     height: 40px;
     display: flex;
@@ -15,18 +14,19 @@
     margin-top: 20px;
 }
 
-.div-link{
+.div-link {
     display: flex;
     flex-direction: row;
     gap: 10px;
     margin-left: 50px;
 }
+
 .main-detail {
     width: 60%;
     margin: 0 20%;
     display: flex;
     flex-direction: row;
-    border: 1px whitesmoke solid;
+    border: 1px #008ECC solid;
     border-radius: 10px;
     background-color: white;
     margin-bottom: 30px;
@@ -34,71 +34,73 @@
 }
 
 
-.show-image{
+.show-image {
     width: 50%;
     display: block;
-    
     margin: 10px;
-    
-    
+
 }
-.show-image .product-image{
+
+.show-image .product-image {
     display: flex;
     justify-content: center;
-    
+
 }
-.show-image .product-image img{
+
+.show-image .product-image img {
     display: block;
     width: 90%;
     height: 90%;
-    
+
 }
-.products-image{
+
+.products-image {
     display: flex;
     flex-direction: row;
     list-style: none;
     display: flex;
     justify-content: center;
 }
-.products-image .img-container{
+
+.products-image .img-container {
     border: 1px solid whitesmoke;
     height: 5rem;
     width: 5rem;
 }
 
-.products-image .img-container:hover{
-    border: 2.5px solid #44d62c;
+.products-image .img-container:hover {
+    border: 2.5px solid #008ECC;
     cursor: pointer;
     outline: none;
 }
 
-.products-image .img-container img{
+.products-image .img-container img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.info-product{
+.info-product {
     width: 50%;
     background-color: white;
     margin: 10px;
 }
 
-.info-product .product-name{
+.info-product .product-name {
     color: black;
     font-weight: 900;
     line-height: 1.5em;
     margin-top: 40px;
     font-size: 1.4rem;
-    
+
 }
 
-.info-product .desc{
+.info-product .desc {
     margin-top: 20px;
-    color:black;
+    color: black;
     margin-left: 30px;
 }
 
-.desc ul{
+.desc ul {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -106,14 +108,20 @@
     margin-inline-end: 0px;
     padding-inline-start: 20px;
 }
-.desc p{
-    font-size: 1.3rem;
+.desc ul > li{
+    margin-top: 5px;
 }
-.desc{
+
+.desc p {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.desc {
     font-size: 1rem;
 }
 
-.info-product .price{
+.info-product .price {
     color: red;
     font-size: 3rem;
     font-weight: 400;
@@ -122,35 +130,34 @@
 
 }
 
-.add-to-cart{
+.add-to-cart {
     width: 300px;
-    background-color: yellow;
+    background-color: #008ECC;
     height: 50px;
     border-radius: 30px;
     margin: 20px 100px;
+    cursor: pointer;
 
 }
-.add-to-cart p{
+
+.add-to-cart p {
     color: black;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.container-detail{
+.container-detail {
     background-color: white;
     color: black;
     width: 60%;
-    margin:  0 20%;
+    margin: 0 20%;
     border-radius: 10px;
-    border: 1px solid whitesmoke;
+    border: 1px solid #008ECC;
 }
 
-.container-detail{
-    padding-bottom: 50px;
-}
 
-.desc-detail{
 
+.desc-detail {
     max-width: 1200px;
     height: 100%;
     margin-left: auto;
@@ -158,41 +165,46 @@
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 
 }
-.desc-detail .title{
+
+.desc-detail .title {
     display: flex;
     justify-content: center;
     padding-top: 20px;
     margin-bottom: 20px;
 }
 
-.desc-detail table{
+.desc-detail table {
     width: 100%;
     border-collapse: collapse;
     letter-spacing: 1px;
     display: table;
 }
-.desc-detail tbody{
+
+.desc-detail tbody {
     display: table-row-group;
     vertical-align: middle;
 }
-.desc-detail .row{
+
+.desc-detail .row {
     border-bottom: 1px solid#6c757d;
     margin-bottom: 30px;
-    
+    vertical-align: middle;
+
 }
-.desc-detail .row th td{
+.desc-detail .row:last-child{
+    border-bottom-width: 0;
+}
+
+.desc-detail .row th td {
     padding-top: 10px;
     padding-bottom: 20px;
 
 }
-.desc-detail .row th{
+
+.desc-detail .row th {
     text-transform: uppercase;
     text-align: start;
     padding-left: 17px;
-    padding-top: 7px;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
-
-
-

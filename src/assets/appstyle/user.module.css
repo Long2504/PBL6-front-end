@@ -1,44 +1,47 @@
-.user{
+.user {
     padding-top: 3.5vw;
     width: 60%;
     margin: auto;
     display: flex;
 }
 
-.nav-user{
+.nav-user {
     width: 20%;
     padding: 0 20px;
 }
 
-.nav-user .profile{
+.nav-user .profile {
     display: flex;
     align-items: center;
     padding-top: 20px;
 }
 
-.nav-user .profile > img {
+.nav-user .profile>img {
     width: 2vw;
     height: 2vw;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.nav-user .profile > span{
+.nav-user .profile>span {
     margin-left: 1vw;
     font-weight: bold;
 }
-.item-nav{
+
+.item-nav {
     display: flex;
     align-items: center;
     margin-bottom: 1vw;
     gap: 0.5vw;
-    
+    cursor: pointer;
+
 }
-.nav-a{
+
+.nav-a {
     color: blue;
 }
 
-hr{
+hr {
     margin-top: 20px;
     margin-bottom: 20px;
     height: 1px;
@@ -46,28 +49,37 @@ hr{
 
 }
 
-.container-user{
+.container-user {
     width: 80%;
     padding: 0 10px;
-    
+
 }
+
 /*------------account------------------*/
-.container-user .account{
+.container-user .account {
+    margin-top: 20px;
     padding-top: 20px;
+    padding-bottom: 20px;
     margin-left: 2vw;
     background-color: white;
 }
 
-.account-info .info{
+.account>h1 {
+    text-align: center;
+}
+
+.account-info .info {
     display: flex;
     margin-bottom: 30px;
 }
-.account-info .info .label{
+
+
+.account-info .info .label {
     width: 15%;
     text-align: right;
 }
 
-.account-info .info .info-main{
+.account-info .info .info-main {
     margin-left: 20px;
 }
 
@@ -76,16 +88,21 @@ hr{
 
 /*-----------------order-----------------*/
 
-.list-order{
+.list-order {
     margin-top: 20px;
-    position: relative;
 }
 
-.order{
+.list-order>h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order {
     background-color: white;
     margin-bottom: 20px;
     padding: 20px;
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+
 }
 
 
@@ -95,36 +112,121 @@ hr{
     border-bottom: 1px grey solid;
 }
 
-.info-order > img{
+.info-order>img {
     width: 5vw;
     height: 5vw;
 }
 
 
-.order-bottom{
+.order-bottom {
     display: flex;
     margin-top: 30px;
     align-items: center;
     justify-content: space-between;
 }
 
-.total{
+.total {
     display: flex;
 
 }
 
-.bill{
-    display: flex;
+
+
+/*-------------------bill----------------------*/
+.bill {
     border: 1px solid blanchedalmond;
-    background-color: lightseagreen;
-    padding: 5px;
+    background: #fff;
     border-radius: 8px;
-    align-items: center;
     cursor: pointer;
 }
-.bill > span{
+
+.bill>span {
+    margin-left: 10px;
+}
+
+.bill .info-company {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bill .info-company>img {
+    width: 100px;
+    height: 70px;
+}
+
+.bill .info-company p {
     margin-left: 10px;
 }
 
 
-/*-------------------bill----------------------*/
+.bill>h1 {
+    text-align: center;
+}
+
+.bill .info-user {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+
+
+.bill .info-product {
+    margin-bottom: 30px;
+}
+
+.bill .info-product > table {
+    margin: auto;
+}
+
+
+.bill .info-product > table{
+    border: 1px solid;
+}
+
+.bill .info-product > td{
+    border: 1px solid;
+}
+
+.bill .info-product > th {
+    border: 1px solid;
+}
+
+
+.bill .info-product > table {
+    border-spacing: 0;
+}
+
+
+.bill .info-product > th {
+    padding: 5px 10px;
+    border-top-width: 0;
+    border-left-width: 0;
+}
+.bill .info-product > td{
+    padding: 5px 10px;
+    border-top-width: 0;
+    border-left-width: 0;
+}
+
+
+
+.bill .info-product > tr {
+    position: sticky;
+    top: 0;
+    vertical-align: bottom;
+}
+
+.bill .info-product>table>tbody>tr>td {
+    max-width: 700px;
+}
+
+
+.bill .info-product th:last-child,
+td:last-child {
+    border-right-width: 0;
+}
+
+.bill .info-product tr:last-child td {
+    border-bottom-width: 0;
+}

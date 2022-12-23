@@ -6,7 +6,7 @@ export const ApiCaller = (method,body,endpoint)=>{
    //  console.log(getHeader())
     return axios({
         method: method,
-        url: `http://localhost:5000/${endpoint}`,
+        url: `https://backendpbl6.herokuapp.com/${endpoint}`,
         headers: getHeader(), 
         data: body
       })

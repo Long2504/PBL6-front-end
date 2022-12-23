@@ -23,7 +23,7 @@ export const cartReducer = (
         //         cartItems: state.cartItems.filter((x) => x.id !== action.payload.id),
         //     };
         case 'CART_SUCCESS':
-            console.log(action.payload,"asdfsad")
+            //console.log(action.payload,"asdfsad")
             return{
                 loading: false,
                 cartItems : action.payload

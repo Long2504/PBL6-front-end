@@ -5,7 +5,7 @@ export const actLogin = (user)=>{
     return(
         {
             type: Type.LOGIN,
-            user
+            user,
         }
     )
 }
@@ -13,6 +13,5 @@ export const actLogin = (user)=>{
 export const actLoginRequest = (user) =>{
     return dispatch =>{
         return loginApi(dispatch,user)
-        
     }
 }

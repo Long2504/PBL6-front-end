@@ -11,8 +11,16 @@ import { createContext } from "react";
 
 const rootReducer = {
     adminProductReducer ,   
+    adminReportReducer,
+    adminProductDetailReducer,
     authReducer,
-    adminBillReducer
+    adminBillReducer,
+    cartReducer,
+    catalogReducer,
+    productsReducer,
+    productReducer,
+    paymentReducer,
+    orderReducer
 }
 
 export default rootReducer;

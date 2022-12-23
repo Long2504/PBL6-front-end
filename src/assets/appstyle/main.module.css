@@ -1,86 +1,85 @@
-
-.container{
+.container {
     width: 100%;
-    background-color: rgb(248, 248, 252);
+    background-color: rgba(248, 248, 252, 0.329);
     padding-top: 100px;
-    
 }
 
-#slider{
+
+.img-content {
     width: 100%;
-    height: 800px;
-    display: flex;
-    justify-content: center;
-}
-.img-slider{
-    width: 1500px;;
-    max-height: 100%;
-
+    height: auto;
 }
 
-.content{
+/*----------------------------------------------------------------*/
+.slider {
     width: 100%;
-    background-color: rgb(248, 248, 252);
-    margin-top: 50px;
-
-}
-
-.slowFade {
-    display: flex;
-    align-items: flex-start;
-    /* background: #fff; */
-    /* height: 100vh; */
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
 }
 
-.slowFade .slide img {
+
+.slide{
+    margin-left: 5%;
+}
+
+.slide > img {
+    width: 95%;
+    height: 500px;
+    border-radius: 20px;
+    object-fit: fill;
+}
+
+.arrow {
+    border: 2px solid white;
+    background-color: #008ECC;
+    color: #008ECC;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
     position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    height: auto;
-    background: #000;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-    opacity: 0;
-    transform: scale(1.5) rotate(15deg);
-    -webkit-animation: slowFade 32s infinite;
-            animation: slowFade 32s infinite;
-}
-.slowFade .slide:nth-child(3) img {
-    -webkit-animation-delay: 8s;
-            animation-delay: 8s;
-}
-.slowFade .slide:nth-child(2) img {
-    -webkit-animation-delay: 16s;
-            animation-delay: 16s;
-}
-.slowFade .slide:nth-child(1) img {
-    -webkit-animation-delay: 24s;
-            animation-delay: 24s;
-}
-@keyframes slowFade {
-    25% {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-    40% {
-        opacity: 0;
-    }
-}
-@-webkit-keyframes slowFade {
-    25% {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-    40% {
-        opacity: 0;
-    }
+    width: 80px;
+    height: 80px;
+    padding: 10px;
 }
 
+.arrow:hover {
+    background-color: #008ECC;
+    color: #008ECC;
+}
+
+.next {
+    top: 40%;
+    right: 2.5%;
+}
+
+.prev {
+    top: 40%;
+    left: 2.5%;
+}
+
+.list-latop{
+    display: flex;
+    gap: 20px;
+    
+
+}
+.list-latop .item{
+    width: 240px;
+    border: 1px #008ECC solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    
 
 
-.img-content{
-    width: 100%;
-    height: auto;
+}
+.list-latop .item > img{
+    width: 200px;
+    height: 200px;
+
+}
+.list-latop .item > p {
+    margin-top: 10px;
 }

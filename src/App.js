@@ -15,18 +15,10 @@ function App() {
   return(
     <Router>
       <div className="main">
+
         <MenuBar />
         <Routes>{showMenuContents(routers)}</Routes>
-
         <MyFooter />
-      <div>
-          <div>
-          <MenuBar/>
-          <Content/>
-              
-          </div>
-      </div>
-        <MyFooter/>
         </div>
     </Router>
   );

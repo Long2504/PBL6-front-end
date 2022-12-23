@@ -1,4 +1,4 @@
-import ProductDetailPublic from "../containers/product/productdetail"
+import ProductDetailPublic from "../containers/ProductDetail"
 
 const ProductDetailPage = ()=>{
     return(

@@ -1,20 +1,27 @@
-
+import * as TYPE from '../contants/ActionType'
 
 export const catalogReducer = (
-    state = {loading: true, categories: []}, 
+    state = {
+        loading: true, 
+        categories: [],
+        error: ''
+    }, 
     action
 ) =>{
     switch(action.type){
-        case 'CATALOG_LIST_REQUEST':{
+        case TYPE.CATALOG_LIST_REQUEST:{
             return {loading: true};
         }
-        case 'CATALOG_LIST_SUCCESS':
+        case TYPE.CATALOG_LIST_SUCCESS:
             return{
                 loading: false,
                 categories: action.payload,
         }
-        case 'CATALOG_LIST_FAIL':
-            return {loading: false}
+        case TYPE.CATALOG_LIST_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
         default:
             return state;
     }
@@ -22,20 +29,27 @@ export const catalogReducer = (
 
 
 export const productsReducer = (
-    state = {loading: true, products:[]},
+    state = {
+        loading: true, 
+        products:[],
+        error: ''
+    },
     action
 )=>{
     switch(action.type){
-        case 'PRODUCT_LIST_REQUEST':{
+        case TYPE.PRODUCT_LIST_REQUEST:{
             return {loading: true}
         }
-        case 'PRODUCT_LIST_SUCCESS':
+        case TYPE.PRODUCT_LIST_SUCCESS:
             return{
                 loading: false,
                 products: action.payload,
             }
-        case 'PRODUCT_LIST_FAIL':
-            return { loading: false}
+        case TYPE.PRODUCT_LIST_FAIL:
+            return { 
+                loading: false,
+                error: action.payload
+            }
         default:
             return state;
     }
@@ -47,22 +61,28 @@ export const productReducer = (
         loading: true,
         product: {
             productImgs: [],
-            attributes: []
+            attributes: [],
+            description: '',
         }
     },
     action
 )=>{
     switch(action.type){
-        case 'PRODUCT_REQUEST':{
+        case TYPE.PRODUCT_REQUEST:{
             return {loading: true}
         }
-        case 'PRODUCT_SUCCESS':
+        case TYPE.PRODUCT_SUCCESS:
+            console.log("ok ok")
+            console.log(action.payload,"reducer")
             return{
                 loading: false,
                 product: action.payload,
             }
-        case 'PRODUCT_FAIL':
-            return { loading: false}
+        case TYPE.PRODUCT_FAIL:
+            return { 
+                loading: false,
+                error: action.payload
+            }
         default:
             return state;
     }

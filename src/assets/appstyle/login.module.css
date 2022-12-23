@@ -10,7 +10,6 @@
   padding-left: 5%;
   padding-right: 5%;
   background-color: whitesmoke;
-  
 
 }
 
@@ -85,11 +84,13 @@
   padding: 10px 100px ;
   margin-bottom: 20px;
 }
+
 .form-submit .btn-login button{
   height: 100%;
   width: 100%;
   background-color: #6A679E;
   border-radius: 10px;
+  cursor: pointer;
   
 }
 
@@ -107,6 +108,7 @@
 .item{
   background-color: white;
   border: none;
+  cursor: pointer;
 }
   
 .img-item{

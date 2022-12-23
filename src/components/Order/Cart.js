@@ -13,7 +13,7 @@ class Cart extends Component{
         const listProduct = this.props.listProduct;
         const listIdCart = this.props.listIdCart;
 
-        console.log(listProduct,"listpriduct CARt")
+       // console.log(listProduct,"listpriduct CARt")
         const total = this.props.total
         const handleQuantity = this.props.handleQuantity
         const handlePayMent = this.props.handlePayMent
@@ -35,13 +35,8 @@ class Cart extends Component{
                             listProduct.map((item,index) => (
                                 <tr key={index} className={styles["row"]}>
                                     <td>
-                                        <Link 
-                                            to={'/product/' + item.product.category.name.toString() }
-                                        >
-                                            <img 
-                                                src={item.product.productImgs[0]}
-                                            > 
-                                            </img>
+                                        <Link to={'/product/' + item.product.category.name.toString() }>
+                                            <img src={item.product.productImgs[0]}></img>
                                         </Link>
                                     </td>
                                     <td>
@@ -60,7 +55,7 @@ class Cart extends Component{
                                     </td>
                                     <td>
                                         <div className={styles["quantity"]}>
-                                            <button className={styles["btn"] + styles["sub"]}
+                                            <button className={styles["btn"]}
                                                 onClick={()=>handleQuantity(item.product.id,'SUB')}
                                             >
                                                 <FaMinus 
@@ -73,7 +68,7 @@ class Cart extends Component{
                                                 />
                                             </button>
                                             <span>{item.amount}</span>
-                                            <button className={styles["btn"] +  styles["add"]}
+                                            <button className={styles["btn"]}
                                                 onClick={()=>handleQuantity(item.product.id,'ADD')}
                                             >
                                                 <FaPlus 
@@ -98,9 +93,7 @@ class Cart extends Component{
                                         {vietnamdognVN.format(item.product.price*item.amount)}
                                     </td>                
                                     <td>
-                                        <button 
-                                            className={styles["delete"]}
-                                        >
+                                        <button style={{backgroundColor: "white",cursor: "pointer"}}>
                                             <FaTrashAlt size={"25px"}  />
                                         </button>
                                     </td>

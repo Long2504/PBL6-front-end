@@ -1,8 +1,8 @@
-import ProductDetail from '../../components/product/ProductDetail'
+import ProductDetail from '../components/product/ProductDetail'
 import { useDispatch,useSelector  } from "react-redux";
-import { pushCartAction } from "../../actions/CartAction";
+import { pushCartAction } from "../actions/CartAction";
 import { useState, useEffect } from "react";
-import { fetchProduct } from "../../services/ProductService";
+import { fetchProduct } from "../services/ProductService";
 import { useParams } from "react-router-dom";
 
 const ProductDetailPublic = ()=> {
@@ -11,17 +11,20 @@ const ProductDetailPublic = ()=> {
     const params = useParams();
     const { id: productId } = params; 
     const product = useSelector(state=>state.productReducer.product);
-    const [image,setImage]= useState(product.productImgs[0])
+    const [image,setImage]= useState([])
     useEffect(()=>{
-        fetchProduct(dispatch,productId)
-    },[productId])
+        dispatch(fetchProduct(productId))
+    },[dispatch,productId])
+    
+
 
     useEffect(()=>{
-        setImage(product.productImgs[0])
-    },[product.productImgs])
+        if(product.productImgs){
+            setImage(product.productImgs[0])
+        }
+    },[product])
 
     const addToCartHandler = (productId) =>{
-        
         dispatch(pushCartAction({id:productId},"ADD"))
     }
     const handleClick= (index)=>{

@@ -249,22 +249,27 @@
     font-weight: bold;
     margin-top: 15px;
     margin-bottom: 20px;
+    
 }
+
 .infor-product .btn-addProduct button{
     width: 180px;
     height: 40px;
-    background-color: yellow;
+    background-color: #008ECC;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 .list .padination{
     position: relative;
 }
+
 .list .padination a{
     color: black;
     padding: 10px 18px;
     text-decoration: none;
 }
+
 .list .pagination a:hover:not(.active) {
     background-color: #031F3B;
     color: white;

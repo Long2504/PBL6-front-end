@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import styles from '../../src/assets/appstyle/header.module.css'
-import { FaSistrix,FaUser,FaBell,FaCartPlus } from 'react-icons/fa'
+import { FaSistrix,FaCartPlus } from 'react-icons/fa'
+import { AiOutlineUser } from 'react-icons/ai'
+import { BsBell } from 'react-icons/bs'
 import { useSelector } from "react-redux";
 import { useState } from 'react';
 
@@ -19,10 +21,10 @@ const mainMenu = [
         name: "Hỗ trợ",
         to: "/"
     },
-    {
-        name: "Đăng nhập",
-        to: "/login"
-    },
+    // {
+    //     name: "Đăng nhập",
+    //     to: "/login"
+    // },
 ]
 
 const menberMenu = [
@@ -36,7 +38,7 @@ const menberMenu = [
     },
     {
         name: "Đăng xuất",
-        to: "/"
+        to: "/logout"
     }
 ]
 
@@ -47,6 +49,7 @@ const MenuBar = () => {
     const onClickPersonal = ()=>{
         setClickPersonal(!clickPersonal)
     }
+
     return (
         <header>
             <div className={styles['div-img']}>
@@ -62,10 +65,10 @@ const MenuBar = () => {
             <div className={styles["iconBlock"]}>
                 <div className={styles["distribution"]} />
                 <div className={styles["btn"]}>
-                    <FaSistrix size="1.2vw"/>
+                    <FaSistrix size="1.2vw" color='#008ECC'/>
                 </div>
                 <div className={styles['btn']} onClick={onClickPersonal} >    
-                    <FaUser size="1.2vw" />
+                    <AiOutlineUser size="1.3vw"  color='#008ECC'/>
                     {
                         clickPersonal ? <ul className={styles["detailPersonal"]}>
                         {loadMenu(menberMenu)}</ul> : null
@@ -73,18 +76,21 @@ const MenuBar = () => {
                 </div>
 
                 <div className={styles["btn"]}>
-                    <FaBell size="1.2vw"/>
+                    <BsBell size="1.2vw" color='#008ECC'/>
                 </div>
                 <div className={styles["btn"]}>
                     <Link to={"/cart"}>
-                        <FaCartPlus size="1.2vw" color='black' />
+                        <FaCartPlus size="1.2vw" color='#008ECC' />
                         <div className={styles["cart-item-qty"]}>
                             <span >{cartItems.length}</span>
                         </div>
                     </Link>
 
                 </div>
+                <Link className={styles['login']} to={"/login"}>Đăng nhập</Link>
+                {/* {!localStorage.getItem("user") ? <Link className={styles['login']} to={"/login"}>Đăng nhập</Link> : null} */}
             </div>
+
         </header>
     )
 }

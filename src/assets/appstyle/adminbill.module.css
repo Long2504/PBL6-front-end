@@ -119,7 +119,8 @@ p li, ul li, ol li {
 ------------------------------------- */
 a {
     color: #1ab394;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    text-decoration: none;
 }
 
 .btn-primary {

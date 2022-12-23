@@ -6,12 +6,19 @@ import ProductDetailPage from "../pages/ProductDetailPage";
 import TEST from "../pages/test";
 import Cart from "../pages/CartPage";
 import UserPage from "../pages/UserPage";
+import Logout from "../containers/Logout";
 const authRoutes=[
     {
         path : "/login",
         exact : true,
         page : LoginPage,
         role:[],
+    },
+    {
+        path: "/logout",
+        exact : true,
+        page : Logout,
+        role: [],
     },
     {
         path : "/login/oauth2",

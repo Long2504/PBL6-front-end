@@ -14,7 +14,8 @@ class ProductDetail extends Component{
         let arrName = []
         if(this.props.product.description){
            const arr = this.props.product.description.substr(1)
-           arrDeciption = arr.split('n-')
+           arrDeciption = arr.split('\n-')
+           console.log(arrDeciption)
            arrName = this.props.product.name.split(`(`)[0]
            console.log(arrName)
         }

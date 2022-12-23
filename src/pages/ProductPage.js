@@ -1,4 +1,4 @@
-import ProductsPublic from "../containers/product/products";
+import ProductsPublic from "../containers/Products";
 
 const ProductPage = () =>{
     return <ProductsPublic />

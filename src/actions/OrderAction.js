@@ -1,25 +1,24 @@
-import {pushPayment } from '../services/OrderService'
-
+import { pushPayment } from '../services/OrderService'
+import * as TYPE from '../contants/ActionType'
 export const pushPaymentAction = (inforCart)=>{
-    console.log(inforCart,"inforCart")
+    //console.log(inforCart,"inforCart")
     return dispatch => {
         return pushPayment(dispatch,inforCart)
     }
 }
 
 export const loadPaymentAction = (link)=>{
-    console.log(link,"orderAction")
+    //console.log(link,"orderAction")
     return(
         {
-            type: "PUSH_PAYMENT_ACCESS",
+            type: TYPE.PUSH_PAYMENT_ACCESS,
             link
         }
     )
-
 }
 
-export const loadOrderAction = ()=>{
-    return({
-        type: "LIST_ORDER_ACCESS"
-    })
-}
+// export const loadOrderAction = ()=>{
+//     return({
+//         type: "LIST_ORDER_ACCESS"
+//     })
+// }
