@@ -10,13 +10,13 @@ const adminMenu = [
         to: "/admin"
     },
     {
-        name: "Bill",
-        to: "/admin/bill"
+        name: "Order",
+        to: "/admin/order"
     },
     {
         name: "Product",
         to: "/admin/product"
-    }
+    },
 ]
 
 

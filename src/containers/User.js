@@ -11,6 +11,7 @@ import ListOrder from "../components/User/Order";
 const User = () => {
 	const dispatch = useDispatch();
 	const listOrder = useSelector((state) => state.orderReducer.orders);
+	const logged = useSelector(state=> state.authReducer.logged)
 	let trackClick = [true, false, false, false];
 	const [clickItemUser, setClickItemUser] = useState(trackClick);
 
@@ -40,12 +41,11 @@ const User = () => {
     });
     
 	useEffect(()=>{
-		if (JSON.parse(localStorage.getItem("user"))) {
+		if(logged) {
 			const user = JSON.parse(localStorage.getItem("user")).userModel;
-			console.log(user,"user")
 			setAccountUser(user);
 		}
-	},[])
+	},[logged])
 
 
 	useEffect(() => {

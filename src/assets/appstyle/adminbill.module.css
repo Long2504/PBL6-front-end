@@ -246,3 +246,28 @@ p li, ul li, ol li {
         width: 100% !important;
     }
 }
+
+
+
+/* -------------------------------------
+            ORDER DETAIL MODAL
+------------------------------------- */
+
+
+.order .top-order{
+    display: flex;
+    align-items: center;
+    gap: 200px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.top-order > div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+

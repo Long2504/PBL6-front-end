@@ -1,4 +1,4 @@
-import adminBillReducer from "./AdminBillReducer";
+import adminOrderReducer from "./AdminOrderReducer";
 import adminProductDetailReducer from "./AdminProductDetailReducer";
 import adminProductReducer from "./AdminProductReducer";
 import adminReportReducer from "./AdminReportReducer";
@@ -14,7 +14,7 @@ const rootReducer = {
     adminReportReducer,
     adminProductDetailReducer,
     authReducer,
-    adminBillReducer,
+    adminOrderReducer,
     cartReducer,
     catalogReducer,
     productsReducer,

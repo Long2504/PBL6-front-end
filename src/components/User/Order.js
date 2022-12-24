@@ -6,7 +6,6 @@ import Bill from "./Bill";
 
 
 const ListOrder = (props)=> {
-
         console.log(props.listOrder,"listOrder")
         const listOrder = props.listOrder.map((order,index)=>
             <Order key={index} order={order} index={index} Check={props.Check}/>
@@ -17,7 +16,6 @@ const ListOrder = (props)=> {
                 {listOrder}
             </div>
         )
-    
 }
 
 const Order = ({order,Check})=>{

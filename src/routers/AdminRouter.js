@@ -1,4 +1,4 @@
-import AdminBillPage from "../pages/AdminBillPage";
+import AdminOrderPage from "../pages/AdminOrderPage";
 import AdminDashboardPage from "../pages/AdminDashboardPage";
 import AdminProductDetailPage from "../pages/AdminProductDetailPage";
 import AdminProductPage from "../pages/AdminProductPage";
@@ -11,9 +11,9 @@ const adminRoutes=[
         role:[],
     },
     {
-        path : "/admin/bill",
+        path : "/admin/order",
         exact : false,
-        page : AdminBillPage,
+        page : AdminOrderPage,
         role:[],
     },
     {

@@ -14,7 +14,7 @@ export const GET_PRODUCT_REPORTS="GET_PRODUCT_REPORTS"
 export const GET_TOTAL_REPORTS="GET_TOTAL_REPORTS"
 export const REPORTS_COMPLETE ="REPORTS_COMPLETE";
 
-
+export const ORDER_LIST_SUCCESS = "ORDER_LIST_SUCCESS"
 //----------------------///
 
 

@@ -5,7 +5,7 @@ import { FaSistrix,FaCartPlus } from 'react-icons/fa'
 import { AiOutlineUser } from 'react-icons/ai'
 import { BsBell } from 'react-icons/bs'
 import { useSelector } from "react-redux";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 const mainMenu = [
@@ -89,9 +89,7 @@ const MenuBar = () => {
                             <span >{cartItems.length}</span>
                         </div>
                     </Link>
-
                 </div>
-                {/* <Link className={styles['login']} to={"/login"}>Đăng nhập</Link> */}
                 {!check ? <Link className={styles['login']} to={"/login"}>Đăng nhập</Link> : null}
             </div>
 
