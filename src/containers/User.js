@@ -51,6 +51,8 @@ const User = () => {
 	useEffect(() => {
 		fetchOrder(dispatch);
 	}, [dispatch]);
+	
+	console.log(listOrder,"listOrder main")
 
 	return (
 		<div className={styles["user"]} id="user">

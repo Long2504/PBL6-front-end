@@ -1,3 +1,4 @@
+import { type } from '@testing-library/user-event/dist/type'
 import * as Type from '../contants/ActionType'
 import { loginApi } from '../services/AuthService'
 
@@ -14,4 +15,10 @@ export const actLoginRequest = (user) =>{
     return dispatch =>{
         return loginApi(dispatch,user)
     }
+}
+
+export const logoutAction = ()=>{
+    return ({
+        type: Type.LOGOUT
+    })
 }

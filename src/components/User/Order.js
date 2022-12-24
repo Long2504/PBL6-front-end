@@ -42,7 +42,7 @@ const Order = ({order,Check})=>{
                 <div className={styles["total"]}>
                     <FaMoneyBillAlt />
                     <span>Thành tiền : </span>
-                    <span>{order.bill.total}</span>
+                    <span>{vietnamdognVN.format(order.bill.total)}</span>
                 </div>
                 <div className={styles['bill']} 
                     onClick={onClickOpenOrder}
@@ -77,5 +77,11 @@ const ItemOfOrder = ({list})=>{
     })
     return orders
 }
+
+
+let vietnamdognVN = Intl.NumberFormat("vi",{
+    style: "currency",
+    currency : 'VND'
+});
 
 export default ListOrder

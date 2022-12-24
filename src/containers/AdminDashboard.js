@@ -2,14 +2,14 @@ import moment from "moment/moment";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actGetProductReportsRequest, actGetRevenueRequest, actGetSalesRequest, actGetTotalRequest, actGetVisitorRequest, completeReport } from "../actions/AdminReportAction";
+import { fetchOrder } from "../services/CartService";
 import AdminDashboardContent from "../components/admin_dashboard/AdminDashboardContent";
 import AdminTemplate from "../components/admin_template/AdminTemplate";
 import * as ReportKey from "../contants/ReportKey"
 import { getProductLabels } from "../services/AdminReportService";
 const AdminDashboard = () => {
-
-
   var data = useSelector(state => state.adminReportReducer)
+  var listOrder = useSelector(state => state.orderReducer.orders)
   var week = moment().format("W")
   // console.log(week)
   // console.log(Array.from({ length: 10 }, (v, i) => i+parseInt(week)-9))
@@ -84,11 +84,15 @@ const AdminDashboard = () => {
       await dispatch(actGetRevenueRequest())
       await dispatch(actGetVisitorRequest())
       await dispatch(actGetProductReportsRequest())
-      await dispatch(completeReport())
+      await dispatch(completeReport())    
     }
     fetchData()
 
   }, [dispatch])
+  useEffect(()=> {
+    fetchOrder(dispatch)
+  },[dispatch])
+  console.log(listOrder,"listOrder")
 
   const loadChartData = (type, dataToSet, setData) => {
     // console.log(type)

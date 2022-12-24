@@ -71,43 +71,84 @@ const HomeContent = () => {
 				})}
 			</div>
 			<div className={styles["list-latop"]}>
-				{/* <GrFormPrevious
-					className={styles["arrowLaptop"] + " " + styles["prev"]}
-					onClick={prevLatop}
-				/>
-				<GrFormNext
-					className={styles["arrowLaptop"] + " " + styles["next"]}
-					onClick={nextLatop}
-				/> */}
-				{dataLatop.map((latop,index)=>{
-					return(
-					<div className={styles["item"]} key={index}>
-						<img src={latop.img}></img>
-						<p style={{color: 'blue'}}>{latop.brand.name}</p>
-						<p 
-							style={
-									{
-										width: '200px',
-										padding:'0 5px',
-										overflow: 'hidden',
-										whiteSpace: 'nowrap',
-										textOverflow: 'ellipsis',
+				<p>Latop</p>
+				<div className={styles["latop"]}>
+					{dataLatop.map((latop,index)=>{
+						return(
+						<div className={styles["item"]} key={index}>
+							<img src={latop.img}></img>
+							<p style={{color: 'blue'}}>{latop.brand.name}</p>
+							<p 
+								style={
+										{
+											width: '200px',
+											padding:'0 5px',
+											overflow: 'hidden',
+											whiteSpace: 'nowrap',
+											textOverflow: 'ellipsis',
+										}
 									}
-								}
-						>
-							{latop.name.split("(")[0]}
-						</p>
-						<p style={{textAlign: 'center',color:'red',marginBottom: '30px'}}>{vietnamdognVN.format(latop.price)}</p>
-					</div>
-					)
-				})}
-				{/* {dataLatop.map((slide, index) => {
-					return (
-						<div key={index} className={styles["latop"]}>
-							{index === currentLatop && <img src={slide.img} alt="slide" />}
+							>
+								{latop.name.split("(")[0]}
+							</p>
+							<p style={{textAlign: 'center',color:'red',marginBottom: '30px'}}>{vietnamdognVN.format(latop.price)}</p>
 						</div>
-					);
-				})} */}
+						)
+					})}
+				</div>
+			</div>
+			<div className={styles["list-latop"]}>
+				<p>PC</p>
+				<div className={styles["latop"]}>
+					{dataPc.map((latop,index)=>{
+						return(
+						<div className={styles["item"]} key={index}>
+							<img src={latop.img}></img>
+							<p style={{color: 'blue'}}>{latop.brand.name}</p>
+							<p 
+								style={
+										{
+											width: '200px',
+											padding:'0 5px',
+											overflow: 'hidden',
+											whiteSpace: 'nowrap',
+											textOverflow: 'ellipsis',
+										}
+									}
+							>
+								{latop.name.split("(")[0]}
+							</p>
+							<p style={{textAlign: 'center',color:'red',marginBottom: '30px'}}>{vietnamdognVN.format(latop.price)}</p>
+						</div>
+						)
+					})}
+				</div>
+			</div>
+			<div className={styles["list-latop"]}>
+				<p>Màn hình</p>
+				<div className={styles["latop"]}>
+					{dataPc.map((latop,index)=>{
+						return(
+						<div className={styles["item"]} key={index}>
+							<img src={latop.img}></img>
+							<p style={{color: 'blue'}}>{latop.brand.name}</p>
+							<p 
+								style={
+										{
+											width: '200px',
+											padding:'0 5px',
+											overflow: 'hidden',
+											whiteSpace: 'nowrap',
+											textOverflow: 'ellipsis',
+										}
+									}
+							>
+								{latop.name.split("(")[0]}
+							</p>
+							<p style={{textAlign: 'center',color:'red',marginBottom: '30px'}}>{vietnamdognVN.format(latop.price)}</p>
+						</div>)
+					})}
+				</div>
 			</div>
 		</div>
 	);
@@ -186,16 +227,16 @@ const dataLatop = [
         },
         "img": "https://lh3.googleusercontent.com/26DqrxGqF-BKa650zqC4Kh1R0E1_NAbu7vWMDrCtyqfCV6kha3Cq0bPz0L6YUFGtyWIiRdhsWHe80cXOY9KS1mxctxg2Jh_I=rw"
     },
-    // {
-    //     "id": 134,
-    //     "name": "Laptop Lenovo Ideapad Slim 5 14ITL05 82FE016PVN (14\" Intel Core i5-1135G7/8GB/256GB SSD/Onboard/Windows 11 Home SL/1.4kg)",
-    //     "price": 13690000,
-    //     "brand": {
-    //         "id": 14,
-    //         "name": "Lenovo"
-    //     },
-    //     "img": "https://lh3.googleusercontent.com/I1xNahfBjq9G1gXevuQuV6EbhwGl1b94LxroSLT7ACIoa3WocnOGGb8_EcyUWBiSBortS-AmtvlWHlrpC7w53iYeVjFsHGQ=rw"
-    // },
+    {
+        "id": 134,
+        "name": "Laptop Lenovo Ideapad Slim 5 14ITL05 82FE016PVN (14\" Intel Core i5-1135G7/8GB/256GB SSD/Onboard/Windows 11 Home SL/1.4kg)",
+        "price": 13690000,
+        "brand": {
+            "id": 14,
+            "name": "Lenovo"
+        },
+        "img": "https://lh3.googleusercontent.com/I1xNahfBjq9G1gXevuQuV6EbhwGl1b94LxroSLT7ACIoa3WocnOGGb8_EcyUWBiSBortS-AmtvlWHlrpC7w53iYeVjFsHGQ=rw"
+    },
     // {
     //     "id": 144,
     //     "name": "Laptop ACER Aspire 5 A514-54-5127 NX.A28SV.007 (14\" Full HD/Intel Core i5-1135G7/8GB/512GB SSD/Onboard/Windows 11 Home SL/1.5kg)",
@@ -257,6 +298,186 @@ const dataLatop = [
     //     "img": "https://lh3.googleusercontent.com/-4znoW-z_MA9rlN5DZYA3JVLi52YGDhv433EP-O6oxyjZ4mMSmPKfhlAHfRUarD6wtfQavdpvWofE6GHwMLaTpse_tVvHmc=rw"
     // }
 ]
+
+
+const dataPc = [
+    {
+        "id": 204,
+        "name": "PC Acer Aspire AS-XC780 DT.B8ASV.006 (i5-7400/4GB/1TB HDD/GT 720/Free DOS)",
+        "price": 11499000,
+        "brand": {
+            "id": 4,
+            "name": "ACER"
+        },
+        "img": "https://lh3.googleusercontent.com/kfJJ6e5gz3hA_-6FE6Fj5Dod8TdGPBs3ZrjldT4hCsZqVzaQJ2FQhoCvrS76HMslMhE4vJjhDxmy_pRUYANx=rw"
+    },
+    {
+        "id": 214,
+        "name": "PC Dell Inspiron 3470 SFF STI51315 (i5-8400/8GB/1TB HDD/UHD 630/Ubuntu)",
+        "price": 12490000,
+        "brand": {
+            "id": 44,
+            "name": "Dell"
+        },
+        "img": "https://lh3.googleusercontent.com/rt02yVvp1GAhZBTVLoFv8Av594eSEMsdf5aU1D_ZwjYl_wrzePXpkM0iiFwoDBH4P7kjE2xHgxaBDpxalw=rw"
+    },
+    {
+        "id": 224,
+        "name": "PC HP Pavilion 590-p0033d 4LY11AA (i3-8100/4GB/1TB HDD/UHD 630/Win10)",
+        "price": 9390000,
+        "brand": {
+            "id": 24,
+            "name": "HP"
+        },
+        "img": "https://lh3.googleusercontent.com/1oBQSzTibXargBXeK8d3YdWPuQTJzqUEQaVWRp5mkCknkvwBrn-5ietcUBw8-b_PCtc-rCikVGAoSuDr0g=rw"
+    },
+    {
+        "id": 234,
+        "name": "PC Acer AS XC-885 (i5-8400/4GB/1TB HDD/UHD 630/Endless)",
+        "price": 11579000,
+        "brand": {
+            "id": 4,
+            "name": "ACER"
+        },
+        "img": "https://lh3.googleusercontent.com/T7DaZhoozthJoxW2JG8vvDH3RMkHkeFH2mlebl-emDcVwI7HElxP5J57MP_kUtIXurmVrQM1ldf4bzzUNA0=rw"
+    },
+    {
+        "id": 244,
+        "name": "PC HP Pavilion 590-p0079d 4LY18AA (i7-8700/8GB/1TB HDD/GT 730/Free DOS)",
+        "price": 18990000,
+        "brand": {
+            "id": 24,
+            "name": "HP"
+        },
+        "img": "https://lh3.googleusercontent.com/QNfhcIY0H9SpXFwcpQxz3qJAUl1VPVPrWeRMNwPl9Atwby6UzdGAOVOfUZHlpRMawfe0Ko-SzVo7b9qlsA=rw"
+    },
+    {
+        "id": 254,
+        "name": "PC Acer Aspire XC-885 DT.BAQSV.006 (G5400/4GB/1TB HDD/UHD 610/Endless)",
+        "price": 7590000,
+        "brand": {
+            "id": 4,
+            "name": "ACER"
+        },
+        "img": "https://lh3.googleusercontent.com/VPdF3s56GQydHy2t1jqJGOb6rblnfo7Uby_v5YcnIuLiBnJ505XDTengFK47BI5ZHHCT0CMxMo_6x0h2WKrRzy2UUBGNON6H=rw"
+    },
+    // {
+    //     "id": 374,
+    //     "name": "PC ASUS AIO V222F V222FAK-BA220T (21.5\" Full HD/Intel Core i5-10210U/8GB/512GB SSD/Không HDD/Windows 10 Home SL 64-bit/WiFi 802.11ac)",
+    //     "price": 17190000,
+    //     "brand": {
+    //         "id": 34,
+    //         "name": "ASUS"
+    //     },
+    //     "img": "https://lh3.googleusercontent.com/TYejYKKPMbruXqhvtqctZVCwZkcPhjd3_uuScgpMEdOXgHhel9Btrx-BzGl7-RZBFCagASUaIRA-WxtUcFZe=rw"
+    // },
+    // {
+    //     "id": 384,
+    //     "name": "PC Dell Vostro 3888 MT MTG6400W-4G-1T (Intel Pentium G6400/4GB/Không SSD/1TB HDD/Windows 10 Home 64-bit/DVD/CD RW/WiFi 802.11ac)",
+    //     "price": 7790000,
+    //     "brand": {
+    //         "id": 44,
+    //         "name": "Dell"
+    //     },
+    //     "img": "https://lh3.googleusercontent.com/BE_WqWBvfrdurpJb-z4n4IvG4Hnfc407kBOms1RXCLcBxescTAN1GgV9aRxuDw-pIE7hJSjUXKsUvL8gow=rw"
+    // },
+    // {
+    //     "id": 394,
+    //     "name": "Liên hệ đặt hàng\nPC Dell Vostro 3681 SFF STI31501W-4G-1T (Intel Core i3-10100/4GB/Không SSD/1TB HDD/Windows 10 Home SL 64-bit + Office/WiFi 802.11ac)",
+    //     "price": 9790000,
+    //     "brand": {
+    //         "id": 44,
+    //         "name": "Dell"
+    //     },
+    //     "img": "https://lh3.googleusercontent.com/Sw9sVYSxJZBfWiwo0JUbrT9z9lXPweWJ6GcGODgHeriHiLaTvheyKDvbNvB-HtkgQGw9iG6NdNRX6HeIJ_M=rw"
+    // }
+]
+
+const dataScreen = [
+    {
+        "id": 404,
+        "name": "Màn hình LCD MSI Optix G27C7 (1920 x 1080/VA/165Hz/1 ms/FreeSync Premium)",
+        "price": 5490000,
+        "brand": {
+            "id": 64,
+            "name": "MSI"
+        },
+        "img": "https://lh3.googleusercontent.com/4kAZwFiVYe1xybb8Xl5E87gww02gNtPfWGCP2hY2A_DuA-nmVmlAJ1YqJZMkM_UJ1lose60YsJ-CCmat2Zm-1KEL87vpBms=rw"
+    },
+    {
+        "id": 414,
+        "name": "Màn hình LCD MSI Optix G27C5 (1920 x 1080/VA/165Hz/1 ms/FreeSync)",
+        "price": 5390000,
+        "brand": {
+            "id": 64,
+            "name": "MSI"
+        },
+        "img": "https://lh3.googleusercontent.com/MK8stTjjej1GxqL31GDh5DdrRXQwJb87iJWPdwHqkvLlIR4Xxz_QOXnC9It7vqDo1gD5MC7FljgkkqkKVs8PWWNEWcKoyBOu=rw"
+    },
+    {
+        "id": 424,
+        "name": "Màn hình LCD Lenovo D22e-20 (1920 x 1080/VA/75Hz/4 ms/FreeSync)",
+        "price": 2490000,
+        "brand": {
+            "id": 14,
+            "name": "Lenovo"
+        },
+        "img": "https://lh3.googleusercontent.com/T3bZlJqN9RGLomoVsUln4pkQyXJCWQkIU5sE9UvQOPQCg2F0hplynn4Tznzu7ZFepKC_cSqcWIUJqgMd4Y_Tz4lOd1lUFvwb=rw"
+    },
+    {
+        "id": 434,
+        "name": "Màn hình LCD VIEWSONIC VX2718-2KPC-MHD (2560 x 1440/VA/165Hz/1 ms)",
+        "price": 5690000,
+        "brand": {
+            "id": 74,
+            "name": "VIEWSONIC"
+        },
+        "img": "https://lh3.googleusercontent.com/itpp9ZywCBtI2rqXXZAa39HpYJ9GFk6rz2WZdfJFht6ZpMVsteIRwoNV3lkbyPumFuvrVMCkIxbW_m_f-_Z4kuVdGgicmheHJQ=rw"
+    },
+    {
+        "id": 444,
+        "name": "Màn hình LCD MSI PRO MP241X (1920 x 1080/VA/75Hz/8 ms)",
+        "price": 2790000,
+        "brand": {
+            "id": 64,
+            "name": "MSI"
+        },
+        "img": "https://lh3.googleusercontent.com/WgkHkFAdGm9Oq1n_R3XkRfRcbOtdy9pThjMMJXwsz49PdfMMG15gn57QCPE-pz8IeHHCOA4ft_T2E_WIeSyNvbi1EmksVas=rw"
+    },
+    {
+        "id": 454,
+        "name": "Màn hình LCD ACER AOPEN CV1 22CV1Q (1920 x 1080/VA/75Hz/5 ms)",
+        "price": 2490000,
+        "brand": {
+            "id": 4,
+            "name": "ACER"
+        },
+        "img": "https://lh3.googleusercontent.com/GFlSvTcAGD1oHOz9eB8LnUOimyivhmp1zI-euzNZG4XSmxwolEkWbVuIwz_vxW7SYbIgztG1e6hyBJXNbuVuOoPJBHFNCHUQ=rw"
+    },
+    {
+        "id": 464,
+        "name": "Màn hình LCD Lenovo L27e-30 (1920 x 1080/IPS/75Hz/4 ms/FreeSync)",
+        "price": 3990000,
+        "brand": {
+            "id": 14,
+            "name": "Lenovo"
+        },
+        "img": "https://lh3.googleusercontent.com/lEwFIR76oQULHedWQg-X5MOUvHPe81POuvuW1UOxphbkC_qZgvqDJF3ACNrKwgH54JDej-1qGvjUaYylU6vLICUi2XBd4MU=rw"
+    },
+    {
+        "id": 474,
+        "name": "Màn Hình ASUS 23.8\" VA249HE (FullHD/VA/5ms)",
+        "price": 3090000,
+        "brand": {
+            "id": 34,
+            "name": "ASUS"
+        },
+        "img": "https://lh3.googleusercontent.com/LbLoqPF53h3n5huTnR5NydXK8rnglNLVAbDjAO4zkVmJoEI5XW5XSLug5o-vf66eZc9CoRrSal9aE2C1iQ=rw"
+    },
+
+
+]
+
 let vietnamdognVN = Intl.NumberFormat("vi", {
 	style: "currency",
 	currency: "VND",

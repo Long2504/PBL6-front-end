@@ -129,12 +129,25 @@ hr {
     display: flex;
 
 }
+.order-bottom .total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.order-bottom .bill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 5px;
+}
 
 
 
 /*-------------------bill----------------------*/
 .bill {
-    border: 1px solid blanchedalmond;
+    border: 1px solid #008ECC;
     background: #fff;
     border-radius: 8px;
     cursor: pointer;
@@ -184,13 +197,8 @@ hr {
     border: 1px solid;
 }
 
-.bill .info-product > td{
-    border: 1px solid;
-}
 
-.bill .info-product > th {
-    border: 1px solid;
-}
+
 
 
 .bill .info-product > table {
@@ -198,15 +206,17 @@ hr {
 }
 
 
-.bill .info-product > th {
+.bill .info-product > table > thead > tr >  th {
     padding: 5px 10px;
     border-top-width: 0;
     border-left-width: 0;
+    border: 1px solid;
 }
-.bill .info-product > td{
+.bill .info-product > table > tbody > tr > td{
     padding: 5px 10px;
     border-top-width: 0;
     border-left-width: 0;
+    border: 1px solid;
 }
 
 
@@ -217,16 +227,23 @@ hr {
     vertical-align: bottom;
 }
 
-.bill .info-product>table>tbody>tr>td {
+.bill .info-product > table > tbody > tr > td {
     max-width: 700px;
 }
 
 
-.bill .info-product th:last-child,
-td:last-child {
+.bill .info-product > th:last-child{
+    border-right-width: 0;
+}
+.bill .info-product > td:last-child {
     border-right-width: 0;
 }
 
-.bill .info-product tr:last-child td {
+
+.bill .info-product > tr:last-child {
+    border-bottom-width: 0;
+}
+
+.bill .info-product >  td {
     border-bottom-width: 0;
 }

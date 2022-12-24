@@ -18,9 +18,9 @@ export const pushCartAction = (productId,methodQuantity)=>{
 
 
 export const fetchOrderAction = (oders) => async(dispatch)=>{
-  console.log(oders)
+  console.log(oders,"order")
   dispatch({
-    type: TYPE>TYPE.LIST_ORDER_ACCESS,
+    type: TYPE.LIST_ORDER_ACCESS,
     payload: oders
   })
 }

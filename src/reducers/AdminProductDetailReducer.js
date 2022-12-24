@@ -15,7 +15,9 @@ const adminProductDetailReducer = (state={},action)=>{
                 information:"",
                 category:{
                     "id":1
-                }
+                },
+                productImgs: [],
+                attributes: []
             }
     }
 }

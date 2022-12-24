@@ -3,23 +3,25 @@ import MenuBar from './menu/MainMenu';
 import routers from './routers/Router';
 import MyFooter from './footer/footer';
 import { Routes,Route, BrowserRouter as Router, useLocation } from 'react-router-dom';
-import { createContext, useEffect } from 'react';
+import { createContext, useEffect,useState } from 'react';
 import { visitorCounting } from './services/AdminReportService';
 import { SSEClose } from './services/PaymentRealtimeService';
+
 
 function App() {
   useEffect(()=>{
     visitorCounting();
+
   },[])
+
 
   return(
     <Router>
       <div className="main">
-
         <MenuBar />
         <Routes>{showMenuContents(routers)}</Routes>
         <MyFooter />
-        </div>
+      </div>
     </Router>
   );
 }

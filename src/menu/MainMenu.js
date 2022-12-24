@@ -5,7 +5,7 @@ import { FaSistrix,FaCartPlus } from 'react-icons/fa'
 import { AiOutlineUser } from 'react-icons/ai'
 import { BsBell } from 'react-icons/bs'
 import { useSelector } from "react-redux";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const mainMenu = [
@@ -45,10 +45,14 @@ const menberMenu = [
 
 const MenuBar = () => {
     const cartItems = useSelector(state=>state.cartReducer.cartItems);
+    const check = useSelector(state=>state.authReducer.logged)
+    console.log(check)
+
     const [clickPersonal,setClickPersonal] = useState(false);
     const onClickPersonal = ()=>{
         setClickPersonal(!clickPersonal)
     }
+    
 
     return (
         <header>
@@ -87,8 +91,8 @@ const MenuBar = () => {
                     </Link>
 
                 </div>
-                <Link className={styles['login']} to={"/login"}>Đăng nhập</Link>
-                {/* {!localStorage.getItem("user") ? <Link className={styles['login']} to={"/login"}>Đăng nhập</Link> : null} */}
+                {/* <Link className={styles['login']} to={"/login"}>Đăng nhập</Link> */}
+                {!check ? <Link className={styles['login']} to={"/login"}>Đăng nhập</Link> : null}
             </div>
 
         </header>

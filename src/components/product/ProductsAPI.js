@@ -58,7 +58,7 @@ const ClassifyProduct = ({ classifyData, selectWeight, loadingCatelogy }) => {
 						onClick={() => handleSelectWeightClick(item.id, index, indexItem)}
 						style={{
 							backgroundColor: click(index, indexItem)
-								? "rgba(134, 7, 7, 0.411)"
+								? "#008ECC"
 								: "",
 						}}
 					>
@@ -179,7 +179,7 @@ const ListProduct = (props) => {
 	}
 	return <div className={styles["list-product"]}>
 				{listData}
-				<LoginBox open={isOpen} onClose={()=>setIsOpen(false)}/>
+				{/* <LoginBox open={isOpen} onClose={()=>setIsOpen(false)}/> */}
 			</div>;
 };
 
@@ -245,6 +245,43 @@ const ProductsAPI = (props) => {
 	useEffect(() => {
 		setList(props.productData);
 	}, [props.productData]);
+
+
+	const [clickDown,setClickDown] = useState(false)
+	const [clickUp,setClickUp] = useState(false)
+
+
+
+
+	const onclickDown = ()=>{
+		setClickDown(!clickDown)
+		if(list){
+			if(clickDown){
+
+				const listSort = list.sort((a, b) => {
+					if (a.price > b.price) return -1;
+					if (a.price < b.price) return 1;
+					return 0;
+				});
+				setList(listSort)
+			}
+		}
+	}
+
+	const onclickUp = ()=>{
+		setClickUp(!clickUp)
+		if(list){
+			if(clickUp){
+				const listSort = list.sort((a, b) => {
+					if (a.price < b.price) return -1;
+					if (a.price > b.price) return 1;
+					return 0;
+				});
+				setList(listSort)
+			}
+		}
+	}
+	useEffect(()=>{},[clickDown,clickUp])
 	return (
 		<div className={styles["list"]}>
 			<ClassifyProduct
@@ -254,10 +291,10 @@ const ProductsAPI = (props) => {
 			/>
 			<div className={styles["sort"]}>
 				<p>Sắp xếp theo</p>
-				<div>Bán chạy</div>
-				<div>Mới về</div>
-				<div>Giá giảm dần</div>
-				<div>Giá tăng dần</div>
+				{/* <div>Bán chạy</div>
+				<div>Mới về</div> */}
+				<div className={styles["sort-down"]} style={{backgroundColor: clickDown ? '#008ECC' : null}} onClick={onclickDown}>Giá giảm dần</div>
+				<div className={styles["sort-up"]} onClick={onclickUp}>Giá tăng dần</div>
 			</div>
 			<ListProduct productData={list} loadingProducts={props.loadingProducts} />
 			<div className={styles["padination"]}>

@@ -23,10 +23,10 @@ const AdminProduct = ()=>{
 
     return(
         <AdminTemplate>
-        <Link to={`./add`} className="btn btn-success col-2" style={{marginBottom:"10px"}}>Add</Link>
-            <ProductList>
-                {loadProductItems(products)}
-            </ProductList>
+            <Link to={`./add`} className="btn btn-success col-2" style={{marginBottom:"10px"}}>Add</Link>
+                <ProductList>
+                    {loadProductItems(products)}
+                </ProductList>
         </AdminTemplate>
     )
 }

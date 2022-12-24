@@ -1,4 +1,3 @@
-import axios from "axios"
 import { actGetProductReport, actGetRevenueReport, actGetSalesReport, actGetTotalReport, actGetVisitorReport } from "../actions/AdminReportAction"
 import { ApiCaller } from "./ApiCaller"
 

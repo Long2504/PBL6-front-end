@@ -38,6 +38,7 @@ export const fetchCart= async (dispatch)=>{
 
 export const fetchOrder = async (dispatch) =>{
     if(user){
+        console.log(user.id,"user.id")
         return ApiCaller("GET",null,"order/" + user.id)
         .then(res => dispatch(fetchOrderAction(res.data)))
         .catch(error=>{

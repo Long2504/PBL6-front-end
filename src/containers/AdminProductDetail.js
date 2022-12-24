@@ -27,19 +27,22 @@ function AdminProductDetail(props){
     },[dispatch,id])
     useEffect(()=>{
         setState(product)
-
+        setImage(product.productImgs[0])
     },[product])
-    console.log(product)
 
-    const onEditClick = (e,name)=>{
-        var value = !editState[name]
+    const onEditClick = (name,boolean)=>{
+        var value = boolean
         setEditState({...editState,[name]:value})
+    }
+    const checkSubmit = ()=>{
+        return (editState.name || editState.price || editState.status || editState.description || editState.popular || editState.rate || editState.information || editState.category)
+
     }
 
     const onChange = (e) => {
         var target = e.target;
         var name = target.name;
-        var value = target.type === 'checkbox' ? target.checked : target.value;
+        var value = target.value;
         setState({...state,[name]:value})
     }
 
@@ -55,7 +58,8 @@ function AdminProductDetail(props){
             information:state.information,
             category:{
                 "id":1
-            }
+            },
+            productImgs: state.productImgs,
         }
         console.log("product")
         console.log(product)
@@ -71,12 +75,25 @@ function AdminProductDetail(props){
         e.preventDefault();
         props.navigate(-1)
     }    
+    const [image,setImage]= useState([])
+    const handleClick= (e)=>{
+        const img = e.target.value;
+        setImage(img)
+    }
+    
 
     return(
         <AdminTemplate>
             <ProductForm 
-            product={state} editState={editState}
-             onChange={onChange}  onSave={onSave} onBack={onBack} onEditClick={onEditClick}
+                product={state} 
+                editState={editState}
+                onChange={onChange}  
+                onSave={onSave} 
+                onBack={onBack} 
+                onEditClick={onEditClick}
+                handleClick={handleClick} 
+                image={image}
+                checkSubmit={checkSubmit}
              />
         </AdminTemplate>
     )

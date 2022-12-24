@@ -29,7 +29,7 @@
 /* -------------------------Catalog-------------------------  */
 .catalog{
     width: 15%;
-    height: 540px;
+    height: 400px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -160,7 +160,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    justify-content: space-between;
+    gap: 56px;
 }
 
 .list-product .product{
@@ -245,6 +245,7 @@
 .infor-product .btn-addProduct{
     display: flex;
     justify-content: center;
+    align-items: center;
     color: #000;
     font-weight: bold;
     margin-top: 15px;
@@ -252,12 +253,18 @@
     
 }
 
-.infor-product .btn-addProduct button{
+.infor-product .btn-addProduct > button{
     width: 180px;
     height: 40px;
     background-color: #008ECC;
     border-radius: 30px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.infor-product .btn-addProduct > button > p{
+    margin-top: 15px;
 }
 
 .list .padination{
@@ -267,27 +274,13 @@
 .list .padination a{
     color: black;
     padding: 10px 18px;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .list .pagination a:hover:not(.active) {
     background-color: #031F3B;
     color: white;
 }
-
-
-/* a:nth-child(5) {
-    background-color: green;
-    color: white;
-}
-
-a:nth-child(1) {
-    font-weight: bold;
-}
-  
-a:nth-child(7) {
-    font-weight: bold;
-} */
 
 
 
@@ -297,4 +290,16 @@ a:nth-child(7) {
 
 
 
+.sort-down{
+    cursor: pointer;
+}
+.sort-down:hover{
+    background-color: #008ECC;
+}
+.sort-up:hover{
+    background-color: #008ECC;
+}
 
+.sort-up{
+    cursor: pointer;
+}

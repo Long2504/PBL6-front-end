@@ -43,7 +43,11 @@
     margin-left: 20px;
 }
 
-.items .row > td,th{
+.items .row > td{
+    max-width: 200px;
+    padding-right: 60px;
+}
+.items .row > th{
     max-width: 200px;
     padding-right: 60px;
 }

@@ -117,11 +117,7 @@ p li, ul li, ol li {
 /* -------------------------------------
     LINKS & BUTTONS
 ------------------------------------- */
-a {
-    color: #1ab394;
-    /* text-decoration: underline; */
-    text-decoration: none;
-}
+
 
 .btn-primary {
     text-decoration: none;

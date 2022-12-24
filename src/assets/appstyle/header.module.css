@@ -30,11 +30,12 @@ header{
     justify-content: center;
     align-items: center;
 }
-
+.nav > ul{
+    margin-top: 12px;
+}
 .nav > ul > li{
     display: inline-block;
     margin: 0 15px;
-    
 }
 
 .nav > ul > li > a{

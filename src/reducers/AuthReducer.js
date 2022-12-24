@@ -16,8 +16,19 @@ const authReducer = (
                 logged: true,
                 loading: false
             }
+        case Type.LOGOUT:
+            console.log("out")
+            localStorage.removeItem("user")
+            return{
+                logged: false,
+            }
 		default:
-            return state
+            if(!localStorage.getItem("user")){
+                return state
+            }
+            else return{
+                logged: true
+            }
 	}
 };
 
