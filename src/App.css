@@ -38,3 +38,21 @@ li {
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+
+
+@keyframes hover {
+  0% {
+      transform: scale(.5);
+  }
+
+  20% {
+      transform: scale(1);
+      -webkit-text-stroke: 3px;
+  }
+
+  50% {
+      transform: scale(.5);
+  }
+
+
+}

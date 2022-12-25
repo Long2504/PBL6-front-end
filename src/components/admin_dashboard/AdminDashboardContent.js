@@ -112,13 +112,11 @@ class AdminDashboardContent extends Component {
 					</div>
 				</div>
 				<div className="container-fluid pt-4 px-4">
-					<div className="row g-4">
+					<div className="row g-4" style={{}}>
 						<AdminChartReport
 							data={this.props.chartDataLoader(productsData)}
 							type={Type.CHART_PIE}
 						/>
-
-						<AdminOrder />
 					</div>
 				</div>
 			</div>

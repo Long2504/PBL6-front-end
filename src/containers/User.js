@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrder } from "../services/CartService";
 import ListOrder from "../components/User/Order";
+import ChangePassword from "../components/User/ChangePassword";
 
 const User = () => {
 	const dispatch = useDispatch();
@@ -91,6 +92,7 @@ const User = () => {
 			</div>
 			<div className={styles["container-user"]}>
 				{clickItemUser[0] ? <Account accountUser={accountUser} /> : null}
+				{clickItemUser[1] ? <ChangePassword /> : null}
 				{clickItemUser[2] ? (
 					<ListOrder listOrder={listOrder} Check={Check} />
 				) : null}

@@ -4,12 +4,12 @@ class OrderItem extends Component {
 	render() {
 		var { Order, index, onClickShow } = this.props;
 		return (
-			<tr>
-				<th scope="row">{index + 1}</th>
-				<td>{Order.id}</td>
-				<td>{Order.dayOrder}</td>
-				<td>{Order.user.name}</td>
-				<td>{Order.orderStatus.name}</td>
+			<tr style={{color:'black'}}>
+				<th style={{verticalAlign: 'middle'}} scope="row">{index + 1}</th>
+				<td style={{verticalAlign: 'middle'}}>{Order.id}</td>
+				<td style={{verticalAlign: 'middle'}}>{Order.dayOrder}</td>
+				<td style={{verticalAlign: 'middle'}}>{Order.user.name}</td>
+				<td style={{verticalAlign: 'middle'}}>{Order.orderStatus.name}</td>
 				<td>
 					<div>
 						<button className="btn btn-primary"

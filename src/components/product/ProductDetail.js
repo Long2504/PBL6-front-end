@@ -87,10 +87,17 @@ class ProductDetail extends Component{
                 </div>
                 <div className={styles["container-detail"]}>
                     <div className={styles["desc-detail"]}>
-                        <div className={styles["title"]}>
-                            <h2>Thông tin chi tiết</h2>
-                        </div>
-                        <table>
+                        <table className="table table-bordered table-striped mb-0">
+                        <thead>
+							<tr>
+								<th
+									style={{ textAlign: "center", fontSize: "1.5rem" }}
+									colSpan={2}
+								>
+									Thông tin chi tiết
+								</th>
+							</tr>
+						</thead>
                             <tbody>
                                 {this.props.product.attributes.map((data)=>{
                                     return(

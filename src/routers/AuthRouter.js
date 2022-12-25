@@ -51,13 +51,13 @@ const authRoutes=[
         role:[],
     },
     {
-        path: "/Cart",
+        path: "/cart",
         exact : true,
         page : Cart,
         role:[],
     },
     {
-        path: "/User",
+        path: "/user",
         exact: true,
         page:UserPage,
         role:[],

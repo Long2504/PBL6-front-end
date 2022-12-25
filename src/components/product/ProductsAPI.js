@@ -70,7 +70,9 @@ const ClassifyProduct = ({ classifyData, selectWeight, loadingCatelogy }) => {
 		listData = classifyData.map((data, index) => {
 			return (
 				<div className={styles["detail-item"]} key={data.id}>
-					<div className={styles["title"]}>{data.name}</div>
+					<div className={styles["title"]}>
+						{data.name}
+					</div>
 					<div className={styles["list-atribute"]}>
 						{detail(data.attributes, index)}
 					</div>
@@ -159,12 +161,27 @@ const ListProduct = (props) => {
 							to={`/product/${data.category.name.toString()}/${data.id.toString()}`}
 						>
 							<div className={styles["caption"]}>
-								<h2 className={styles["name-product"]}>{data.name}</h2>
+								<h4 className={styles["name-product"]}>{data.name}</h4>
 							</div>
+							<p 
+								style={
+									{
+										padding:'0 10px',
+										margin: 'auto',
+										width:'90%'
+										
+									}
+								}
+							>
+								Tình trạng : {<span style={{color:'red'}}>{data.status?'còn hàng':'hết hàng'}</span>}
+							</p>
 							<p className={styles["price-product"]}>
 								{vietnamdognVN.format(data.price)}
 							</p>
 						</Link>
+						<div>
+							
+						</div>
 						<div className={styles["btn-addProduct"]}>
 							<button onClick={()=>addToCartHandler(data.id)}>
 								<p>Thêm vào giỏ hàng</p>
@@ -184,10 +201,22 @@ const ListProduct = (props) => {
 };
 
 const ProductsAPI = (props) => {
-	const [selectedWeight, setSelectedWeight] = useState([]);
+
+	/*----------------------LIST PRODUCT------------------- */
 	const [list, setList] = useState(props.productData);
 	const listLocal = props.productData;
+	useEffect(() => {
+		setList(props.productData);
+		setClickDown(false)
+		setClickUp(false)
+	}, [props.productData]);
 
+	/*_______________________________________________________*/
+	
+
+	/*-------------------------FILTERS---------------------- */
+
+	const [selectedWeight, setSelectedWeight] = useState([]);
 	const handleSelectWeight = (value) => {
         //console.log(value,"value")
 		if (value) {
@@ -242,22 +271,19 @@ const ProductsAPI = (props) => {
 	useEffect(()=>{
 	    applyFilters();
 	},[selectedWeight])
-	useEffect(() => {
-		setList(props.productData);
-	}, [props.productData]);
+	/*_______________________________________________________*/
 
 
+
+	/*-------------------------SORT------------------------- */
 	const [clickDown,setClickDown] = useState(false)
 	const [clickUp,setClickUp] = useState(false)
 
-
-
-
 	const onclickDown = ()=>{
-		setClickDown(!clickDown)
+		setClickDown(true)
+		setClickUp(false)
 		if(list){
-			if(clickDown){
-
+			if(!clickDown){
 				const listSort = list.sort((a, b) => {
 					if (a.price > b.price) return -1;
 					if (a.price < b.price) return 1;
@@ -267,11 +293,11 @@ const ProductsAPI = (props) => {
 			}
 		}
 	}
-
 	const onclickUp = ()=>{
-		setClickUp(!clickUp)
+		setClickDown(false)
+		setClickUp(true)
 		if(list){
-			if(clickUp){
+			if(!clickUp){
 				const listSort = list.sort((a, b) => {
 					if (a.price < b.price) return -1;
 					if (a.price > b.price) return 1;
@@ -282,6 +308,8 @@ const ProductsAPI = (props) => {
 		}
 	}
 	useEffect(()=>{},[clickDown,clickUp])
+	/*_______________________________________________________*/
+
 	return (
 		<div className={styles["list"]}>
 			<ClassifyProduct
@@ -291,17 +319,10 @@ const ProductsAPI = (props) => {
 			/>
 			<div className={styles["sort"]}>
 				<p>Sắp xếp theo</p>
-				{/* <div>Bán chạy</div>
-				<div>Mới về</div> */}
-				<div className={styles["sort-down"]} style={{backgroundColor: clickDown ? '#008ECC' : null}} onClick={onclickDown}>Giá giảm dần</div>
-				<div className={styles["sort-up"]} onClick={onclickUp}>Giá tăng dần</div>
+				<div className={styles["sort-down"]} style={{backgroundColor: (clickDown!==clickUp && clickDown)  ? '#008ECC' : null}} onClick={onclickDown}>Giá giảm dần</div>
+				<div className={styles["sort-up"]} style={{backgroundColor: (clickUp!==clickDown && clickUp)  ? '#008ECC' : null}} onClick={onclickUp}>Giá tăng dần</div>
 			</div>
 			<ListProduct productData={list} loadingProducts={props.loadingProducts} />
-			<div className={styles["padination"]}>
-				<a href="#">Previous</a>
-
-				<a href="#">Next</a>
-			</div>
 		</div>
 	);
 };

@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import styles from "../../assets/appstyle/adminbill.module.css";
 
 class OrderDetailModal extends Component {
@@ -25,23 +24,17 @@ class OrderDetailModal extends Component {
 			ZIndex: 1000,
 			backgroundColor: "white",
 		};
-		const STYLE_BTN = {
-			marginTop: "45px",
-			marginBottom: "30px",
-			backgroundColor: "white",
-			cursor: "pointer",
-			borderRadius: "3px",
-		};
 
-		const STYLE_SPAN = {
-			fontWeight: "bold",
+		const STYLE_CENTER = {
+			verticalAlign: 'middle',
+            textAlign: 'center'
 		};
-
+    
 		const ItemOfOrder = ({ list }) => {
 			const orders = list.map((item, index) => {
 				return (
 					<tr key={index}>
-						<th scope="row">{index + 1}</th>
+						<th style={STYLE_CENTER} scope="row">{index + 1}</th>
 						<td>
 							<img
 								src={item.product.productImgs[0]}
@@ -51,8 +44,8 @@ class OrderDetailModal extends Component {
 								}}
 							/>
 						</td>
-						<td>{item.product.name}</td>
-						<td>{item.amount}</td>
+						<td style={{verticalAlign: 'middle',}} >{item.product.name}</td>
+						<td style={STYLE_CENTER}>{item.amount}</td>
 					</tr>
 				);
 			});

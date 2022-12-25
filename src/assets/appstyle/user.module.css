@@ -58,30 +58,12 @@ hr {
 /*------------account------------------*/
 .container-user .account {
     margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     margin-left: 2vw;
+    margin-bottom: 40px;
     background-color: white;
 }
 
-.account>h1 {
-    text-align: center;
-}
 
-.account-info .info {
-    display: flex;
-    margin-bottom: 30px;
-}
-
-
-.account-info .info .label {
-    width: 15%;
-    text-align: right;
-}
-
-.account-info .info .info-main {
-    margin-left: 20px;
-}
 
 /*======================================*/
 

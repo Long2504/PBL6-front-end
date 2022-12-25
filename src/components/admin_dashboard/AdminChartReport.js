@@ -7,7 +7,7 @@ class AdminChartReport extends Component {
         var {data , options} = this.props.data;
         // console.log(data)
         return (
-            <div className="col-sm-12 col-xl-6">
+            <div className="col-sm-12 col-xl-6" style={{margin:'auto'}}>
             <div className="bg-dark text-center rounded p-4">
                 <div className="d-flex align-items-center justify-content-between mb-4">
                     <h6 className="mb-0">Salse &amp; Revenue</h6>
