@@ -1,32 +1,29 @@
-import AdminOrderPage from "../pages/AdminOrderPage";
-import AdminDashboardPage from "../pages/AdminDashboardPage";
-import AdminProductDetailPage from "../pages/AdminProductDetailPage";
-import AdminProductPage from "../pages/AdminProductPage";
+import CheckAdmin from "../containers/CheckAdmin";
 
 const adminRoutes=[
     {
         path : "/admin",
         exact : true,
-        page : AdminDashboardPage,
-        role:[],
+        page : CheckAdmin,
+        role:'admin',
     },
     {
         path : "/admin/order",
         exact : false,
-        page : AdminOrderPage,
-        role:[],
+        page : CheckAdmin,
+        role:'order',
     },
     {
         path : "/admin/product/:id",
         exact : false,
-        page : AdminProductDetailPage,
-        role:[],
+        page : CheckAdmin,
+        role:'productDetail',
     },
     {
         path : "/admin/product",
         exact : false,
-        page : AdminProductPage,
-        role:[],
+        page : CheckAdmin,
+        role:'product',
     }
 ]
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logoutAction } from '../actions/AuthAction'
 const Logout = ()=>{
     const navigate = useNavigate()
@@ -10,11 +10,6 @@ const Logout = ()=>{
         navigate('/')
     })
     console.log("adsfasf")
-    // const onLogout =async ()=>{
-    // }
-
-
-    //return (<div></div>)
 }
 
 

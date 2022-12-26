@@ -10,11 +10,12 @@ class ProductItem extends Component {
 	render() {
 		var { Product, index } = this.props;
 		return (
-			<tr>
-				<th scope="row">{index + 1}</th>
-				<td>{Product.name}</td>
-				<td>{Product.brand.name}</td>
-				<td>
+			<tr style={{color:'black'}}>
+				{/* <th scope="row" style={{verticalAlign: 'middle'}}>{index + 1}</th> */}
+				<td style={{verticalAlign: 'middle',textAlign:'center'}}>{index + 1}</td>
+				<td style={{verticalAlign: 'middle',width:'800px'}}>{Product.name}</td>
+				<td style={{verticalAlign: 'middle',textAlign:'center'}}>{Product.brand.name}</td>
+				<td style={{verticalAlign: 'middle',textAlign:'center'}}>
 					{Product.status ? (
 						<FontAwesomeIcon icon="fa-solid fa-check" />
 					) : (

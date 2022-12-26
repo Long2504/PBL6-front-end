@@ -7,6 +7,7 @@ import TEST from "../pages/test";
 import Cart from "../pages/CartPage";
 import UserPage from "../pages/UserPage";
 import Logout from "../containers/Logout";
+import NotFound from "../containers/NotFound";
 const authRoutes=[
     {
         path : "/login",
@@ -60,6 +61,12 @@ const authRoutes=[
         path: "/user",
         exact: true,
         page:UserPage,
+        role:[],
+    },
+    {
+        path: "*",
+        exact: true,
+        page: NotFound,
         role:[],
     }
 ]

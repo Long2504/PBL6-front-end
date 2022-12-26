@@ -1,4 +1,4 @@
-import { type } from '@testing-library/user-event/dist/type'
+
 import * as Type from '../contants/ActionType'
 import { loginApi } from '../services/AuthService'
 

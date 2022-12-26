@@ -11,10 +11,15 @@ export const loginApi= async(dispatch,user)=>{
     })
 }
 
-export const loginWithGoogle=(email)=>{
+export const loginWithGoogle= async(email)=>{
     return ApiCaller("POST",JSON.stringify(email),"provider")
     .catch(error=>{
         alert("ĐĂNG NHẬP THẤT BẠI")
         console.log(error)
     })
 }
+
+
+// export const changePassword = async ()=>{
+//     return ApiCaller()
+// }

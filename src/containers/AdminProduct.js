@@ -5,10 +5,12 @@ import { actFetchProductsRequest } from "../actions/AdminProductAction";
 import ProductItem from "../components/admin_product/ProductItems";
 import ProductList from "../components/admin_product/ProductList";
 import AdminTemplate from "../components/admin_template/AdminTemplate";
+import Loading from "../components/LoadingBox";
 const AdminProduct = ()=>{
 
     const dispatch = useDispatch();
-    const products=useSelector(state=>state.adminProductReducer);
+    const products=useSelector(state=>state.adminProductReducer.products);
+    const loading = useSelector(state=>state.adminProductReducer.loading)
 
     console.log(products)
     useEffect(()=>{
@@ -20,13 +22,16 @@ const AdminProduct = ()=>{
             <ProductItem key={index} Product={product} index={index} />
         ))
     }
+    console.log(loading,"loading")
 
     return(
         <AdminTemplate>
             <Link to={`./add`} className="btn btn-success col-2" style={{marginBottom:"10px"}}>Add</Link>
+            {loading ? <Loading /> : 
                 <ProductList>
                     {loadProductItems(products)}
                 </ProductList>
+            }
         </AdminTemplate>
     )
 }

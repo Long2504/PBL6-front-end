@@ -7,15 +7,16 @@ class ProductList extends Component{
             <table className="table table-striped">
             <thead>
               <tr>
-                <th scope="col"></th>
-                <th scope="col">name</th>
-                <th scope="col">brand</th>
-                <th scope="col">available</th>
+                <th scope="col" style={{textAlign: 'center'}}>STT</th>
+                <th scope="col" style={{textAlign: 'center'}}>Name</th>
+                <th scope="col" style={{textAlign: 'center'}}>Brand</th>
+                <th scope="col" style={{textAlign: 'center'}}>Available</th>
+                <th scope="col" style={{textAlign: 'center'}}></th>
               </tr>
             </thead>
 
             <tbody>
-                {this.props.children}
+              {this.props.children}
             </tbody>
           </table>
             </div>

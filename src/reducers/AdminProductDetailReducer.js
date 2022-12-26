@@ -1,24 +1,32 @@
 import * as Type from "../contants/ActionType"
 
-const adminProductDetailReducer = (state={},action)=>{
+const adminProductDetailReducer = (
+    state = {
+        loading: true,
+        product:{
+            name : "",
+            price:0,
+            status :false,
+            description:"",
+            popular:"",
+            rate:"",
+            information:"",
+            category:{
+                "id":1
+            },
+            productImgs: [],
+            attributes: []
+        }
+    },
+    action)=>{
     switch(action.type){
         case Type.GET_PRODUCT_BY_ID:
-            return action.product
-        default:
             return {
-                name : "",
-                price:0,
-                status :false,
-                description:"",
-                popular:"",
-                rate:"",
-                information:"",
-                category:{
-                    "id":1
-                },
-                productImgs: [],
-                attributes: []
+                loading: false,         
+                product: action.product
             }
+        default:
+            return state;
     }
 }
 

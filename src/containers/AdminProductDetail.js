@@ -5,7 +5,7 @@ import ProductForm from "../components/admin_product/ProductForm";
 import AdminTemplate from "../components/admin_template/AdminTemplate";
 
 function AdminProductDetail(props){
-    const product = useSelector(state=>state.adminProductDetailReducer);
+    const product = useSelector(state=>state.adminProductDetailReducer.product);
     var [state,setState] = useState(product);
     var [editState,setEditState]= useState({
         name : false,

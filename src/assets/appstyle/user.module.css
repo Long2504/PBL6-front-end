@@ -63,10 +63,18 @@ hr {
     background-color: white;
 }
 
-
-
 /*======================================*/
 
+
+/*------------changeword----------------*/
+.change-password{
+    margin-top: 40px;
+    padding:30px 12% ;
+    background-color: white;
+
+}
+
+/*======================================*/
 
 /*-----------------order-----------------*/
 

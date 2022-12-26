@@ -15,6 +15,7 @@ import AdminTemplate from "../components/admin_template/AdminTemplate";
 import * as ReportKey from "../contants/ReportKey";
 import { getProductLabels } from "../services/AdminReportService";
 const AdminDashboard = () => {
+
 	var data = useSelector((state) => state.adminReportReducer);
 	var listOrder = useSelector((state) => state.orderReducer.orders);
 	var week = moment().format("W");
