@@ -6,3 +6,10 @@ export const fetchOrderAction = (data) => {
 		orders: data,
 	};
 };
+
+export const confirmOrderAction = (data)=>{
+	return {
+		type: Type.ORDER_PUSH_SUCCESS,
+		orders: data
+	}
+}

@@ -6,6 +6,8 @@ const adminOrderReducer = (state=[],action)=>{
         case Type.ORDER_LIST_SUCCESS:
             state=orders
             return state
+        case Type.ORDER_PUSH_SUCCESS:
+            console.log(orders)
         default:
             return state
     }

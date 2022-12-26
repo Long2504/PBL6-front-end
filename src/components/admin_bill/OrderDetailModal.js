@@ -119,10 +119,16 @@ class OrderDetailModal extends Component {
                         </div>
                         <div className={styles["status"]}>
                             <span>Tình trạng : {<span style={{color: "red"}}>{order.orderStatus.name}</span>}</span>
-                            <button type="button" className="btn btn-success">
+                            <button className="btn btn-success"
+								type="button" 
+								onClick={()=>this.props.onClickConfirmStatus(order.id,"OK")}
+							>
                                 Accept
                             </button>
-                            <button type="button" className="btn btn-danger">
+                            <button className="btn btn-danger" 
+								type="button" 	
+								onClick={()=>this.props.onClickConfirmStatus(order.id,"Deny")}	
+							>
                                 Deny
                             </button>
                         </div>

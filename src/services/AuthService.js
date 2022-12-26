@@ -20,6 +20,10 @@ export const loginWithGoogle= async(email)=>{
 }
 
 
-// export const changePassword = async ()=>{
-//     return ApiCaller()
-// }
+export const changePassword = async (data)=>{
+    return ApiCaller("PUT",JSON.stringify(data),"password")
+    .then(res => {console.log(res.data)})
+    .catch( error =>{
+        console.log(error)
+    })
+}

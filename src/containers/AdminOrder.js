@@ -5,17 +5,18 @@ import OrderItem from "../components/admin_bill/OrderItems";
 import OrderDetailModal from '../components/admin_bill/OrderDetailModal'
 import AdminTemplate from "../components/admin_template/AdminTemplate";
 import { getListOrder } from "../services/AdminOrderService"
+import { confirmOrder } from "../services/AdminOrderService";
 
 const AdminOrder = () => {
 	const dispatch = useDispatch();
 	const orders = useSelector((state) => state.adminOrderReducer);
-
+	const [confirm,setConfirm] = useState(false)
 	const [onClickShow,setOnClickShow] = useState(false)
 	const [indexCurent,setIndexCurent] = useState(0)
 
 	useEffect(() => {
 		getListOrder(dispatch)
-	}, [dispatch]);
+	}, [dispatch,confirm]);
 	console.log(orders)
 
 	const clickOpen = (index)=>{
@@ -24,6 +25,11 @@ const AdminOrder = () => {
 	}
 	const clickClose = ()=>{
 		setOnClickShow(false)
+	}
+	const onClickConfirmStatus = async (idOrder,status)=>{
+		await confirmOrder(dispatch,idOrder,status)
+		setOnClickShow(false)
+		setConfirm(!confirm)
 	}
 
 	const loadOrderItems = (orders) => {
@@ -47,6 +53,7 @@ const AdminOrder = () => {
 				clickClose={clickClose} 
 				check = {onClickShow}
 				order = {orders ? orders[indexCurent] : null}	
+				onClickConfirmStatus = {onClickConfirmStatus}
 			/>
 		</AdminTemplate>
 	);

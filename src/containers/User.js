@@ -8,11 +8,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchOrder } from "../services/CartService";
 import ListOrder from "../components/User/Order";
 import ChangePassword from "../components/User/ChangePassword";
+import { changePassword } from "../services/AuthService";
+
+const errorTrim = "Bạn chưa nhập trường này";
 
 const User = () => {
 	const dispatch = useDispatch();
 	const listOrder = useSelector((state) => state.orderReducer.orders);
-	const logged = useSelector(state=> state.authReducer.logged)
+	const logged = useSelector((state) => state.authReducer.logged);
 	let trackClick = [true, false, false, false];
 	const [clickItemUser, setClickItemUser] = useState(trackClick);
 
@@ -33,31 +36,83 @@ const User = () => {
 		}
 	};
 	const [accountUser, setAccountUser] = useState({
-        "userAccount": '',
-        "name":'',
-        "email": '',
-        "phoneNumber":'',
-        "gender":'',
-        "dateOfBirth": ''
-    });
-    
-	useEffect(()=>{
-		if(logged) {
+		userAccount: "",
+		name: "",
+		email: "",
+		phoneNumber: "",
+		gender: "",
+		dateOfBirth: "",
+	});
+
+	useEffect(() => {
+		if (logged) {
 			const user = JSON.parse(localStorage.getItem("user")).userModel;
 			setAccountUser(user);
 		}
-	},[logged])
-
+	}, [logged]);
 
 	useEffect(() => {
 		fetchOrder(dispatch);
 	}, [dispatch]);
-	
-	// const onChangePassword = ()=>{
-		
-	// }
 
-	console.log(listOrder,"listOrder main")
+	var [password, setPassword] = useState({
+		recentPassword: "",
+		newPassword: "",
+	});
+
+	const [comfirmPassword, setComfirmPassword] = useState("");
+
+	const onChange = (e) => {
+		var name = e.target.name;
+		var value = e.target.value;
+		if (name === "confirmpassword") {
+			setComfirmPassword(value);
+		} else {
+			setPassword({ ...password, [name]: value });
+			setError({ ...error, [name]: "" });
+		}
+	};
+	const [error, setError] = useState({
+		recentPassword: "",
+		password: "",
+		confirmpassword: "",
+	});
+
+	const onBlur = (e) => {
+		const atribute = e.target.name;
+		if (!e.target.value) {
+			setError({ ...error, [atribute]: errorTrim });
+		} else {
+			if (atribute === "newPassword") {
+				if (password[atribute].length < 6) {
+					setError({ ...error, [atribute]: "Mật khẩu phải nhiều hơn 6 kí tự" });
+				}
+			}
+			if (atribute === "confirmpassword") {
+				if (e.target.value !== password["newPassword"]) {
+					setError({ ...error, [atribute]: "Mật khẩu không khớp" });
+				}
+			}
+		}
+	};
+
+	const onChangePassword = () => {
+		if (
+			error.recentPassword.length +
+				error.password.length +
+				error.confirmpassword.length ===
+				0 &&
+			comfirmPassword.length > 0
+		) {
+			changePassword(password)
+		} else {
+			alert("Vui lòng điền đầy đủ thông tin");
+		}
+	};
+
+	console.log(password, "password");
+	console.log(comfirmPassword, "comfirmPassword");
+
 
 	return (
 		<div className={styles["user"]} id="user">
@@ -68,7 +123,8 @@ const User = () => {
 				</div>
 				<hr />
 				<div className={styles["nav"]}>
-					<div className={styles["item-nav"]}
+					<div
+						className={styles["item-nav"]}
 						onClick={() => onClickItemUser(0)}
 					>
 						<BsPersonBoundingBox color="rgb(40, 103, 219)" size="1vw" />
@@ -76,7 +132,8 @@ const User = () => {
 							Hồ sơ
 						</span>
 					</div>
-					<div className={styles["item-nav"]}
+					<div
+						className={styles["item-nav"]}
 						onClick={() => onClickItemUser(1)}
 					>
 						<RiLockPasswordLine color="rgb(40, 103, 219)" size="1vw" />
@@ -84,7 +141,8 @@ const User = () => {
 							Đổi mật khẩu
 						</span>
 					</div>
-					<div className={styles["item-nav"]}
+					<div
+						className={styles["item-nav"]}
 						onClick={() => onClickItemUser(2)}
 					>
 						<TbClipboardList color="rgb(40, 103, 219)" size="1vw" />
@@ -96,7 +154,14 @@ const User = () => {
 			</div>
 			<div className={styles["container-user"]}>
 				{clickItemUser[0] ? <Account accountUser={accountUser} /> : null}
-				{clickItemUser[1] ? <ChangePassword /> : null}
+				{clickItemUser[1] ? (
+					<ChangePassword
+						onChange={onChange}
+						onBlur={onBlur}
+						error={error}
+						onChangePassword={onChangePassword}
+					/>
+				) : null}
 				{clickItemUser[2] ? (
 					<ListOrder listOrder={listOrder} Check={Check} />
 				) : null}
