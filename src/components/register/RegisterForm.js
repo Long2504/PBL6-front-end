@@ -191,7 +191,7 @@ class RegisterForm extends Component {
 
 						<div className={styles["form-submit"]}>
 							<div className={styles["btn-login"]}>
-								<button onClick={this.props.handleSubmit}>OK</button>
+								<button onClick={()=>this.props.handleSubmit()}>OK</button>
 							</div>
 						</div>
 					</div>
