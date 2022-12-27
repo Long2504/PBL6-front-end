@@ -35,14 +35,11 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.username}</p>
 						</div>
 						<div className={styles["input"]}>
 							<input
 								className={
-									this.props.error.email.length > 0
-										? styles["is-invaid"]
-										: ""
+									this.props.error.email.length > 0 ? styles["is-invaid"] : ""
 								}
 								name="email"
 								type="email"
@@ -55,7 +52,6 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.username}</p>
 						</div>
 						<div className={styles["input"]}>
 							<input
@@ -73,7 +69,6 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.name}</p>
 						</div>
 
 						<div className={styles["input"]}>
@@ -94,7 +89,6 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.phoneNumber}</p>
 						</div>
 						<div className={styles["include"]}>
 							<div className={styles["birthday"]}>
@@ -138,7 +132,6 @@ class RegisterForm extends Component {
 							</div>
 						</div>
 
-
 						<div className={styles["input"]}>
 							<input
 								className={
@@ -155,7 +148,6 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.address}</p>
 						</div>
 
 						<div className={styles["input"]}>
@@ -177,7 +169,6 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.password}</p>
 						</div>
 
 						<div className={styles["input"] + " " + styles["confirm-password"]}>
@@ -196,7 +187,6 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
-							<p>{this.props.error.confirmpassword}</p>
 						</div>
 
 						<div className={styles["form-submit"]}>

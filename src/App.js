@@ -28,21 +28,21 @@ function App() {
 	);
 }
 
-export const locationContext = createContext();
-const Content = () => {
-	var location = useLocation();
-	useEffect(() => {
-		console.log(location);
-		if (location.pathname !== "/") {
-			SSEClose();
-		}
-	}, [location]);
-	return (
-		<locationContext.Provider value={location}>
-			<Routes>{showMenuContents(routers, locationContext)}</Routes>
-		</locationContext.Provider>
-	);
-};
+// export const locationContext = createContext();
+// const Content = () => {
+// 	var location = useLocation();
+// 	useEffect(() => {
+// 		console.log(location);
+// 		if (location.pathname !== "/") {
+// 			SSEClose();
+// 		}
+// 	}, [location]);
+// 	return (
+// 		<locationContext.Provider value={location}>
+// 			<Routes>{showMenuContents(routers, locationContext)}</Routes>
+// 		</locationContext.Provider>
+// 	);
+// };
 
 const showMenuContents = (routers, locationContext) => {
 	var routerList = [];

@@ -17,7 +17,7 @@ const ProductCatalog = (props) => {
                 onCatalogClick(item);
             }
         };
-        items = catalogDataSortID.map((item) => {
+        items = catalogDataSortID.map((item,index) => {
             return (
                 <Link
                     className={styles["item"]}
@@ -27,7 +27,7 @@ const ProductCatalog = (props) => {
                     <div className={styles["container-item"]}
                         onClick={() => handleClick(item)}
                     >
-                        <img alt="" src={item.src}></img>
+                        <img alt="" src={dataImg[index]}></img>
                         <span>{item.name}</span>
                     </div>
                 </Link>
@@ -41,3 +41,15 @@ const ProductCatalog = (props) => {
 };
 
 export default ProductCatalog;
+
+const dataImg = [
+    "https://lh3.googleusercontent.com/lFZZtBMUqkbl9qKKUe3DSmHqpb62UjWrOkxqcJ6lN3yM83Wg2Irp-ZlvkUwGO6TMcsscLELMZa_lN9jo8tKteWsCzmUii7po=rw"
+    ,
+    "https://lh3.googleusercontent.com/Y7KEp2iUC1syVaF1SQuQ8ZPCLu8PVhCKqadoVKlI8ON-vKqxyvi0EbgM00Ky8Zb_wIcl9Q8HTLZkQj_MuTzqyJhGuLJz8mFTqw=rw"
+    ,
+    "https://lh3.googleusercontent.com/1rbqboPNTH2Gyx3dS28kewywgX0ovZAZHBcstS4KjeJO8j6Qc6Kn19xJH0XpaiqCAj4a-xf_EeAZjlARKaI9mQNBhlHDp6o=rw"
+    ,
+    "https://lh3.googleusercontent.com/0V32ezrE3Bn6r_lmv4YIyS7Y4QnfVAcjTQ8XjR-86cP_mAtiIzOPsWeEni-MpEklbR5jIfJvtXgD6K-eWhlO7sLsgbxBwsHduQ=rw"
+    ,"https://lh3.googleusercontent.com/JuVFuLJ2OmqyEO2mtZ0kJTWvACpFkXE_765ihiBIu8WQoHlS-jYXY8zsXDpZUBk26NqRulJ9U_u3DxLcBTxpPGY7n1uzGdKAuA=rw"
+    
+]

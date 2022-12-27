@@ -9,17 +9,17 @@ if(localStorage.getItem("user")){
 export const pushCart = async (dispatch,id,methodQuantity)=>{
     // console.log("pushCartService")
     // console.log(JSON.stringify(id),"ID")
-    if(user){
-        const method = methodQuantity === "ADD" ? 'POST': "PUT"  
-        return ApiCaller(method,JSON.stringify(id),"cart/" + user.id)
-        .then(res=>fetchCart(dispatch))
-        .catch(error=>{
-            console.log(error,"error")
-        })
-    }
-    else{
-        alert("Vui lòng đăng nhập")
-    }
+    const method = methodQuantity === "ADD" ? 'POST': "PUT"  
+    return ApiCaller(method,JSON.stringify(id),"cart/" + user.id)
+    .then(res=>fetchCart(dispatch))
+    .catch(error=>{
+        console.log(error,"error")
+    })
+    // if(user){
+    // }
+    // else{
+    //     alert("Vui lòng đăng nhập")
+    // }
 }
 
 

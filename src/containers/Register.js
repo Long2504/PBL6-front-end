@@ -1,17 +1,26 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import RegisterForm from "../components/register/RegisterForm"
+import { registerAccount } from "../services/AuthService"
 
 
 const regularExpression = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)
 const errorTrim = "Bạn chưa nhập trường này"
 
 const Register = ()=>{
+    const navigate = useNavigate()
     const day = []
     const month = []
     const year = []
     const [user,setUser] = useState({
+        name:"",
+        dateOfBirth:"",
+        address:"",
+        phoneNumber:"",
+        gender:true,
+        email:"",
         username:"",
-        password:""
+        password:"",
     })
     const [error,setError] = useState(
         {
@@ -94,9 +103,24 @@ const Register = ()=>{
     }
 
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = async (event)=>{
         event.preventDefault()
         if(error.username.length + error.email.length + error.name.length + error.phoneNumber.length + error.password.length + error.confirmpassword.length === 0){
+            const user = {
+                "userDetail":{
+                    name:user.name,
+                    dateOfBirth:user.dateOfBirth,
+                    address:user.address,
+                    phoneNumber:user.phoneNumber,
+                    gender:user.gender,
+                    email:user.email
+                },
+                username:user.username,
+                password:user.password,
+                "roles":[2]
+            }
+            await registerAccount(user)
+            navigate('/login')
             console.log("OK")
         }
     }

@@ -139,7 +139,7 @@ class ProductForm extends Component {
                         <button className="btn btn-success mb-3" 
                             type="button" 
                             style={{marginLeft:'48%'}}
-                            // onClick={()=>this.props.onSave()}
+                            onClick={()=>this.props.onSave()}
                             disabled={this.props.checkSubmit()}
                         >
                             Submit

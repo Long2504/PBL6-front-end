@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchOrder } from "../services/CartService";
 import ListOrder from "../components/User/Order";
 import ChangePassword from "../components/User/ChangePassword";
-import { changePassword } from "../services/AuthService";
+import { changePassword, editUser } from "../services/AuthService";
 
 const errorTrim = "Bạn chưa nhập trường này";
 
@@ -35,21 +35,7 @@ const User = () => {
 			document.getElementById("user").style.overflowY = "hidden";
 		}
 	};
-	const [accountUser, setAccountUser] = useState({
-		userAccount: "",
-		name: "",
-		email: "",
-		phoneNumber: "",
-		gender: "",
-		dateOfBirth: "",
-	});
 
-	useEffect(() => {
-		if (logged) {
-			const user = JSON.parse(localStorage.getItem("user")).userModel;
-			setAccountUser(user);
-		}
-	}, [logged]);
 
 	useEffect(() => {
 		fetchOrder(dispatch);
@@ -61,6 +47,16 @@ const User = () => {
 	});
 
 	const [comfirmPassword, setComfirmPassword] = useState("");
+	const [passwordType,setPasswordType] = useState({recentPassword:'password',newPassword:'password',confirmpassword:'password'})
+
+	const onClickEye = (name)=>{
+		if(passwordType[name] === 'password'){
+			setPasswordType({ ...passwordType,[name]:'text'})
+		}
+		else{
+			setPasswordType({...passwordType,[name]:'password'})
+		}
+	}
 
 	const onChange = (e) => {
 		var name = e.target.name;
@@ -110,8 +106,62 @@ const User = () => {
 		}
 	};
 
-	console.log(password, "password");
-	console.log(comfirmPassword, "comfirmPassword");
+	//---------------------------Account----------------------------------------
+	const [accountUser, setAccountUser] = useState({
+		name: "",
+		email: "",
+		phoneNumber: "",
+		gender: "",
+		dateOfBirth: "",
+		address:''
+	});
+	const loading = useSelector(state=>state.authReducer.loading)
+
+	useEffect(() => {
+		if (logged) {
+			const user = JSON.parse(localStorage.getItem("user")).userModel;
+			setAccountUser(user);
+		}
+	}, [logged]);
+
+	var [editState,setEditState]= useState({
+        name : false,
+        address :false,
+        phoneNumber:false,
+        gender:false,
+        dateOfBirth:false,
+    })
+	const onEditClick = (name,boolean)=>{
+        var value = boolean
+        setEditState({...editState,[name]:value})
+    }
+    const checkSubmit = ()=>{
+        return (editState.name || editState.address || editState.phoneNumber || editState.gender || editState.dateOfBirth )
+
+    }
+
+    const onChangeAccount = (e) => {
+        var target = e.target;
+        var name = target.name;
+        var value = target.value;
+        setAccountUser({...accountUser,[name]:value})
+    }
+	const onSave = (e)=>{
+        e.preventDefault();
+        var user = {
+            name : accountUser.name,
+            dateOfBirth:accountUser.dateOfBirth,
+            address:accountUser.address,
+            phoneNumber:accountUser.phoneNumber,
+            gender:accountUser.gender,
+        }
+        console.log(user,"user")
+		editUser(dispatch,user)
+		
+    }
+	useEffect(()=>{},[loading])
+	//---------------------------------------------------------------------------
+
 
 
 	return (
@@ -153,13 +203,24 @@ const User = () => {
 				</div>
 			</div>
 			<div className={styles["container-user"]}>
-				{clickItemUser[0] ? <Account accountUser={accountUser} /> : null}
+				{clickItemUser[0] ? 
+					<Account 
+						accountUser={accountUser} 
+						editState={editState}
+						onChange={onChangeAccount}  
+						onEditClick={onEditClick}
+						checkSubmit={checkSubmit}
+						onSave={onSave}
+					/> 
+				: null}
 				{clickItemUser[1] ? (
 					<ChangePassword
 						onChange={onChange}
 						onBlur={onBlur}
 						error={error}
 						onChangePassword={onChangePassword}
+						onClickEye = {onClickEye}
+						passwordType={passwordType}
 					/>
 				) : null}
 				{clickItemUser[2] ? (

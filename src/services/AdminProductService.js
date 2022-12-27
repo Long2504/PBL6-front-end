@@ -11,7 +11,8 @@ export const getProductById=(dispatch,id)=>{
     .then(res=>dispatch(actGetProduct(res.data)))
 }
 
-export const editProduct=(dispatch,product,id)=>{
+export const editProduct= async(dispatch,product,id)=>{
+    console.log(product,"prodc")
     return ApiCaller("PUT",JSON.stringify(product),`product/edit/${id}`)
     .then(res=>dispatch(actEditProduct(res.data)))
 }

@@ -35,7 +35,8 @@ export const actEditProduct= product=>{
     }
 }
 
-export const actEditProductRequest = (product,id)=>{
+export const actEditProductRequest = (dispatch,product,id)=>{
+    console.log(product,"product action")
     return dispatch =>{
         return editProduct(dispatch,product,id);
     }

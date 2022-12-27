@@ -22,6 +22,15 @@ const authReducer = (
             return{
                 logged: false,
             }
+        case Type.EDIT_USER_SUCCESS:
+            const user = JSON.parse(localStorage.getItem("user"))
+            console.log(action.data,"action.user")
+            const data = {...user,['userModel']:action.data}
+            localStorage.setItem("user", JSON.stringify(data));
+            return{
+                logged: true,
+                loading:false
+            }
 		default:
             if(!localStorage.getItem("user")){
                 return state

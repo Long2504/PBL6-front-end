@@ -1,31 +1,37 @@
-import { useEffect, useState } from "react";
-import { Navigate,  useSearchParams } from "react-router-dom";
-import { loginWithGoogle } from "../services/AuthService";
-const Oauth2Handler = ()=>{
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { loginApi } from "../services/AuthService";
+const Oauth2Handler =  ()=>{
     var [queryParams] = useSearchParams();
-    var email = queryParams.get("email")
-    var [user,setUser] = useState(localStorage.getItem("user"))
+    const navigate = useNavigate();
+    //var [user,setUser] = useState('')
+    var account = queryParams.get("code")
+    console.log(account,"account auth")
+    var temp = account.split('@')
+    const userNameTemp = temp[0]
+    const passwordTemp = temp[1] + '@' + temp[2]
+    const dispatch = useDispatch()
     useEffect(()=>{
-        loginWithGoogle({username : email}).then(
-           res =>{
-            console.log(res)
-            localStorage.setItem("user",JSON.stringify(res.data))
-           }
-        ).then(
-            res=>{
-                setUser(localStorage.getItem("user"))
-            }
-        )
-    },[email])
-    useEffect(()=>{
-        console.log(user)
-    },[user])
-    return(
-    <div>
-        {user!==null?<div><Navigate to="/"/></div>:
-        <div>waiting</div>
+        async function fetch(user){
+            console.log(user,"usreafafadf")
+            await dispatch(loginApi(user))
+            navigate("/")
         }
-    </div>)
+        console.log(userNameTemp,"user auth")
+        console.log(passwordTemp,"pass auth")
+        const user = {
+            username:userNameTemp,
+            password:passwordTemp
+        }
+        fetch(user)
+    
+    },[])
+    
+    
+    
+    //console.log(user,"user auth")
 }
 
 export default Oauth2Handler;

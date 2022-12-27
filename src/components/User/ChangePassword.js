@@ -1,5 +1,6 @@
 import { Component } from "react";
 import styles from "../../assets/appstyle/user.module.css";
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
 class ChangePassword extends Component {
 	render() {
 		return (
@@ -20,10 +21,11 @@ class ChangePassword extends Component {
 					</div>
 					<input className="form-control col-8" 
 						name="recentPassword" 
-						type="password"  
+						type={this.props.passwordType.recentPassword}  
 						onChange={(e)=>this.props.onChange(e)}	
 						onBlur={(e) => this.props.onBlur(e)}
 					/>
+					<button type="button" className="btn" style={{display:'flex',alignItems:'center'}} onClick={()=>this.props.onClickEye("recentPassword")}>{this.props.passwordType.recentPassword === 'password'? <BsEye/>:<BsEyeSlash/>}</button>
 				</div>
 				<p style={{color:'red'}}>{this.props.error.recentPassword}</p>
 				<div className="input-group mb-3">
@@ -39,10 +41,11 @@ class ChangePassword extends Component {
 					</div>
 					<input className="form-control col-8"
 						name="newPassword" 
-						type="password"  
+						type={this.props.passwordType.newPassword} 
 						onChange={(e)=>this.props.onChange(e)}
 						onBlur={(e) => this.props.onBlur(e)}	
 					/>
+					<button type="button" className="btn" style={{display:'flex',alignItems:'center'}} onClick={()=>this.props.onClickEye("newPassword")}>{this.props.passwordType.newPassword === 'password'? <BsEye/>:<BsEyeSlash/>}</button>
 				</div>
 				<p style={{color:'red'}}>{this.props.error.newPassword}</p>
 				<div className="input-group mb-3">
@@ -58,10 +61,11 @@ class ChangePassword extends Component {
 					</div>
 					<input className="form-control col-8" 
 						name="confirmpassword" 
-						type="password" 
+						type={this.props.passwordType.confirmpassword}  
 						onChange={(e)=>this.props.onChange(e)}
 						onBlur={(e) => this.props.onBlur(e)}
-						/>
+					/>
+					<button type="button" className="btn" style={{display:'flex',alignItems:'center'}} onClick={()=>this.props.onClickEye("confirmpassword")}>{this.props.passwordType.confirmpassword === 'password'? <BsEye/>:<BsEyeSlash/>}</button>
 				</div>
 				<p style={{color:'red'}}>{this.props.error.confirmpassword}</p>
 				<button

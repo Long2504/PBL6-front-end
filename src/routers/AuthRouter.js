@@ -8,6 +8,8 @@ import Cart from "../pages/CartPage";
 import UserPage from "../pages/UserPage";
 import Logout from "../containers/Logout";
 import NotFound from "../containers/NotFound";
+import ResetPassword from "../containers/ResetPassword";
+import PaymentSuccess from "../containers/PaymentSuccess";
 const authRoutes=[
     {
         path : "/login",
@@ -62,6 +64,18 @@ const authRoutes=[
         exact: true,
         page:UserPage,
         role:[],
+    },
+    {   
+        path:"/resetpasword",
+        exact: true,
+        page:ResetPassword,
+        role:[]
+    },
+    {
+        path:"/paymentsuccess",
+        exact: true,
+        page:PaymentSuccess,
+        role:[]
     },
     {
         path: "*",

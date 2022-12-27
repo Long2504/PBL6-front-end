@@ -60,20 +60,16 @@ class LoginForm extends Component {
 								/>
 							</div>
 						</div>
+						<Link to={"/resetpasword"}>Quên mật khẩu</Link>
 						<div className={styles["form-submit"]}>
 							<div className={styles["btn-login"]}>
 								<button onClick={() => this.props.onLogin()}>Login</button>
 							</div>
-							<p>or connect with</p>
+							<p style={{margin:0}}>or connect with</p>
 							<div className={styles["btn-social"]}>
-								<button className={styles["item"]}>
-									<img
-										src="/assets/image/icons/facebook.png"
-										alt="Avatar"
-										className={styles["img-item"]}
-									/>
-								</button>
-								<button className={styles["item"]}>
+								<button className={styles["item"]}
+									onClick={()=>this.props.onClickGG()}
+								>
 									<img
 										src="/assets/image/icons/google.png"
 										alt=""

@@ -12,13 +12,20 @@ export const actLogin = (user)=>{
 }
 
 export const actLoginRequest = (user) =>{
-    return dispatch =>{
-        return loginApi(dispatch,user)
-    }
+    //console.log('action request')
+    return dispatch => loginApi(dispatch,user)
 }
 
 export const logoutAction = ()=>{
     return ({
         type: Type.LOGOUT
+    })
+}
+
+export const editUserAction = (data)=>{
+    console.log(data,"data action")
+    return({
+        type: Type.EDIT_USER_SUCCESS,
+        data
     })
 }
