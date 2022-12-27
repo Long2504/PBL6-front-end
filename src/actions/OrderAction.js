@@ -17,6 +17,14 @@ export const loadPaymentAction = (link)=>{
     )
 }
 
+export const deleteCartSucessAction = (data)=>{
+    return(
+        {
+            type: TYPE.DELETE_CART_SUCESS,
+            data
+        }
+    )
+}
 
 
 // export const loadOrderAction = ()=>{

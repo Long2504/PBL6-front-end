@@ -1,10 +1,10 @@
-import { Component } from "react";
+
 import styles from "../../assets/appstyle/user.module.css";
 
 const Account = (props) => {
 	return (
 		<div className={styles["account"]}>
-			<p className="h1">Hồ Sơ Của Tôi</p>
+			<p className="h1" style={{margin:'auto',marginBottom:'30px'}}>Hồ Sơ Của Tôi</p>
 			<div className="input-group mb-4">
 				<span
 					className="input-group-text"
@@ -204,14 +204,17 @@ const Account = (props) => {
 					OK
 				</button>
 			</div>
-			<button className="btn btn-success mb-3" 
-                            type="button" 
-                            style={{marginLeft:'48%'}}
-                            onClick={(e)=>props.onSave(e)}
-                            disabled={props.checkSubmit()}
-                        >
-                            Submit
-            </button>
+			<div style={{width:'100%',display:"flex",justifyContent:'center',marginTop:'30px'}}>
+
+				<button className="btn btn-success mb-3" 
+								type="button" 
+								style={{width:'30%',height:'50px',margin:'0'}}
+								onClick={(e)=>props.onSave(e)}
+								disabled={props.checkSubmit()}
+							>
+								Submit
+				</button>
+			</div>
 		</div>
 	);
 };

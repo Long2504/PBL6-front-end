@@ -4,7 +4,8 @@ export const cartReducer = (
     state = {
         error: '',
         loading: true,
-        cartItems: []
+        cartItems: [],
+        mess: ''
     },
     action
 ) =>{
@@ -27,6 +28,10 @@ export const cartReducer = (
             return{
                 loading: false,
                 cartItems : action.payload
+            }
+        case 'DELETE_CART_SUCESS':
+            return{
+                mess :action.data
             }
         default:
             return state;

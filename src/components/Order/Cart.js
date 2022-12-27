@@ -17,6 +17,7 @@ class Cart extends Component{
         const total = this.props.total
         const handleQuantity = this.props.handleQuantity
         const handlePayMent = this.props.handlePayMent
+        const handleDelete = this.props.handleDelete
         return(
             <div className={styles["container-cart"]}>
 
@@ -31,7 +32,7 @@ class Cart extends Component{
                             <th>Thành Tiền</th>
                             <th>Xóa</th>
                         </tr>
-                        {
+                        {!listProduct.length ? null:
                             listProduct.map((item,index) => (
                                 <tr key={index} className={styles["row"]}>
                                     <td>
@@ -93,7 +94,13 @@ class Cart extends Component{
                                         {vietnamdognVN.format(item.product.price*item.amount)}
                                     </td>                
                                     <td>
-                                        <button style={{backgroundColor: "white",cursor: "pointer"}}>
+                                        <button 
+                                        style={{
+                                            backgroundColor: "white",
+                                            cursor: "pointer"
+                                        }}
+                                        onClick={()=>handleDelete(item.id)}
+                                        >
                                             <FaTrashAlt size={"25px"}  />
                                         </button>
                                     </td>

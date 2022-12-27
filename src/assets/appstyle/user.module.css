@@ -57,10 +57,15 @@ hr {
 
 /*------------account------------------*/
 .container-user .account {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 2vw;
     margin-bottom: 40px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 }
 
 /*======================================*/
@@ -69,8 +74,11 @@ hr {
 /*------------changeword----------------*/
 .change-password{
     margin-top: 40px;
-    padding:30px 12% ;
+    margin-left: 2vw;
+    margin-bottom: 140px;
     background-color: white;
+    padding: 20px 80px;
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 
 }
 
@@ -79,6 +87,7 @@ hr {
 /*-----------------order-----------------*/
 
 .list-order {
+    min-height: 500px;
     margin-top: 20px;
 }
 

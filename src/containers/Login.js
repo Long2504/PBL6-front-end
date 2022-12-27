@@ -13,6 +13,15 @@ const Login = ()=>{
         username:"",
         password:""
     })
+    const [passwordType,setPasswordType] = useState('password')
+	const onClickEye = ()=>{
+		if(passwordType === 'password'){
+			setPasswordType('text')
+		}
+		else{
+			setPasswordType('password')
+		}
+	}
 
     const onChange=(e)=>{
         var name = e.target.name;
@@ -25,7 +34,8 @@ const Login = ()=>{
         window.open(link);
     }
 
-    const onLogin =async ()=>{
+
+    const onLogin = async ()=>{
         console.log("asfsda")
         await dispatch(actLoginRequest(user))
         if(localStorage.getItem("user")!==null) navigate("/")
@@ -37,6 +47,8 @@ const Login = ()=>{
                 onChange={onChange} 
                 onLogin={onLogin}
                 onClickGG={onClickGG}    
+                onClickEye={onClickEye}
+                passwordType={passwordType}
             />
         </div>
     )

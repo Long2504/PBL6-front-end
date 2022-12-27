@@ -20,10 +20,6 @@ const mainMenu = [
 		name: "Hỗ trợ",
 		to: "/",
 	},
-	// {
-	//     name: "Đăng nhập",
-	//     to: "/login"
-	// },
 ];
 
 const menberMenu = [
@@ -44,7 +40,7 @@ const menberMenu = [
 const MenuBar = () => {
 	const cartItems = useSelector((state) => state.cartReducer.cartItems);
 	const check = useSelector((state) => state.authReducer.logged);
-	console.log(check);
+	//console.log(check);
 
 	const [clickPersonal, setClickPersonal] = useState(false);
 	const onClickPersonal = () => {
@@ -80,7 +76,7 @@ const MenuBar = () => {
 					<Link to={"/cart"}>
 						<FaCartPlus size="1.2vw" color="#008ECC" />
 						<div className={styles["cart-item-qty"]}>
-							<span>{cartItems.length}</span>
+							<span>{cartItems?cartItems.length:0}</span>
 						</div>
 					</Link>
 				</div>
@@ -88,7 +84,13 @@ const MenuBar = () => {
 					<Link className={styles["login"]} to={"/login"}>
 						Đăng nhập
 					</Link>
-				) : null}
+				) : (JSON.parse(localStorage.getItem("user")).roles.length === 2) ? (
+					<Link className={styles["login"]} to={"/admin"}>
+						Admin
+					</Link>
+				) : (
+					null
+				)}
 			</div>
 		</header>
 	);

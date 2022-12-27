@@ -1,13 +1,19 @@
 import * as Type from "../contants/ActionType"
 
-const adminOrderReducer = (state=[],action)=>{
-    var { orders } = action
+const adminOrderReducer = (
+    state={
+        loading:true,
+        orders:[]
+    },action
+)=>{
     switch(action.type){
         case Type.ORDER_LIST_SUCCESS:
-            state=orders
-            return state
+            return {
+                loading:false,
+                orders:action.orders
+            }
         case Type.ORDER_PUSH_SUCCESS:
-            console.log(orders)
+            console.log(action.orders)
         default:
             return state
     }

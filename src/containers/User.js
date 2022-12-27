@@ -9,6 +9,7 @@ import { fetchOrder } from "../services/CartService";
 import ListOrder from "../components/User/Order";
 import ChangePassword from "../components/User/ChangePassword";
 import { changePassword, editUser } from "../services/AuthService";
+import LoginBox from "../components/LoginBox";
 
 const errorTrim = "Bạn chưa nhập trường này";
 
@@ -202,6 +203,7 @@ const User = () => {
 					</div>
 				</div>
 			</div>
+			{!logged? <LoginBox/>:
 			<div className={styles["container-user"]}>
 				{clickItemUser[0] ? 
 					<Account 
@@ -227,6 +229,7 @@ const User = () => {
 					<ListOrder listOrder={listOrder} Check={Check} />
 				) : null}
 			</div>
+			}
 		</div>
 	);
 };

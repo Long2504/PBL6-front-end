@@ -6,10 +6,12 @@ import OrderDetailModal from '../components/admin_bill/OrderDetailModal'
 import AdminTemplate from "../components/admin_template/AdminTemplate";
 import { getListOrder } from "../services/AdminOrderService"
 import { confirmOrder } from "../services/AdminOrderService";
+import Loading from "../components/LoadingBox";
 
 const AdminOrder = () => {
 	const dispatch = useDispatch();
-	const orders = useSelector((state) => state.adminOrderReducer);
+	const orders = useSelector(state => state.adminOrderReducer.orders);
+	const loading = useSelector(state=>state.adminOrderReducer.loading)
 	const [confirm,setConfirm] = useState(false)
 	const [onClickShow,setOnClickShow] = useState(false)
 	const [indexCurent,setIndexCurent] = useState(0)
@@ -46,9 +48,11 @@ const AdminOrder = () => {
 
 	return (
 		<AdminTemplate>
+			{loading ? <Loading /> : 
 			<OrderList>
 				{loadOrderItems(orders)}
 			</OrderList>
+}
 			<OrderDetailModal 
 				clickClose={clickClose} 
 				check = {onClickShow}

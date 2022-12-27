@@ -68,14 +68,17 @@ class ChangePassword extends Component {
 					<button type="button" className="btn" style={{display:'flex',alignItems:'center'}} onClick={()=>this.props.onClickEye("confirmpassword")}>{this.props.passwordType.confirmpassword === 'password'? <BsEye/>:<BsEyeSlash/>}</button>
 				</div>
 				<p style={{color:'red'}}>{this.props.error.confirmpassword}</p>
-				<button
-					type="button"
-					className="btn btn-success"
-					style={{ marginLeft: "45%", marginTop: "30px" }}
-					onClick={()=>this.props.onChangePassword()}
-				>
-					Đổi mật khẩu
-				</button>
+				<div style={{width:'100%',display:"flex",justifyContent:'center',marginTop:'30px'}}>
+
+					<button
+						type="button"
+						className="btn btn-success"
+						style={{width:'30%',height:'50px',margin:'0'}}
+						onClick={()=>this.props.onChangePassword()}
+					>
+						Đổi mật khẩu
+					</button>
+				</div>
 			</div>
 		);
 	}

@@ -101,19 +101,14 @@ const ClassifyProduct = ({ classifyData, selectWeight, loadingCatelogy }) => {
 const ListProduct = (props) => {
 	const dispatch = useDispatch();
 	const checkLogin = useSelector((state) => state.authReducer.logged);
-	const [isOpen,setIsOpen] = useState(true)
-	useEffect(()=>{
-		if(checkLogin){
-			setIsOpen(false)
-		}
-	},[checkLogin])
+
 	
 	const addToCartHandler = (productId) => {
 		if(checkLogin){
 			dispatch(pushCartAction({ id: productId }, "ADD"));
 		}
 		else{
-			setIsOpen(true)
+			alert("Vui lòng đăng nhập để thêm sản phẩm")
 		}
 	};
 
