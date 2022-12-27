@@ -1,6 +1,6 @@
 import { Component } from "react";
 import styles from "../../assets/appstyle/register.module.css";
-
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
 class RegisterForm extends Component {
 	render() {
 		return (
@@ -18,6 +18,7 @@ class RegisterForm extends Component {
 					</div>
 					<div className={styles["form"]}>
 						<div className={styles["input"]}>
+							<label style={{width:'30%'}}>Tên đăng nhập</label>
 							<input
 								className={
 									this.props.error.username.length > 0
@@ -37,6 +38,7 @@ class RegisterForm extends Component {
 							/>
 						</div>
 						<div className={styles["input"]}>
+							<label style={{width:'30%'}}>Email</label>
 							<input
 								className={
 									this.props.error.email.length > 0 ? styles["is-invaid"] : ""
@@ -54,6 +56,7 @@ class RegisterForm extends Component {
 							/>
 						</div>
 						<div className={styles["input"]}>
+							<label style={{width:'30%'}}>Tên</label>
 							<input
 								className={
 									this.props.error.name.length > 0 ? styles["is-invaid"] : ""
@@ -72,6 +75,7 @@ class RegisterForm extends Component {
 						</div>
 
 						<div className={styles["input"]}>
+							<label style={{width:'30%'}}>Số điện thoại</label>
 							<input
 								className={
 									this.props.error.phoneNumber.length > 0
@@ -133,6 +137,7 @@ class RegisterForm extends Component {
 						</div>
 
 						<div className={styles["input"]}>
+							<label style={{width:'30%'}}>Địa chỉ</label>
 							<input
 								className={
 									this.props.error.address.length > 0 ? styles["is-invaid"] : ""
@@ -150,11 +155,13 @@ class RegisterForm extends Component {
 							/>
 						</div>
 
-						<div className={styles["input"]}>
+						<div className={styles["input"]} >
+							<label style={{width:'30%'}}>Mật khẩu</label>
 							<input
+								style={{width:'65%'}}
 								id={styles["password"]}
 								name="password"
-								type="password"
+								type={this.props.passwordType.password}
 								placeholder="Nhập mật khẩu của bạn"
 								className={
 									this.props.error.password.length > 0
@@ -169,10 +176,13 @@ class RegisterForm extends Component {
 									this.props.onBlur(e);
 								}}
 							/>
+							<button type="button" className="btn" style={{display:'flex',alignItems:'center'}} onClick={()=>this.props.onClickEye("password")}>{this.props.passwordType.password === 'password'? <BsEye/>:<BsEyeSlash/>}</button>
 						</div>
 
 						<div className={styles["input"] + " " + styles["confirm-password"]}>
+							<label style={{width:'30%'}}>Nhập lại mật khẩu</label>
 							<input
+								style={{width:'65%'}}
 								id={styles["confirm-password"]}
 								className={
 									this.props.error.confirmpassword.length > 0
@@ -180,13 +190,18 @@ class RegisterForm extends Component {
 										: ""
 								}
 								name="confirmpassword"
-								type="password"
+								type={this.props.passwordType.confirmpassword}
 								placeholder="Xác nhận lại mật khẩu"
 								value={this.props.confirmpassword}
+								onChange={(e) => {
+									this.props.onChange(e);
+								}}
 								onBlur={(e) => {
 									this.props.onBlur(e);
 								}}
 							/>
+							<button type="button" className="btn" style={{display:'flex',alignItems:'center'}} onClick={()=>this.props.onClickEye("confirmpassword")}>{this.props.passwordType.confirmpassword === 'password'? <BsEye/>:<BsEyeSlash/>}</button>
+
 						</div>
 
 						<div className={styles["form-submit"]}>

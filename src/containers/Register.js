@@ -68,9 +68,15 @@ const Register = ()=>{
     const onChange=(e)=>{
         var name = e.target.name;
         var value = e.target.value;
-        setUser({...user,[name]:value});
+        if(name === 'confirmpassword'){
+            setError({...error,[name]:""})
+        }
+        else{
+            setError({...error,[name]:""})
+            setUser({...user,[name]:value});
+        }
         
-        setError({...error,[name]:""})
+        
     }
     const onBlur = (e)=>{
         const atribute = e.target.name;
@@ -101,6 +107,17 @@ const Register = ()=>{
             }
         }
     }
+
+    const [passwordType,setPasswordType] = useState({password:'password',confirmpassword:'password'})
+
+	const onClickEye = (name)=>{
+		if(passwordType[name] === 'password'){
+			setPasswordType({ ...passwordType,[name]:'text'})
+		}
+		else{
+			setPasswordType({...passwordType,[name]:'password'})
+		}
+	}
 
 
     const handleSubmit = async (event)=>{
@@ -137,6 +154,8 @@ const Register = ()=>{
                 handleSubmit={handleSubmit}
                 onBlur={onBlur}
                 error={error}
+                onClickEye={onClickEye}
+                passwordType={passwordType}
             />)
 }
 

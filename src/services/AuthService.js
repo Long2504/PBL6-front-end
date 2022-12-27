@@ -55,5 +55,6 @@ export const registerAccount = async (user)=>{
     })
     .catch( error =>{
         console.log(error,"error editUser")
+        alert('Đăng kí thất bại')
     })
 }
