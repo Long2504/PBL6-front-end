@@ -7,13 +7,14 @@ import { deleteCart, fetchCart } from "../services/CartService";
 import Cart from "../components/Order/Cart";
 import { pushCartAction } from "../actions/CartAction";
 import { pushPaymentAction } from "../actions/OrderAction";
-import LoginBox from "../components/LoginBox";
+
 
 
 const CartContent = () => {
 	const dispatch = useDispatch();
 	const checkLogin = useSelector((state) => state.authReducer.logged);
 	const cartItems = useSelector((state) => state.cartReducer.cartItems);
+
 
 	const [total, setTotal] = useState(0);
 	useEffect(() => {
@@ -27,8 +28,12 @@ const CartContent = () => {
 			});
 			setTotal(temp);
 		}
+		else{
+			setTotal(0);
+		}
 	}, [total, cartItems]);
 	console.log(cartItems, "cartItems");
+	console.log(total,"total")
 	const listIdCart = [];
 	if (cartItems) {
 		cartItems.forEach((item) => listIdCart.push(item.id));
@@ -61,11 +66,10 @@ const CartContent = () => {
 			alert("Thông tin người dùng trống vui lòng vào mục người dùng để điền thêm thông tin")
 		}
 	};
-	const [trackDelete,setTrackDelete]= useState(false) 
+	
 	const handleDelete = (IdCart)=>{
 		deleteCart(dispatch,IdCart)
 	}
-	useEffect(()=>{},[trackDelete])
 
 	return (
 		<div className={styles["cart-content"]}>

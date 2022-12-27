@@ -11,6 +11,8 @@ import ChangePassword from "../components/User/ChangePassword";
 import { changePassword, editUser } from "../services/AuthService";
 import LoginBox from "../components/LoginBox";
 
+import UpdataSucessBox from "../components/UpdataSucessBox";
+
 const errorTrim = "Bạn chưa nhập trường này";
 
 const User = () => {
@@ -92,8 +94,11 @@ const User = () => {
 			}
 		}
 	};
-
-	const onChangePassword = () => {
+	const [trackChangePassword,setTrackChangePassword] = useState(false)
+	const onClickSubmitPassword = ()=>{
+		setTrackChangePassword(false)
+	}
+	const onChangePassword = async() => {
 		if (
 			error.recentPassword.length +
 				error.password.length +
@@ -101,7 +106,8 @@ const User = () => {
 				0 &&
 			comfirmPassword.length > 0
 		) {
-			changePassword(password)
+			await changePassword(password)
+			setTrackChangePassword(true)
 		} else {
 			alert("Vui lòng điền đầy đủ thông tin");
 		}
@@ -147,7 +153,13 @@ const User = () => {
         var value = target.value;
         setAccountUser({...accountUser,[name]:value})
     }
-	const onSave = (e)=>{
+	const [mess,setMess] = useState('')
+	const [trackSubmit,setTrackSubmit] = useState(false)
+
+	const onClickCloseBox = ()=>{
+		setTrackSubmit(false)
+	}
+	const onSave = async (e)=>{
         e.preventDefault();
         var user = {
             name : accountUser.name,
@@ -157,7 +169,9 @@ const User = () => {
             gender:accountUser.gender,
         }
         console.log(user,"user")
-		editUser(dispatch,user)
+		await editUser(dispatch,user)
+		setTrackSubmit(true)
+		setMess('')
 		
     }
 	useEffect(()=>{},[loading])
@@ -215,6 +229,10 @@ const User = () => {
 						onSave={onSave}
 					/> 
 				: null}
+				<UpdataSucessBox 
+					onClose={onClickCloseBox} 
+					open={trackSubmit}
+				/>
 				{clickItemUser[1] ? (
 					<ChangePassword
 						onChange={onChange}
@@ -223,8 +241,13 @@ const User = () => {
 						onChangePassword={onChangePassword}
 						onClickEye = {onClickEye}
 						passwordType={passwordType}
+						mess={mess}
 					/>
 				) : null}
+				<UpdataSucessBox 
+					onClose={onClickSubmitPassword} 
+					open={trackChangePassword}
+				/>
 				{clickItemUser[2] ? (
 					<ListOrder listOrder={listOrder} Check={Check} />
 				) : null}

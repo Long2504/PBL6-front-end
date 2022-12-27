@@ -56,7 +56,7 @@ export const fetchOrder = async (dispatch) =>{
 
 export const deleteCart = async (dispatch,IdCart)=>{
         return ApiCaller("DELETE",null,"cart/" + IdCart)
-        .then(res=>dispatch(fetchCartAction(res.data)))
+        .then(()=>fetchCart(dispatch))
         .catch(error=>{
             console.log(error,"error")
         })

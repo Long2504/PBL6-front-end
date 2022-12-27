@@ -61,7 +61,7 @@ class ChangePassword extends Component {
 					</div>
 					<input className="form-control col-8" 
 						name="confirmpassword" 
-						type={this.props.passwordType.confirmpassword}  
+						type={this.props.passwordType.confirmpassword}
 						onChange={(e)=>this.props.onChange(e)}
 						onBlur={(e) => this.props.onBlur(e)}
 					/>
