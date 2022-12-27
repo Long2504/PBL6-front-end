@@ -106,22 +106,23 @@ const Register = ()=>{
     const handleSubmit = async (event)=>{
         event.preventDefault()
         if(error.username.length + error.email.length + error.name.length + error.phoneNumber.length + error.password.length + error.confirmpassword.length === 0){
-            const user = {
+            const data = {
                 "userDetail":{
                     name:user.name,
                     dateOfBirth:user.dateOfBirth,
                     address:user.address,
                     phoneNumber:user.phoneNumber,
-                    gender:user.gender,
+                    gender:user.gender==='true'?true:false,
                     email:user.email
                 },
                 username:user.username,
                 password:user.password,
                 "roles":[2]
             }
+            console.log(data,"OK")
             await registerAccount(user)
             navigate('/login')
-            console.log("OK")
+            
         }
     }
     console.log(user)

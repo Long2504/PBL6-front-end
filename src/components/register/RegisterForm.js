@@ -112,7 +112,7 @@ class RegisterForm extends Component {
 									<input
 										type="radio"
 										name="gender"
-										value={0}
+										value={true}
 										onChange={(e) => {
 											this.props.onChange(e);
 										}}
@@ -123,7 +123,7 @@ class RegisterForm extends Component {
 									<input
 										type="radio"
 										name="gender"
-										value={1}
+										value={false}
 										onChange={(e) => {
 											this.props.onChange(e);
 										}}
@@ -191,7 +191,7 @@ class RegisterForm extends Component {
 
 						<div className={styles["form-submit"]}>
 							<div className={styles["btn-login"]}>
-								<button onClick={()=>this.props.handleSubmit()}>OK</button>
+								<button onClick={(e)=>this.props.handleSubmit(e)}>OK</button>
 							</div>
 						</div>
 					</div>

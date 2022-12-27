@@ -19,7 +19,7 @@ footer{
 }
 
 .footer_top .info-company{
-    width: 30%;
+    width: 25%;
     height: 40%;
     margin-top: 20px;
     margin-left: 30px;
@@ -118,4 +118,26 @@ footer{
 .icon:hover{
     cursor: pointer;
     opacity: 0.8;
+}
+
+
+.about {
+    margin-top: 70px;
+    margin-left: 200px;
+}
+.about .title{
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content > a{
+    color: black;
+    font-size: 18px;
+    margin-bottom: 5px;
 }

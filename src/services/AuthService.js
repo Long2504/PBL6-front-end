@@ -49,7 +49,7 @@ export const resetPasword = async (email)=>{
 }
 
 export const registerAccount = async (user)=>{
-    return ApiCaller('POST',user,'register')
+    return ApiCaller('POST',JSON.stringify(user),'register')
     .then(res=>{
         console.log(res.data,"registerAccount")
     })
